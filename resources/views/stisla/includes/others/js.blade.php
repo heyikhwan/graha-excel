@@ -44,6 +44,9 @@
   <script src="{{ asset('stisla/node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"></script>
   <script src="{{ asset('js/cleave.min.js') }}"></script>
+  <script src="{{ asset('stisla/node_modules/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ asset('stisla/node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+  <script src="{{ asset('stisla/welcome/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js') }}"></script>
 @endif
 
 @stack('select2_js')

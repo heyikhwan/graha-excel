@@ -145,7 +145,7 @@ class EmailService
      * @param string $mail_from_name
      * @return void
      */
-    public function sendMailTrapTest(string $to, Mailable $mailable, string $mail_from_address = 'anam@anam.anam', string $mail_from_name = 'Hairul Anam')
+    public function sendMailTrapTest(string $to, Mailable $mailable, string $mail_from_address = 'admin@grahaexcel.com', string $mail_from_name = 'Graha Excel')
     {
         config(['mail.from.address' => $mail_from_address]);
         config(['mail.from.name' => $mail_from_name]);

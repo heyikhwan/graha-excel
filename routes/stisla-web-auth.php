@@ -7,10 +7,19 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DropboxController;
 use App\Http\Controllers\GroupMenuController;
 use App\Http\Controllers\MenuManagementController;
+use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PermissionGroupController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\Product\AttributeController;
+use App\Http\Controllers\Product\ReviewController;
+use App\Http\Controllers\Product\SizeController;
+use App\Http\Controllers\Product\ColorController;
+use App\Http\Controllers\Product\SubCategoryController;
+use App\Http\Controllers\Product\CategoryController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestLogController;
 use App\Http\Controllers\RoleController;
@@ -25,6 +34,25 @@ use Illuminate\Support\Facades\Route;
 # DASHBOARD
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::post('dashboard', [DashboardController::class, 'post']);
+
+Route::resource('news-categories', NewsCategoryController::class);
+Route::resource('news', NewsController::class);
+
+Route::prefix('products')->as('products.')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('index');
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
+    Route::post('/', [ProductController::class, 'store'])->name('store');
+    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('edit');
+    Route::put('/{product}', [ProductController::class, 'update'])->name('update');
+    Route::delete('/{product}', [ProductController::class, 'destroy'])->name('destroy');
+
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('attributes', AttributeController::class);
+    Route::resource('sizes', SizeController::class);
+    Route::resource('colors', ColorController::class);
+    Route::resource('sub-categories', SubCategoryController::class);
+    Route::resource('categories', CategoryController::class);
+});
 
 # SETTINGS
 Route::get('settings/all', [SettingController::class, 'allSetting'])->name('settings.all');
@@ -45,7 +73,7 @@ Route::view('pricing', 'stisla.examples.pricing.index')->name('pricing.index');
 Route::view('invoice', 'stisla.examples.invoice.index')->name('invoice.index');
 
 # PENDUDUK
-Route::resource('persons', PersonController::class);
+// Route::resource('persons', PersonController::class);
 
 # USER MANAGEMENT
 Route::prefix('user-management')->as('user-management.')->group(function () {
@@ -124,25 +152,6 @@ Route::get('logs-viewer', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::cl
 Route::get('youtube-viewer', [YoutubeController::class, 'viewer'])->name('youtube.viewer');
 Route::get('youtube-viewer-per-video', [YoutubeController::class, 'viewerPerVideo'])->name('youtube.viewer-per-video');
 
-# UBUNTU
-Route::get('ubuntu/laravel-seeder/{seeder}', [UbuntuController::class, 'laravelSeeder'])->name('ubuntu.laravelSeeder');
-Route::get('ubuntu/laravel-migrate', [UbuntuController::class, 'laravelMigrate'])->name('ubuntu.laravelMigrate');
-Route::get('ubuntu/laravel-migrate-refresh', [UbuntuController::class, 'laravelMigrateRefresh'])->name('ubuntu.laravelMigrateRefresh');
-Route::get('ubuntu/supervisor/{action}', [UbuntuController::class, 'supervisor'])->name('ubuntu.supervisor');
-Route::get('ubuntu/php-fpm/{version}/{action}', [UbuntuController::class, 'phpFpm'])->name('ubuntu.php-fpm');
-Route::get('ubuntu/mysql/{action}', [UbuntuController::class, 'mysql'])->name('ubuntu.mysql');
-Route::get('ubuntu/mysql/{database?}/{table?}/{action?}', [UbuntuController::class, 'index'])->name('ubuntu.mysql-paginate');
-Route::get('ubuntu/edit-row/{database}/{table}/{id}', [UbuntuController::class, 'editRow'])->name('ubuntu.edit-row');
-Route::put('ubuntu/update-row/{database}/{table}/{id}', [UbuntuController::class, 'updateRow'])->name('ubuntu.update-row');
-Route::delete('ubuntu/delete-row/{database}/{table}/{id}', [UbuntuController::class, 'deleteRow'])->name('ubuntu.delete-row');
-Route::get('ubuntu/nginx', [UbuntuController::class, 'nginx'])->name('ubuntu.nginx');
-Route::post('ubuntu/create-database', [UbuntuController::class, 'createDb'])->name('ubuntu.create-db');
-Route::get('ubuntu/{pathname}/toggle-ssl/{nextStatus}', [UbuntuController::class, 'toggleSSL'])->name('ubuntu.toggle-ssl');
-Route::get('ubuntu/{pathname}/toggle-enabled/{nextStatus}', [UbuntuController::class, 'toggleEnabled'])->name('ubuntu.toggle-enabled');
-Route::get('ubuntu/{pathname}/duplicate', [UbuntuController::class, 'duplicate'])->name('ubuntu.duplicate');
-Route::get('ubuntu/{pathname}/git-pull', [UbuntuController::class, 'gitPull'])->name('ubuntu.git-pull');
-Route::get('ubuntu/{pathname}/set-laravel-permission', [UbuntuController::class, 'setLaravelPermission'])->name('ubuntu.set-laravel-permission');
-Route::resource('ubuntu', UbuntuController::class);
 
 # MANAJEMEN MENU
 Route::get('menu-managements/pdf', [MenuManagementController::class, 'pdf'])->name('menu-managements.pdf');

@@ -347,7 +347,7 @@ class SettingRepository
     {
         return Setting::firstOrCreate(
             ['key' => 'meta_description'],
-            ['value' => 'PT Anam Maju Pantang Mundur']
+            ['value' => 'PT Grahaexcel Plastindo']
         )->value;
     }
 
@@ -373,7 +373,7 @@ class SettingRepository
     {
         return Setting::firstOrCreate(
             ['key' => 'meta_author'],
-            ['value' => 'Hairul Anam']
+            ['value' => 'Grahaexcel']
         )->value;
     }
 
@@ -386,7 +386,7 @@ class SettingRepository
     {
         return Setting::firstOrCreate(
             ['key' => 'developer_name'],
-            ['value' => 'Hairul Anam']
+            ['value' => 'Grahaexcel']
         )->value;
     }
 
@@ -425,7 +425,7 @@ class SettingRepository
     {
         return Setting::firstOrCreate(
             ['key' => 'city'],
-            ['value' => 'Jember']
+            ['value' => 'Tangerang']
         )->value;
     }
 

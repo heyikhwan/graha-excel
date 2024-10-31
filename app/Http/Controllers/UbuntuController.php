@@ -67,8 +67,6 @@ class UbuntuController extends StislaController
             $files      = File::files('/etc/nginx/sites-available');
         }
 
-        // $path       = '/Users/anamkun/Documents/PROJEK/ME';
-        // $path = '/Users/anamkun/Documents/PROJEK/ME/laravel-8-template';
         $path = '/var/www';
         if ($request->query('folder')) {
             $path = decrypt($request->query('folder'));

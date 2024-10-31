@@ -4,32 +4,40 @@
     type = type || 'file';
 
     this.on('click', function(e) {
+      e.preventDefault();
+
+      // Set route prefix
       var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
+
+      // Target elements for input and preview
       var target_input = $('#' + $(this).data('input'));
       var target_preview = $('#' + $(this).data('preview'));
+
+      // Open file manager in a new window
       window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+
+      // Set the callback function for the file manager
       window.SetUrl = function (items) {
         var file_path = items.map(function (item) {
           return item.url;
         }).join(',');
 
-        // set the value of the desired input to image url
-        target_input.val('').val(file_path).trigger('change');
+        // Set the input's value to the selected file URL
+        target_input.val(file_path).trigger('change');
 
-        // clear previous preview
+        // Clear the previous preview
         target_preview.html('');
 
-        // set or change the preview image src
+        // Append new preview image(s)
         items.forEach(function (item) {
           target_preview.append(
             $('<img>').css('height', '5rem').attr('src', item.thumb_url)
           );
         });
 
-        // trigger change event
+        // Trigger the preview change event
         target_preview.trigger('change');
       };
-      return false;
     });
   }
 

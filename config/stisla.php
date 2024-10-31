@@ -6,112 +6,106 @@ return [
             'group_name' => 'Navigasi',
             'menus' => [
                 [
-                    'menu_name' => 'Beranda',
+                    'menu_name' => 'Dashboard',
                     'route_name' => 'dashboard.index',
                     'icon' => 'fas fa-fire',
                     'permission' => null,
                     'is_active_if_url_includes' => 'dashboard*'
                 ],
                 [
-                    'menu_name' => 'Contoh CRUD',
-                    'route_name' => 'crud-examples.index',
-                    'icon' => 'fas fa-atom',
-                    'permission' => 'Contoh CRUD',
-                    'is_active_if_url_includes' => 'crud-examples*',
-                    'is_mockup' => true
-                ],
-                [
-                    'menu_name' => 'Contoh CRUD Yajra',
-                    'route_name' => 'crud-examples.index-yajra',
-                    'icon' => 'fas fa-atom',
-                    'permission' => 'Contoh CRUD Yajra',
-                    'is_active_if_url_includes' => 'yajra-crud-examples*',
-                    'is_mockup' => true
-                ],
-                [
-                    'menu_name' => 'Contoh CRUD Ajax',
-                    'route_name' => 'crud-examples.index-ajax',
-                    'icon' => 'fas fa-atom',
-                    'permission' => 'Contoh CRUD Yajra',
-                    'is_active_if_url_includes' => 'ajax-crud-examples*',
-                    'is_mockup' => true
-                ],
-                [
-                    'menu_name' => 'Contoh CRUD Ajax Yajra',
-                    'route_name' => 'crud-examples.index-ajax-yajra',
-                    'icon' => 'fas fa-atom',
-                    'permission' => 'Contoh CRUD Ajax Yajra',
-                    'is_active_if_url_includes' => 'yajra-ajax-crud-examples*',
-                    'is_mockup' => true
-                ],
-                [
-                    'menu_name' => 'Stisla Example',
+                    'menu_name' => 'Products',
                     'route_name' => null,
-                    'icon' => 'fas fa-caret-square-down',
+                    'icon' => 'fas fa fa-shopping-cart',
+                    'permission' => 'Products',
+                    'is_active_if_url_includes' => 'products*',
+                    'childs' => [
+                        [
+                            'menu_name' => 'Manage Product',
+                            'route_name' => 'products.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Products',
+                            'is_active_if_url_includes' => 'products*',
+                        ],
+                        [
+                            'menu_name' => 'Categories',
+                            'route_name' => 'products.categories.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Categories',
+                            'is_active_if_url_includes' => 'products/categories*',
+                        ],
+                        [
+                            'menu_name' => 'Sub Categories',
+                            'route_name' => 'products.sub-categories.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Sub Categories',
+                            'is_active_if_url_includes' => 'products/sub-categories*',
+                        ],
+                        [
+                            'menu_name' => 'Color',
+                            'route_name' => 'products.colors.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Colors',
+                            'is_active_if_url_includes' => 'products/colors*',
+                        ],
+                        [
+                            'menu_name' => 'Size',
+                            'route_name' => 'products.sizes.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Sizes',
+                            'is_active_if_url_includes' => 'products/sizes*',
+                        ],
+                        [
+                            'menu_name' => 'Attributes',
+                            'route_name' => 'products.attributes.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Attributes',
+                            'is_active_if_url_includes' => 'products/attributes*',
+                        ],
+                        [
+                            'menu_name' => 'Reviews',
+                            'route_name' => 'products.reviews.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'Reviews',
+                            'is_active_if_url_includes' => 'products/reviews*',
+                        ]
+                    ]
+                ],
+                [
+                    'menu_name' => 'News',
+                    'route_name' => null,
+                    'icon' => 'fas fa fa-list-alt',
                     'permission' => null,
                     'is_active_if_url_includes' => null,
                     'is_mockup' => true,
                     'childs' => [
                         [
-                            'menu_name' => 'Datatable',
-                            'route_name' => 'datatable.index',
-                            'icon' => 'fas fa-table',
+                            'menu_name' => 'News',
+                            'route_name' => 'news.index',
+                            'icon' => 'fas fa-list-alt',
                             'permission' => null,
-                            'is_active_if_url_includes' => 'datatable*',
-                            'is_mockup' => true
+                            'is_active_if_url_includes' => 'news*',
                         ],
                         [
-                            'menu_name' => 'Form',
-                            'route_name' => 'form.index',
-                            'icon' => 'fas fa-file-alt',
-                            'permission' => null,
-                            'is_active_if_url_includes' => 'form*',
-                            'is_mockup' => true
+                            'menu_name' => 'News Categories',
+                            'route_name' => 'news-categories.index',
+                            'icon' => 'fas fa-list-alt',
+                            'permission' => 'News Category',
+                            'is_active_if_url_includes' => 'news-categories*',
                         ],
-                        [
-                            'menu_name' => 'Chart JS',
-                            'route_name' => 'chart-js.index',
-                            'icon' => 'fas fa-chart-line',
-                            'permission' => null,
-                            'is_active_if_url_includes' => 'chart-js*',
-                            'is_mockup' => true
-                        ],
-                        [
-                            'menu_name' => 'Pricing',
-                            'route_name' => 'pricing.index',
-                            'icon' => 'fas fa-dollar',
-                            'permission' => null,
-                            'is_active_if_url_includes' => 'pricing*',
-                            'is_mockup' => true
-                        ],
-                        [
-                            'menu_name' => 'Invoice',
-                            'route_name' => 'invoice.index',
-                            'icon' => 'fas fa-dollar',
-                            'permission' => null,
-                            'is_active_if_url_includes' => 'invoice*',
-                            'is_mockup' => true
-                        ]
                     ]
-                ]
-            ]
-        ],
-
-        [
-            'group_name' => 'Menu Lainnya',
-            'menus' => [
+                ],
                 [
-                    'menu_name' => 'Manajemen Pengguna',
+                    'menu_name' => 'Users',
                     'route_name' => null,
                     'icon' => 'fas fa-users',
                     'permission' => null,
                     'is_active_if_url_includes' => 'dashboard*',
                     'childs' => [
                         [
-                            'menu_name' => 'Pengguna',
+                            'menu_name' => 'User',
                             'route_name' => 'user-management.users.index',
                             'icon' => null,
-                            'permission' => 'Pengguna',
+                            'permission' => 'User',
                             'is_active_if_url_includes' => 'user-management/users*'
                         ],
                         [
@@ -137,138 +131,53 @@ return [
                         ]
                     ]
                 ],
-
                 [
-                    'menu_name' => 'Manajemen Menu',
-                    'uri' => 'menu-managements',
-                    'icon' => 'fas fa-bars',
-                    'permission' => null,
-                    'is_blank' => false,
-                    'is_active_if_url_includes' => 'menu-managements*',
-                    'childs' => [
-                        [
-                            'menu_name' => 'Menu',
-                            'route_name' => 'menu-managements.index',
-                            'icon' => null,
-                            'permission' => 'Menu',
-                            'is_active_if_url_includes' => 'menu-managements*'
-                        ],
-                        [
-                            'menu_name' => 'Grup Menu',
-                            'route_name' => 'group-menus.index',
-                            'icon' => null,
-                            'permission' => 'Grup Menu',
-                            'is_active_if_url_includes' => 'group-menus*'
-                        ]
-                    ]
-                ],
-                [
-                    'menu_name' => 'Manajemen File',
+                    'menu_name' => 'File',
                     'uri' => 'file-managers',
                     'icon' => 'fas fa-folder',
-                    'permission' => 'Manajemen File',
+                    'permission' => 'File Management',
                     'is_blank' => true,
                     'is_active_if_url_includes' => 'file-managers*'
                 ],
                 [
-                    'menu_name' => 'Notifikasi',
-                    'route_name' => 'notifications.index',
-                    'icon' => 'fas fa-bell',
-                    'permission' => 'Notifikasi',
-                    'is_active_if_url_includes' => 'notifications*'
-                ],
-                [
-                    'menu_name' => 'Log',
-                    'route_name' => 'activity-logs.index',
-                    'icon' => 'fas fa-clock-rotate-left',
-                    'permission' => null,
-                    'is_active_if_url_includes' => 'activity-logs*',
-                    'childs' => [
-                        [
-                            'menu_name' => 'Log Aktivitas',
-                            'route_name' => 'activity-logs.index',
-                            'icon' => 'fas fa-clock-rotate-left',
-                            'permission' => 'Log Aktivitas',
-                            'is_active_if_url_includes' => 'activity-logs*'
-                        ],
-                        [
-                            'menu_name' => 'Log Request',
-                            'route_name' => 'request-logs.index',
-                            'icon' => 'fas fa-clock-rotate-left',
-                            'permission' => 'Log Request',
-                            'is_active_if_url_includes' => 'request-logs*'
-                        ],
-                        [
-                            'menu_name' => 'Laravel Log Viewer',
-                            'route_name' => 'logs.index',
-                            'icon' => 'fas fa-circle-exclamation',
-                            'permission' => 'Laravel Log Viewer',
-                            'is_active_if_url_includes' => 'logs*',
-                            'is_blank' => true
-                        ]
-                    ]
-                ],
-
-                [
-                    'menu_name' => 'Profil',
-                    'route_name' => 'profile.index',
-                    'icon' => 'fas fa-user',
-                    'permission' => 'Profil',
-                    'is_active_if_url_includes' => 'profile*'
-                ],
-                [
-                    'menu_name' => 'Pengaturan',
+                    'menu_name' => 'Settings',
                     'route_name' => 'settings.all',
                     'icon' => 'fas fa-cogs',
-                    'permission' => 'Pengaturan',
+                    'permission' => 'Setting',
                     'is_active_if_url_includes' => 'settings*'
                 ],
                 [
-                    'menu_name' => 'Ubuntu',
-                    'route_name' => 'ubuntu.index',
-                    'icon' => 'fab fa-ubuntu',
-                    'permission' => 'Ubuntu',
-                    'is_active_if_url_includes' => 'ubuntu*'
-                ],
-                [
-                    'menu_name' => 'Backup Database',
-                    'route_name' => 'backup-databases.index',
-                    'icon' => 'fas fa-database',
-                    'permission' => 'Backup Database',
-                    'is_active_if_url_includes' => 'backup-databases*'
-                ],
-                [
-                    'menu_name' => 'Keluar',
+                    'menu_name' => 'Logout',
                     'route_name' => 'logout',
                     'icon' => 'fas fa-sign-out-alt',
                     'permission' => null,
                     'is_active_if_url_includes' => null
                 ]
             ]
-        ]
+        ],
     ],
 
     'permissions' => [
         [
-            'name' => 'Profil',
+            'name' => 'Profile',
             'roles' => ['superadmin', 'admin', 'user'],
-            'group' => 'Profil'
+            'group' => 'Profile'
         ],
         [
-            'name' => 'Profil Ubah',
+            'name' => 'Profile Update',
             'roles' => ['superadmin', 'admin', 'user'],
-            'group' => 'Profil'
+            'group' => 'Profile'
         ],
 
         [
-            'name' => 'Log Aktivitas',
+            'name' => 'Log Activity',
             'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Aktivitas'
+            'group' => 'Log Activity'
         ],
         [
-            'name' => 'Log Aktivitas Ekspor',
+            'name' => 'Log Activity Ekspor',
             'roles' => ['superadmin', 'admin'],
-            'group' => 'Log Aktivitas'
+            'group' => 'Log Activity'
         ],
 
         [
@@ -288,7 +197,7 @@ return [
             'group' => 'Role'
         ],
         [
-            'name' => 'Role Tambah',
+            'name' => 'Role Create',
             'roles' => ['superadmin'],
             'group' => 'Role'
         ],
@@ -298,7 +207,7 @@ return [
             'group' => 'Role'
         ],
         [
-            'name' => 'Role Ubah',
+            'name' => 'Role Update',
             'roles' => ['superadmin'],
             'group' => 'Role'
         ],
@@ -308,7 +217,7 @@ return [
             'group' => 'Role'
         ],
         [
-            'name' => 'Role Hapus',
+            'name' => 'Role Delete',
             'roles' => ['superadmin'],
             'group' => 'Role'
         ],
@@ -324,7 +233,7 @@ return [
             'group' => 'Permission'
         ],
         [
-            'name' => 'Permission Tambah',
+            'name' => 'Permission Create',
             'roles' => ['superadmin'],
             'group' => 'Permission'
         ],
@@ -334,7 +243,7 @@ return [
             'group' => 'Permission'
         ],
         [
-            'name' => 'Permission Ubah',
+            'name' => 'Permission Update',
             'roles' => ['superadmin'],
             'group' => 'Permission'
         ],
@@ -344,7 +253,7 @@ return [
             'group' => 'Permission'
         ],
         [
-            'name' => 'Permission Hapus',
+            'name' => 'Permission Delete',
             'roles' => ['superadmin'],
             'group' => 'Permission'
         ],
@@ -360,7 +269,7 @@ return [
             'group' => 'Group Permission'
         ],
         [
-            'name' => 'Group Permission Tambah',
+            'name' => 'Group Permission Create',
             'roles' => ['superadmin'],
             'group' => 'Group Permission'
         ],
@@ -370,7 +279,7 @@ return [
             'group' => 'Group Permission'
         ],
         [
-            'name' => 'Group Permission Ubah',
+            'name' => 'Group Permission Update',
             'roles' => ['superadmin'],
             'group' => 'Group Permission'
         ],
@@ -380,7 +289,7 @@ return [
             'group' => 'Group Permission'
         ],
         [
-            'name' => 'Group Permission Hapus',
+            'name' => 'Group Permission Delete',
             'roles' => ['superadmin'],
             'group' => 'Group Permission'
         ],
@@ -391,76 +300,62 @@ return [
         ],
 
         [
-            'name' => 'Pengguna',
+            'name' => 'User',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Tambah',
+            'name' => 'User Create',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Impor Excel',
+            'name' => 'User Impor Excel',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Ubah',
+            'name' => 'User Update',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Detail',
+            'name' => 'User Detail',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Hapus',
+            'name' => 'User Delete',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Ekspor',
+            'name' => 'User Ekspor',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
         [
-            'name' => 'Pengguna Force Login',
+            'name' => 'User Force Login',
             'roles' => ['superadmin'],
-            'group' => 'Pengguna'
+            'group' => 'User'
         ],
 
         [
-            'name' => 'Pengaturan',
+            'name' => 'Setting',
             'roles' => ['superadmin', 'admin'],
-            'group' => 'Pengaturan'
+            'group' => 'Setting'
         ],
 
         [
-            'name' => 'Manajemen File',
+            'name' => 'File Management',
             'roles' => ['superadmin', 'admin'],
-            'group' => 'Manajemen File'
+            'group' => 'File Management'
         ],
-
-        [
-            'name' => 'Ubuntu',
-            'roles' => ['superadmin'],
-            'group' => 'Ubuntu'
-        ],
-
-        [
-            'name' => 'Backup Database',
-            'roles' => ['superadmin'],
-            'group' => 'Backup Database'
-        ],
-
         [
             'name' => 'Laravel Log Viewer',
             'roles' => ['superadmin'],
             'group' => 'Laravel Log Viewer'
         ],
-
         [
             'name' => 'Notifikasi',
             'roles' => ['superadmin', 'admin'],
@@ -473,12 +368,12 @@ return [
             'group' => 'Menu'
         ],
         [
-            'name' => 'Menu Tambah',
+            'name' => 'Menu Create',
             'roles' => ['superadmin'],
             'group' => 'Menu'
         ],
         [
-            'name' => 'Menu Ubah',
+            'name' => 'Menu Update',
             'roles' => ['superadmin'],
             'group' => 'Menu'
         ],
@@ -488,7 +383,7 @@ return [
             'group' => 'Menu'
         ],
         [
-            'name' => 'Menu Hapus',
+            'name' => 'Menu Delete',
             'roles' => ['superadmin'],
             'group' => 'Menu'
         ],
@@ -509,12 +404,12 @@ return [
             'group' => 'Grup Menu'
         ],
         [
-            'name' => 'Grup Menu Tambah',
+            'name' => 'Grup Menu Create',
             'roles' => ['superadmin'],
             'group' => 'Grup Menu'
         ],
         [
-            'name' => 'Grup Menu Ubah',
+            'name' => 'Grup Menu Update',
             'roles' => ['superadmin'],
             'group' => 'Grup Menu'
         ],
@@ -524,7 +419,7 @@ return [
             'group' => 'Grup Menu'
         ],
         [
-            'name' => 'Grup Menu Hapus',
+            'name' => 'Grup Menu Delete',
             'roles' => ['superadmin'],
             'group' => 'Grup Menu'
         ],
@@ -535,7 +430,7 @@ return [
             'group' => 'Contoh CRUD'
         ],
         [
-            'name' => 'Contoh CRUD Tambah',
+            'name' => 'Contoh CRUD Create',
             'roles' => ['superadmin', 'admin', 'user'],
             'group' => 'Contoh CRUD'
         ],
@@ -545,7 +440,7 @@ return [
             'group' => 'Contoh CRUD'
         ],
         [
-            'name' => 'Contoh CRUD Ubah',
+            'name' => 'Contoh CRUD Update',
             'roles' => ['superadmin', 'admin', 'user'],
             'group' => 'Contoh CRUD'
         ],
@@ -555,7 +450,7 @@ return [
             'group' => 'Contoh CRUD'
         ],
         [
-            'name' => 'Contoh CRUD Hapus',
+            'name' => 'Contoh CRUD Delete',
             'roles' => ['superadmin', 'admin', 'user'],
             'group' => 'Contoh CRUD'
         ],
@@ -564,16 +459,187 @@ return [
             'roles' => ['superadmin', 'admin', 'user'],
             'group' => 'Contoh CRUD'
         ],
+
         [
-            'name' => 'Contoh CRUD Yajra',
+            'name' => 'News Category',
             'roles' => ['superadmin', 'admin', 'user'],
-            'group' => 'Contoh CRUD'
+            'group' => 'News Category'
         ],
         [
-            'name' => 'Contoh CRUD Ajax Yajra',
+            'name' => 'News Category Create',
             'roles' => ['superadmin', 'admin', 'user'],
-            'group' => 'Contoh CRUD'
-        ]
+            'group' => 'News Category'
+        ],
+        [
+            'name' => 'News Category Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News Category'
+        ],
+        [
+            'name' => 'News Category Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News Category'
+        ],
+        [
+            'name' => 'News',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News'
+        ],
+        [
+            'name' => 'News Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News'
+        ],
+        [
+            'name' => 'News Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News'
+        ],
+        [
+            'name' => 'News Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'News'
+        ],
+        [
+            'name' => 'Reviews',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Reviews'
+        ],
+        [
+            'name' => 'Reviews Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Reviews'
+        ],
+        [
+            'name' => 'Reviews Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Reviews'
+        ],
+        [
+            'name' => 'Reviews Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Reviews'
+        ],
+        [
+            'name' => 'Attributes',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Attributes'
+        ],
+        [
+            'name' => 'Attributes Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Attributes'
+        ],
+        [
+            'name' => 'Attributes Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Attributes'
+        ],
+        [
+            'name' => 'Attributes Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Attributes'
+        ],
+        [
+            'name' => 'Sizes',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sizes'
+        ],
+        [
+            'name' => 'Sizes Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sizes'
+        ],
+        [
+            'name' => 'Sizes Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sizes'
+        ],
+        [
+            'name' => 'Sizes Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sizes'
+        ],
+        [
+            'name' => 'Colors',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Colors'
+        ],
+        [
+            'name' => 'Colors Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Colors'
+        ],
+        [
+            'name' => 'Colors Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Colors'
+        ],
+        [
+            'name' => 'Colors Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Colors'
+        ],
+        [
+            'name' => 'Sub Categories',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sub Categories'
+        ],
+        [
+            'name' => 'Sub Categories Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sub Categories'
+        ],
+        [
+            'name' => 'Sub Categories Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sub Categories'
+        ],
+        [
+            'name' => 'Sub Categories Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Sub Categories'
+        ],
+        [
+            'name' => 'Categories',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Categories'
+        ],
+        [
+            'name' => 'Categories Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Categories'
+        ],
+        [
+            'name' => 'Categories Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Categories'
+        ],
+        [
+            'name' => 'Categories Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Categories'
+        ],
+        [
+            'name' => 'Products',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Products'
+        ],
+        [
+            'name' => 'Products Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Products'
+        ],
+        [
+            'name' => 'Products Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Products'
+        ],
+        [
+            'name' => 'Products Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Products'
+        ],
     ],
 
     'roles' => [
@@ -583,11 +649,11 @@ return [
     ],
 
     'settings' => [
-        ['key' => 'application_name', 'value' => 'Laravel 11 Template'],
+        ['key' => 'application_name', 'value' => 'Grahaexcel'],
         ['key' => 'application_version', 'value' => '1.0.0'],
-        ['key' => 'app_description', 'value' => 'Deskripsi sistem tulis disini'],
-        ['key' => 'city', 'value' => 'Jember'],
-        ['key' => 'company_name', 'value' => 'PT Anam Developer'],
+        ['key' => 'app_description', 'value' => 'Admin Panel'],
+        ['key' => 'city', 'value' => 'Tangerang'],
+        ['key' => 'company_name', 'value' => 'PT Grahaexcel Plastindo'],
         ['key' => 'country', 'value' => 'Indonesia'],
         [
             'key' => 'favicon',
@@ -599,9 +665,9 @@ return [
 
         [
             'key' => 'meta_author',
-            'value' => 'Hairul Anam'
+            'value' => 'Grahaexcel'
         ],
-        ['key' => 'meta_description', 'value' => 'PT Anam Developer'],
+        ['key' => 'meta_description', 'value' => 'PT Grahaexcel Plastindo'],
         [
             'key' => 'meta_keywords',
             'value' => 'Sistem Informasi, Pemrograman, Github, PHP, Laravel, Stisla, Heroku, Gitlab, MySQL'
@@ -622,7 +688,7 @@ return [
         ['key' => 'stisla_skin', 'value' => 'style'],
 
         ['key' => 'mail_provider', 'value' => 'mailtrap'],
-        ['key' => 'mail_from_address', 'value' => 'anamkun@laraveltemplate.com'],
+        ['key' => 'mail_from_address', 'value' => 'hello@example.com'],
         ['key' => 'mail_from_name', 'value' => 'Superadmin'],
 
         ['key' => 'mail_mailtrap_host', 'value' => 'sandbox.smtp.mailtrap.io'],
@@ -679,10 +745,10 @@ return [
     ],
 
     'settings2' => [
-        ['key' => 'application_name', 'value' => 'Laravel 11 Template'],
+        ['key' => 'application_name', 'value' => 'Grahaexcel'],
         ['key' => 'application_version', 'value' => '1.0.0'],
         ['key' => 'app_description', 'value' => 'Ini hanyalah sistem biasa'],
-        ['key' => 'city', 'value' => 'Jember'],
+        ['key' => 'city', 'value' => 'Tangerang'],
         ['key' => 'company_name', 'value' => '[Nama Perusahaannya]'],
         ['key' => 'country', 'value' => 'Indonesia'],
         [
@@ -695,9 +761,9 @@ return [
 
         [
             'key' => 'meta_author',
-            'value' => 'Hairul Anam'
+            'value' => 'Grahaexcel'
         ],
-        ['key' => 'meta_description', 'value' => 'PT Anam Developer'],
+        ['key' => 'meta_description', 'value' => 'PT Grahaexcel Plastindo'],
         [
             'key' => 'meta_keywords',
             'value' => 'Sistem Informasi, Pemrograman, Github, PHP, Laravel, Stisla, Heroku, Gitlab, MySQL'
@@ -718,7 +784,7 @@ return [
         ['key' => 'stisla_skin', 'value' => 'style'],
 
         ['key' => 'mail_provider', 'value' => 'mailtrap'],
-        ['key' => 'mail_from_address', 'value' => 'anamkun@laraveltemplate.com'],
+        ['key' => 'mail_from_address', 'value' => 'hello@example.com'],
         ['key' => 'mail_from_name', 'value' => 'Superadmin'],
 
         ['key' => 'mail_mailtrap_host', 'value' => 'sandbox.smtp.mailtrap.io'],
@@ -776,35 +842,35 @@ return [
 
     'users' => [
         [
-            'name'              => 'Hairul Anam',
-            'email'             => 'superadmin@laraveltemplate.com',
+            'name'              => 'Grahaexcel',
+            'email'             => 'superadmin@grahaexcel.com',
             'password'          => 'superadmin',
             'roles'             => ['superadmin', 'admin'],
             'email_verified_at' => '2021-04-06 04:06:00',
             'is_locked'         => 1,
-            'phone_number'      => '6285322778935',
-            'birth_date'        => '1998-04-08',
-            'address'           => 'Jember'
+            'phone_number'      => '12345678910',
+            'birth_date'        => '2024-10-28',
+            'address'           => ''
         ],
         [
             'name'              => 'Admin',
-            'email'             => 'admin@laraveltemplate.com',
+            'email'             => 'admin@grahaexcel.com',
             'password'          => 'admin',
             'roles'             => ['admin'],
             'email_verified_at' => '2021-04-06 04:06:00',
-            'phone_number'      => '6285322778935',
-            'birth_date'        => '1998-04-08',
-            'address'           => 'Jember'
+            'phone_number'      => '12345678910',
+            'birth_date'        => '2024-10-28',
+            'address'           => ''
         ],
         [
             'name'              => 'User',
-            'email'             => 'user@laraveltemplate.com',
+            'email'             => 'user@grahaexcel.com',
             'password'          => 'user',
             'roles'             => ['user'],
             'email_verified_at' => '2021-04-06 04:06:00',
-            'phone_number'      => '6285322778935',
-            'birth_date'        => '1998-04-08',
-            'address'           => 'Jember'
+            'phone_number'      => '12345678910',
+            'birth_date'        => '2024-10-28',
+            'address'           => ''
         ]
     ]
 

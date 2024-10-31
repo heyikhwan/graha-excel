@@ -95,6 +95,13 @@ class StislaController extends Controller
     protected String $viewFolder;
 
     /**
+     * is using new modal form
+     *
+     * @var String
+     */
+    protected String $newModalForm;
+
+    /**
      * import excel example path
      *
      * @var String
@@ -142,10 +149,10 @@ class StislaController extends Controller
     public function defaultMiddleware(string $moduleName)
     {
         $this->middleware('can:' . $moduleName . '');
-        $this->middleware('can:' . $moduleName . ' Tambah')->only(['create', 'store']);
-        $this->middleware('can:' . $moduleName . ' Ubah')->only(['edit', 'update']);
+        $this->middleware('can:' . $moduleName . ' Create')->only(['create', 'store']);
+        $this->middleware('can:' . $moduleName . ' Update')->only(['edit', 'update']);
         $this->middleware('can:' . $moduleName . ' Detail')->only(['show']);
-        $this->middleware('can:' . $moduleName . ' Hapus')->only(['destroy']);
+        $this->middleware('can:' . $moduleName . ' Delete')->only(['destroy']);
         $this->middleware('can:' . $moduleName . ' Ekspor')->only(['json', 'excel', 'csv', 'pdf']);
         $this->middleware('can:' . $moduleName . ' Impor Excel')->only(['importExcel', 'importExcelExample']);
         $this->middleware('can:' . $moduleName . ' Force Login')->only(['forceLogin']);
@@ -163,10 +170,10 @@ class StislaController extends Controller
     {
         $user = auth()->user();
 
-        $canCreate      = $user->can($permissionPrefix . ' Tambah');
-        $canUpdate      = $user->can($permissionPrefix . ' Ubah');
+        $canCreate      = $user->can($permissionPrefix . ' Create');
+        $canUpdate      = $user->can($permissionPrefix . ' Update');
         $canDetail      = $user->can($permissionPrefix . ' Detail');
-        $canDelete      = $user->can($permissionPrefix . ' Hapus');
+        $canDelete      = $user->can($permissionPrefix . ' Delete');
         $canImportExcel = $user->can($permissionPrefix . ' Impor Excel');
         $canExport      = $user->can($permissionPrefix . ' Ekspor');
         $canForceLogin  = $user->can($permissionPrefix . ' Force Login');
@@ -196,6 +203,7 @@ class StislaController extends Controller
             'isExport'          => false,
             'folder'            => $routePrefix,
             'viewFolder'        => $this->viewFolder,
+            'newModalForm'      => $this?->newModalForm ?? false,
         ];
     }
 
@@ -233,6 +241,7 @@ class StislaController extends Controller
                 ]
             ],
             'viewFolder' => $this->viewFolder,
+            'newModalForm'      => $this?->newModalForm ?? false,
         ];
     }
 
@@ -270,6 +279,7 @@ class StislaController extends Controller
             'isDetail'    => $isDetail,
             'breadcrumbs' => $breadcrumbs,
             'viewFolder'  => $this->viewFolder,
+            'newModalForm'      => $this?->newModalForm ?? false,
         ];
     }
 

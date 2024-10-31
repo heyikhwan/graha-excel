@@ -18,26 +18,6 @@ function initDataTables() {
   // datatable
   if ($('#datatable').length > 0) {
     var $dtTbl = $('#datatable');
-    var options = {
-      language: {
-        lengthMenu: 'Menampilkan _MENU_ baris data per halaman',
-        zeroRecords: 'Tidak ada data',
-        info: 'Menampilkan halaman _PAGE_ dari _PAGES_',
-        infoFiltered: '(filtered from _MAX_ total records)',
-        search: 'Pencarian',
-        paginate: {
-          previous: 'Sebelumnya',
-          next: 'Selanjutnya',
-        },
-        buttons: {
-          copySuccess: {
-            1: '1 baris disalin ke papanklip',
-            _: '%d baris disalin ke papanklip',
-          },
-          copyTitle: 'Salin ke papanklip',
-        },
-      },
-    };
 
     if ($dtTbl.data('export') === true) {
       var title = $dtTbl.data('title') && $dtTbl.data('title').replace(' ', '_').toLowerCase();
@@ -116,24 +96,6 @@ function initDataTables() {
       serverSide: true,
       ajax: $dtTblYajra.data('ajax-url'),
       columns: JSON.parse($('#yajraColumns').val()),
-      language: {
-        lengthMenu: 'Menampilkan _MENU_ baris data per halaman',
-        zeroRecords: 'Tidak ada data',
-        info: 'Menampilkan halaman _PAGE_ dari _PAGES_',
-        infoFiltered: '(filtered from _MAX_ total records)',
-        search: 'Pencarian',
-        paginate: {
-          previous: 'Sebelumnya',
-          next: 'Selanjutnya',
-        },
-        buttons: {
-          copySuccess: {
-            1: '1 baris disalin ke papanklip',
-            _: '%d baris disalin ke papanklip',
-          },
-          copyTitle: 'Salin ke papanklip',
-        },
-      },
     };
 
     if ($dtTblYajra.data('export') === true) {
@@ -269,14 +231,14 @@ $(document).ready(function () {
     var menit = date.getMinutes();
     var pesan = '';
     if (jam >= 18) {
-      if (menit >= 30) pesan = 'Selamat Malam';
-      else pesan = 'Selamat Sore';
+      if (menit >= 30) pesan = 'Good Night';
+      else pesan = 'Good Evening';
     } else if (jam >= 14) {
-      pesan = 'Selamat Sore';
+      pesan = 'Good Evening';
     } else if (jam >= 10) {
-      pesan = 'Selamat Siang';
+      pesan = 'Good Afternoon';
     } else if (jam >= 4) {
-      pesan = 'Selamat Pagi';
+      pesan = 'Good Morning';
     }
     $('#sapaan').html(pesan);
   }
@@ -333,21 +295,21 @@ $(document).ready(function () {
 function hapus(e, action_url) {
   e.preventDefault();
   swal({
-    title: 'Anda yakin?',
-    text: 'Sekali dihapus, data tidak akan kembali lagi!',
+    title: 'Are You sure?',
+    text: 'Once deleted, data will never come back!',
     icon: 'warning',
     buttons: true,
     dangerMode: true,
     buttons: {
       cancel: {
-        text: 'Batal',
+        text: 'Cancel',
         value: null,
         visible: true,
         className: '',
         closeModal: true,
       },
       confirm: {
-        text: 'Lanjutkan',
+        text: 'Delete',
       },
     },
   }).then(function (willDelete) {
@@ -355,7 +317,7 @@ function hapus(e, action_url) {
       $('#form-hapus').attr('action', action_url);
       document.getElementById('form-hapus').submit();
     } else {
-      swal('Okay, tidak jadi');
+      swal('Okay, cancelled');
     }
   });
 }
@@ -600,7 +562,7 @@ $('form')
         },
         1000
       );
-      errorMsg('Ada yang error pada form, silakan cek kembali!!!');
+      errorMsg('There is an error in the form, please check again!!!');
     }
     // return false;
     return tidakError;
@@ -613,7 +575,7 @@ function errorMsg(msg) {
 }
 
 function successMsg(msg) {
-  return swal('Sukses', msg, 'success');
+  return swal('Succes', msg, 'success');
 }
 
 function showImportModal(e) {
@@ -626,11 +588,11 @@ function showModalForm(e, action, link) {
   window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   $('#modalForm').parent().attr('action', link.replaceAll('/edit', '').replaceAll('/create', ''));
   $('#modalForm').modal('show');
-  $('#modalForm').find('.modal-body').html('memproses...');
+  $('#modalForm').find('.modal-body').html('loading...');
   $('#modalForm').find('.modal-footer').hide();
 
-  var title = 'Tambah Data';
-  if (action === 'edit') title = 'Ubah Data';
+  var title = 'Create Data';
+  if (action === 'edit') title = 'Update Data';
   else if (action === 'detail') title = 'Detail Data';
 
   $('#modalForm').find('.modal-title').html(title);
@@ -669,27 +631,27 @@ if ($('#sessionErrorMessage').val()) swal('Gagal', $('#sessionErrorMessage').val
 function deleteGlobal(e, action_url) {
   e.preventDefault();
   swal({
-    title: 'Anda yakin?',
-    text: 'Sekali dihapus, data tidak akan kembali lagi!',
+    title: 'Are you sure?',
+    text: 'Once deleted, data will never come back!',
     icon: 'warning',
     buttons: true,
     dangerMode: true,
     buttons: {
       cancel: {
-        text: 'Batal',
+        text: 'Cancel',
         value: null,
         visible: true,
         className: '',
         closeModal: true,
       },
       confirm: {
-        text: 'Lanjutkan',
+        text: 'Delete',
       },
     },
   }).then(function (willDelete) {
     if (willDelete) {
       if ($('#isAjax').val() == 1 || $('#isAjaxYajra').val() == 1) {
-        swal('Info', 'Sedang memproses...', 'info');
+        swal('Info', 'Loading...', 'info');
         window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         window.axios
           .delete(action_url)
@@ -707,7 +669,7 @@ function deleteGlobal(e, action_url) {
         document.getElementById('formDeleteGlobal').submit();
       }
     } else {
-      swal('Info', 'Okay, tidak jadi', 'info');
+      swal('Info', 'Okay, cancelled', 'info');
     }
   });
 }
@@ -791,7 +753,7 @@ function onSubmitForm(e) {
   var form = e.target;
   var formData = new FormData(form);
   var action = form.getAttribute('action');
-  $('#modalForm').find('button[type="submit"]').attr('disabled', true).html('Menyimpan...');
+  $('#modalForm').find('button[type="submit"]').attr('disabled', true).html('Saving...');
   window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   window.axios
     .post(action, formData)

@@ -37,10 +37,10 @@ class CrudExampleController extends StislaController
         $this->viewFolder            = 'crud-examples';
 
         $this->middleware('can:Contoh CRUD');
-        $this->middleware('can:Contoh CRUD Tambah')->only(['create', 'store']);
-        $this->middleware('can:Contoh CRUD Ubah')->only(['edit', 'update']);
+        $this->middleware('can:Contoh CRUD Create')->only(['create', 'store']);
+        $this->middleware('can:Contoh CRUD Update')->only(['edit', 'update']);
         $this->middleware('can:Contoh CRUD Detail')->only(['show']);
-        $this->middleware('can:Contoh CRUD Hapus')->only(['destroy']);
+        $this->middleware('can:Contoh CRUD Delete')->only(['destroy']);
         $this->middleware('can:Contoh CRUD Ekspor')->only(['exportJson', 'exportExcel', 'exportCsv', 'exportPdf']);
         $this->middleware('can:Contoh CRUD Impor Excel')->only(['importExcel', 'importExcelExample']);
     }

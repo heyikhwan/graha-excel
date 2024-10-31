@@ -281,7 +281,7 @@
       <a href="" class="btn btn-primary" @click.prevent="pushColumn"><i class="fa fa-plus"></i></a>
     </div>
     <div class="col-12">
-      <a @click.prevent="onGenerate" href="" :class="`btn btn-primary ${isProcessing ? 'disabled' : ''}`"> <i class="fa fa-check"></i> {{ isProcessing ? 'Memproses...' : 'Generate' }} </a>
+      <a @click.prevent="onGenerate" href="" :class="`btn btn-primary ${isProcessing ? 'disabled' : ''}`"> <i class="fa fa-check"></i> {{ isProcessing ? 'Loading...' : 'Generate' }} </a>
     </div>
     <div class="col-12 mt-3" v-if="logs.length > 0">
       <h6 class="text-primary">Silakan cek beberapa file yang tergenerate di bawah</h6>

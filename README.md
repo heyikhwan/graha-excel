@@ -1,11 +1,6 @@
 # Laravel 11 Template With Stisla
 
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_scale,w_100/v1677141031/logo_srs66z.png)](https://anamapp.my.id)
-
-Free Starter Laravel 11 Template menggunakan [stisla admin dashboard ](https://github.com/stisla/stisla)
-
-Beberapa fitur atau komponen yang ada
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/v1722952895/moueazjjry5c5qyy1a1m.png)](https://anamapp.my.id)
+Template menggunakan [stisla admin dashboard ](https://github.com/stisla/stisla)
 
 ## Fitur dan komponen
 
@@ -92,17 +87,3 @@ Beberapa fitur atau komponen yang ada
 -   https://github.com/yajra/laravel-datatables
 -   https://github.com/tymondesigns/jwt-auth
 -   https://github.com/milon/barcode
-
-Terima kasih, bisa distar ataupun difork ya guys. Kalau ada request module atau apapun itu, bisa tulis di issue.
-
-#### Yuk Ramaikan channel youtubeku biar semangat ngonten dan belajar barengnya
-
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_scale,w_120,z_2.7/v1677481731/youtube-logo-hd-8_x1zdwb.png)](https://www.youtube.com/channel/UCwF-njZKFE30pZwWFtp84fA)
-
-#### Yang mau intip2 portofolioku bisa klik gambar di bawah
-
-[![N|Solid](https://res.cloudinary.com/sistem-informasi/image/upload/c_thumb,w_100/v1677481520/1664200200147_it7bza.jpg)](https://anamapp.my.id)
-
-atau kunjungi https://anamapp.my.id
-
-https://github.com/Anamcoollzz/laravel-11-template

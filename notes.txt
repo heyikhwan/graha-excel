@@ -1,5 +1,3 @@
-https://res.cloudinary.com/sistem-informasi/image/upload/v1722772844/fos8y0dcivd8gbejuaql.png
-
 Laravel 11 Template With Stisla
 
 Free Starter Laravel 11 Template menggunakan stisla admin dashboard
@@ -73,11 +71,3 @@ Libraries
 -   https://github.com/yajra/laravel-datatables
 -   https://github.com/tymondesigns/jwt-auth
 -   https://github.com/milon/barcode
-
-Terima kasih, bisa distar ataupun difork ya guys. Kalau ada request module atau apapun itu, bisa tulis di issue.
-
-Web Pribadi https://anamapp.my.id
-
-https://github.com/Anamcoollzz/laravel-11-template
-
-https://www.youtube.com/channel/UCwF-njZKFE30pZwWFtp84fA

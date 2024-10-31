@@ -6,7 +6,7 @@
         <a href="{{ url('') }}">
           <img style="max-width: 60%;" src="{{ asset(config('stisla.logo_aplikasi')) }}"></a>
       @else
-        <a href="{{ url('') }}">{{ $_app_name }}</a>
+        <a href="{{ url('') }}">Admin Panel</a>
       @endif
     </div>
 

@@ -15,7 +15,7 @@
 
   <div class="section-body">
     <h2 class="section-title">{{ $title }}</h2>
-    <p class="section-lead">{{ __('Menampilkan halaman ' . $title) }}.</p>
+    <p class="section-lead">{{ __('Showing ' . $title . ' Data') }}.</p>
     <div class="row">
       <div class="col-12">
         @if ($data->count() > 0 || $isYajra || $isAjaxYajra)

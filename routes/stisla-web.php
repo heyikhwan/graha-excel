@@ -9,7 +9,7 @@ use App\Http\Controllers\YoutubeController;
 use Illuminate\Support\Facades\Route;
 
 # DASHBOARD
-Route::get('/', [DashboardController::class, 'home'])->name('home');
+// Route::get('/', [DashboardController::class, 'home'])->name('home');
 
 # AUTH
 Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login');

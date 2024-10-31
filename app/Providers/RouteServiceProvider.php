@@ -37,13 +37,13 @@ class RouteServiceProvider extends ServiceProvider
                 // ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            // Route::middleware('web')
-            //     ->namespace($this->namespace)
-            //     ->group(base_path('routes/web.php'));
-
             Route::middleware([OverrideConfig::class, 'web', ViewShare::class,])
                 // ->namespace($this->namespace)
-                ->group(base_path('routes/stisla-web.php'));
+                ->group(base_path('routes/web.php'));
+
+            // Route::middleware([OverrideConfig::class, 'web', ViewShare::class,])
+            //     // ->namespace($this->namespace)
+            //     ->group(base_path('routes/stisla-web.php'));
 
             Route::middleware([OverrideConfig::class, 'web', ViewShare::class, 'auth',])
                 // ->namespace($this->namespace)

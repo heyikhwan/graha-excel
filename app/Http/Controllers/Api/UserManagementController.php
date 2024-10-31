@@ -25,10 +25,10 @@ class UserManagementController extends Controller
     public function __construct()
     {
         $this->userRepository = new UserRepository;
-        $this->middleware('can:Pengguna');
-        $this->middleware('can:Pengguna Tambah')->only(['create', 'store']);
-        $this->middleware('can:Pengguna Ubah')->only(['edit', 'update', 'updatePassword']);
-        $this->middleware('can:Pengguna Hapus')->only(['destroy']);
+        $this->middleware('can:User');
+        $this->middleware('can:User Create')->only(['create', 'store']);
+        $this->middleware('can:User Update')->only(['edit', 'update', 'updatePassword']);
+        $this->middleware('can:User Delete')->only(['destroy']);
     }
 
     /**
