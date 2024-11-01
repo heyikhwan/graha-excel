@@ -31,23 +31,6 @@
       </div>
     </form>
 
-    <div class="row">
-      @if ($_is_login_must_verified)
-        <div class="col-md-6">
-          <a href=" {{ route('send-email-verification') }}" class="text-small">
-            {{ __('Belum verifikasi email?') }}
-          </a>
-        </div>
-      @endif
-      @if ($_is_active_register_page)
-        <div class="col-md-6 @if ($_is_login_must_verified) text-right @endif">
-          <a href="{{ route('register') }}" class="text-small text-primary">Belum punya akun?</a>
-        </div>
-      @endif
-    </div>
-
-    @include('stisla.auth.login.includes.btn-social')
-
   </div>
 @endsection
 

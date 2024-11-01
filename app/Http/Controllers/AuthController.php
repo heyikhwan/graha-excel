@@ -122,9 +122,9 @@ class AuthController extends StislaController
                 'isGoogleCaptcha' => $isGoogleCaptcha,
             ];
             if ($template === 'tampilan 2' || Route::is('login2')) {
-                return view('stisla.auth.login.index2', $data);
-            } else {
                 return view('stisla.auth.login.index', $data);
+            } else {
+                return view('stisla.auth.login.index2', $data);
             }
         }
         return view('stisla.auth.login.index');
