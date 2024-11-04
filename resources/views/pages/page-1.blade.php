@@ -70,7 +70,7 @@
                             <div class="item">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <img src="{{asset('assets/web/img/visi-misi-tahukah-anda.jpg')}}" alt="Tahukah Anda">
+                                        <img src="{{asset('assets/web/img/lot-plastic-trash-beach.png')}}" alt="Tahukah Anda">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item-visi">
@@ -83,7 +83,7 @@
                             <div class="item">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <img src="{{asset('assets/web/img/visi-misi-tahukah-anda.jpg')}}" alt="Visi Kami">
+                                        <img src="{{asset('assets/web/img/aerial-view-lush-green-forest-with-planet-earth-center-concept-environmental-conservation-sustainability-global-ecology.png')}}" alt="Visi Kami">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item-visi">
@@ -96,7 +96,7 @@
                             <div class="item">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <img src="{{asset('assets/web/img/visi-misi-tahukah-anda.jpg')}}" alt="Visi">
+                                        <img src="{{asset('assets/web/img/top-view-teamwork-project.png')}}" alt="Visi">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item-visi">
@@ -110,7 +110,7 @@
                             <div class="item">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <img src="{{asset('assets/web/img/visi-misi-tahukah-anda.jpg')}}" alt="Visi">
+                                        <img src="{{asset('assets/web/img/city-with-forest-front.png')}}" alt="Visi">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item-visi">
@@ -123,7 +123,7 @@
                             <div class="item">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
-                                        <img src="{{asset('assets/web/img/visi-misi-tahukah-anda.jpg')}}" alt="Tanah Air">
+                                        <img src="{{asset('assets/web/img/beautiful-volcanic-crater.png')}}" alt="Tanah Air">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="item-visi">
