@@ -20,6 +20,6 @@
 <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
 <script>
    var route_prefix = "/file-managers";
-    $('#lfm').filemanager('file', {prefix: route_prefix}); // untuk image saja, bisa juga gunakan 'file' untuk semua jenis file
+    $('.lfm').filemanager('file', {prefix: route_prefix}); // untuk image saja, bisa juga gunakan 'file' untuk semua jenis file
 </script>
 @endpush

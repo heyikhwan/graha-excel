@@ -583,44 +583,35 @@ function showImportModal(e) {
   $('#importModal').modal('show');
 }
 
-function showModalForm(e, action, link) {
+function showModalForm(e, t, a) {
   e.preventDefault();
-  window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-  $('#modalForm').parent().attr('action', link.replaceAll('/edit', '').replaceAll('/create', ''));
-  $('#modalForm').modal('show');
-  $('#modalForm').find('.modal-body').html('loading...');
-  $('#modalForm').find('.modal-footer').hide();
+  window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-  var title = 'Create Data';
-  if (action === 'edit') title = 'Update Data';
-  else if (action === 'detail') title = 'Detail Data';
+  // Ensure the URL uses HTTPS if the page is loaded over HTTPS
+  if (window.location.protocol === 'https:' && a.startsWith('http://')) {
+      a = a.replace('http://', 'https://');
+  }
 
-  $('#modalForm').find('.modal-title').html(title);
-  window.axios.get(link).then(function (response) {
-    setTimeout(
-      function () {
-        $('#modalForm').find('.modal-body').html(response.data);
+  $("#modalForm").parent().attr("action", a.replaceAll("/edit", "").replaceAll("/create", ""));
+  $("#modalForm").modal("show");
+  $("#modalForm").find(".modal-body").html("loading...");
+  $("#modalForm").find(".modal-footer").hide();
 
-        if (action === 'detail') disableForm();
-        // test purpose
-        // $('[name="text"]').val('halo');
-        // $('[name="number"]').val('1');
-        // $('#currency').val('1400');
-        // $('#currency_idr').val('1500');
-        // $('[name="date"]').val('1998-04-08');
-        // $('[name="time"]').val('10:10');
-        // $('[name="color"]').val('#888888');
-        // $('[name="textarea"]').val('1998-04-08');
-        // $('[name="summernote"]').val('1998-04-08');
-        // $('[name="summernote_simple"]').val('1998-04-08');
-        // $('[name="tags"]').val('1998-04-08');
+  var n = "Create Data";
+  if (t === "edit") {
+      n = "Update Data";
+  } else if (t === "detail") {
+      n = "Detail Data";
+  }
+  $("#modalForm").find(".modal-title").html(n);
 
-        if (action === 'detail') {
-        } else $('#modalForm').find('.modal-footer').show();
-        initForm();
-      },
-      action === 'create' ? 500 : 1000
-    );
+  window.axios.get(a).then(function(e) {
+      setTimeout(function() {
+          $("#modalForm").find(".modal-body").html(e.data);
+          if (t === "detail") disableForm();
+          if (t !== "detail") $("#modalForm").find(".modal-footer").show();
+          initForm();
+      }, t === "create" ? 500 : 1000);
   });
 }
 

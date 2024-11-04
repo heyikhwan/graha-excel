@@ -47,5 +47,5 @@
 
 <script>
   var route_prefix = "/file-managers";
-  $('#lfm').filemanager('file', {prefix: route_prefix});
+  $('.lfm').filemanager('file', {prefix: route_prefix});
 </script>

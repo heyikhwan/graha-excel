@@ -46,7 +46,7 @@
 
 <script>
   var route_prefix = "/file-managers";
-  $('#lfm').filemanager('file', {prefix: route_prefix});
+  $('.lfm').filemanager('file', {prefix: route_prefix});
 
   // Define function to open filemanager window
   var lfm = function(options, cb) {
