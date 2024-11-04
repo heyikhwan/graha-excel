@@ -98,7 +98,7 @@
             <div class="header-inner fixed-header">
                 <div class="container-fluid">
                     <div class="row align-items-center with-border">
-                        <div class="col-lg-2 col-md-3 col-4 order-1">
+                        <div class="col-lg-1 col-md-3 col-4 order-1">
                             <div class="header-left d-flex">
                                 {{-- <ul class="header-toolbar">
                                     <li class="header-toolbar__item d-none d-lg-block">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-8 order-3 order-lg-2">
+                        <div class="col-lg-10 order-3 order-lg-2">
                             <nav class="main-navigation">
                                 <ul class="mainmenu mainmenu--centered">
                                     <li class="mainmenu__item">
@@ -143,11 +143,16 @@
                                             <span class="mm-text">Karir</span>
                                         </a>
                                     </li>
+                                    <li class="mainmenu__item">
+                                        <a href="{{url('/articles')}}" class="mainmenu__link">
+                                            <span class="mm-text">Blog</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
 
-                        <div class="col-lg-2 col-md-9 col-8 order-2 order-lg-3">
+                        <div class="col-lg-1 col-md-9 col-8 order-2 order-lg-3">
                             <ul class="header-toolbar text-right">
                                 <li class="header-toolbar__item">
                                     <a href="#searchForm" class="search-btn toolbar-btn">

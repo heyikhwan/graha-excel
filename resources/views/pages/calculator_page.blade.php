@@ -13,8 +13,8 @@
       /*background-repeat: no-repeat;*/
       /*background-size: 100% auto;*/
     }
-    h5 { font-size: 16px; margin-bottom: 10px; }
-    
+    h5 { font-size: 20px; margin-bottom: 10px; }
+    h6 { font-size: 11px; }
     .margin-left-box{
         margin-left:35%;
         margin-top:8px;
@@ -24,11 +24,11 @@
         padding: 10%;
     }
     .form-box-result-calc{
-        /*margin-top:10rem;*/
+        margin-top:5%;
     }
     .form-box-result-calc label{
         color:white;
-        font-size:0.75em;
+        font-size:14px;
         margin-top:1rem;
         margin-bottom:1.1rem;
     }
@@ -43,24 +43,44 @@
         box-shadow: -9px 9px 20px rgba(0, 0, 0, 0.4);
     }
     label{
-        font-size:1rem;
+        font-size:14px;
     }
     .mb-0{
         margin-bottom:0rem !important;
     }
-    .select-icon { width: 22%; margin-left:2%; margin-right: 2%; display: inline-block; text-align: center; }
+    .select-icon { width: 20%; margin-right: 2%; display: inline-block; text-align: center; }
     .select-icon.active label { font-weight: bold; }
-    .content-bottom { margin-top:120px; }
+    .content-bottom { margin-top:7%; }
     .calculator-left { position: relative; display: block; }
-    .calculator-left .background { position:absolute;width:100%;left:0;top:0;z-index:2 }
-    .calculator-left .content { position:absolute;width:62%;left:36%;top:0;z-index:3; margin-top:50px; }
-    .calculator-left .options { margin-bottom: 10px; font-size: 13px; line-height: 18px; }
-    .calculator-left h6 { margin-top: 3px; margin-bottom:6px; }
+    /* .calculator-left .background { position:absolute;width:100%;left:0;top:0;z-index:2 } */
+    /* .calculator-left .content { position:absolute;width:62%;left:36%;top:0;z-index:3; margin-top:50px; } */
+    .calculator-left .content { left: 6%;top: 0;z-index: 3; margin-top: 7%; }
+    .calculator-left .options { margin-bottom: 10px; font-size: 14px; line-height: 18px; }
+    .calculator-left h6 { margin-top: 5%; margin-bottom:6px; }
     .not-small { display: block; }
     .small-only { display: none; }
-    .form-box-result-calc .col-11 { margin-bottom: 5px; }
+    .form-box-result-calc .col-11 { margin-bottom: 20px; }
     .form-box-result-calc input { width: 50%; }
-    .form-box-result-calc .unit { background: #efefef; color:#333; padding:5px 5px 3px; width: 30%; min-width:90px; font-size: 10px; font-weight: bold; border: 1px solid #efefef; }
+    .form-box-result-calc .unit { color:white; padding:5px 5px 3px; width: 30%; min-width:90px; font-size: 14px;}
+
+    .opsi_atap img{
+        width: 80%;
+    }
+
+    .content_warna {
+        border-color: #D4D4D4;
+        background-color: white;
+        min-height: 4rem;
+        line-height: 4rem;
+        margin-right: 1.5%;
+    }
+
+    .content_warna:hover, .content_warna:active, .content_warna:focus, .content_warna:visited{
+        background-color: #D4D4D4;
+        color: white;
+        border: none;
+    }
+
     @media (min-width:1240px) and (max-width: 1310px) {
         .calculator-left .content { width: 55%; }
         .content-bottom { margin-top:100px; }
@@ -89,6 +109,22 @@
             margin-top: 2px;
             margin-bottom: 8px;
         }
+        .content_warna {
+            margin-top: 5px;
+            min-height: 3rem;
+            line-height: 3rem;
+            padding: 0 1rem;
+        }
+        .panjang, .lebar{
+            height: 22px!important;
+            width: 115px!important;
+        }
+
+        .jumlah_lembaran, .total_kebutuhan, .jumlah_gep{
+            height: 22px!important;
+            width: 143px!important;
+            border: 5px solid #efefef!important;
+        }
     }
     @media (max-width:992px) {
         .calculator-left { width: 60%; margin-left: 20%; }
@@ -97,7 +133,51 @@
         .not-small { display: none; }
         .small-only { display: block; }
         .select-icon label { font-size: 0.75rem; }
-        .content-bottom { margin-top: 100px; }
+        .content-bottom { margin-top: 40px; margin-left: 10%;}
+
+        .form-box-result-calc label {
+            font-size: 10px;
+        }
+        .form-box-result-calc .unit {
+            font-size: 10px;
+        }
+        .form-box-result-calc .col-11 {
+            margin-bottom: 10px;
+        }
+        .content_warna{
+            margin-top: 5px;
+            min-height: 3rem;
+            line-height: 3rem;
+        }
+
+        .calculator-left h6 {
+            margin-top: 2%;
+        }
+
+        .h6_aksesoris{
+            margin-top: 15%!important;
+        }
+
+        .user-input input {
+            height: 22px;
+            width: 143px;
+        }
+
+        .panjang, .lebar{
+            height: 22px!important;
+            width: 115px!important;
+        }
+
+        .jumlah_lembaran, .total_kebutuhan, .jumlah_gep{
+            height: 22px!important;
+            width: 143px!important;
+            border: 5px solid #efefef!important;
+        }
+        label {
+            font-size: 10px;
+        }
+        h5 { font-size: 12px; margin-bottom: 0; }
+        h6 { font-size: 11px; }
         
     }
     
@@ -132,8 +212,6 @@
      }
      
      @media (max-width: 480px) {
-        h5 { font-size: 12px; margin-bottom: 0; }
-        h6 { font-size: 11px; }
         .calculator-left .options { font-size: 10px; line-height: 12px; }
         #warna_atap { height: 40px; }
         #aksesoris { height: 10px; }
@@ -148,10 +226,27 @@
         .form-box-result-calc .unit { padding: 5px 5px 2px; }
      }
      @media (max-width: 430px) {
-         .content-bottom { margin-top: 120px; }
+         .content-bottom { margin-top: 70px; margin-left: 40px;}
+         .form-box-result-calc .col-11 {
+            margin-bottom: 20px;
+        }
+        .form-box-result-calc .unit {
+            font-size: 10px;
+        }
      }
      @media (max-width: 400px) {
          .content-bottom { margin-top: 80px; }
+         .calculator-left h6 {
+            margin-top: 1%;
+            margin-bottom: 1px;
+        }
+        
+        #aksesoris {
+            height: 5px;
+        }
+        .form-box-result-calc .col-11 {
+            margin-bottom: 5px;
+        }
      }
      @media (max-width: 370px) {
          .content-bottom { margin-top: 50px; }
@@ -179,85 +274,87 @@
                 
                 <div class="row bg-head">
                     <div class="col-12">
-                        <img src="{{asset('assets/web/img/header-calculator.jpg')}}" alt="Kalkulator Biaya Atap" style="width:100%;">
+                        <h5 class="text-center my-5" style="font-size: 32px">KALKULATOR BIAYA ATAP</h5>
+                        <img src="{{asset('assets/web/img/banner-calculator.png')}}" alt="Kalkulator Biaya Atap" style="width:100%;">
                     </div>
                 </div>
-                
+
                 <div class="row">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-12">
                         <div class="calculator-left">
                             <div class="background">
-                                <img src="<?php echo url(asset('assets/web/img/left bottom box.jpg')); ?>" style="width:100%;" class="not-small" />
+                                <img src="<?php echo url(asset('assets/web/img/calc-bg-2.png')); ?>" style="width:100%;" class="not-small" />
                                 <img src="<?php echo url(asset('assets/web/img/calculator-left-bg.jpg')); ?>" style="width:100%;" class="small-only" />
                             </div>
-                            <div class="content">
-                                <h5>PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></h5>
-                                <h6>PILIH PRODUK ATAP</h6>
-                                <div class="row list_opsi_atap">
-                                    <div class="col-12">
-                                        <div class="select-icon" style="margin-left: 11%;">
-                                            <a class="opsi_atap" data-id="sk785"><img src="{{asset('assets/web/img/iconbox1.png')}}" alt="Foto Excel sejak tahun 1969" style="width:100%"></a>
-                                            <label>SKYDECK 785</label>
+                            <div class="row" style="position: absolute;top: 0;width: 100%;">
+                                <div class="col-lg-6 content">
+                                    <h5>PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></h5>
+                                    <h6><b>PILIH PRODUK ATAP</b></h6>
+                                    <div class="row list_opsi_atap">
+                                        <div class="col-12">
+                                            <div class="select-icon">
+                                                <a class="opsi_atap" data-id="sk785"><img src="{{asset('assets/web/img/iconbox1.png')}}" alt="Foto Excel sejak tahun 1969" style="width:80%"></a>
+                                                <label>SKYDECK 785</label>
+                                            </div>
+                                            <div class="select-icon">
+                                                <a class="opsi_atap" data-id="sk1000"><img src="{{asset('assets/web/img/iconbox2.png')}}" alt="Foto Excel sejak tahun 1969" style="width:80%"></a>
+                                                <label>SKYDECK 1000</label>
+                                            </div>
+                                            <div class="select-icon">
+                                                <a class="opsi_atap" data-id="elite"><img src="{{asset('assets/web/img/iconbox3.png')}}" alt="Foto Excel sejak tahun 1969" style="width:80%"></a>
+                                                <label>ELITEROOF</label>
+                                            </div>
                                         </div>
-                                        <div class="select-icon">
-                                            <a class="opsi_atap" data-id="sk1000"><img src="{{asset('assets/web/img/iconbox2.png')}}" alt="Foto Excel sejak tahun 1969" style="width:100%"></a>
-                                            <label>SKYDECK 1000</label>
+                                    </div>
+                                    <h6><b>PILIH WARNA ATAP</b></h6>
+                                    <div id="warna_atap" class="options warna_atap"></div>
+                                    <h6 class="h6_aksesoris"><b>AKSESORIS</b></h6>
+                                    <div id="aksesoris" class="options aksesoris"></div>
+                                    <h6><b>UKURAN ATAP</b></h6>
+                                    <div class="col-lg-9 row user-input">
+                                        <div class="col-6 p-0">
+                                            <input type="number" class="panjang" id="panjang" style="background: #efefef; border: 1px solid #efefef;height: 35px;width: 190px;"></input>
+                                            <br>
+                                            <label>Panjang (Meter)</label>
                                         </div>
-                                        <div class="select-icon">
-                                            <a class="opsi_atap" data-id="elite"><img src="{{asset('assets/web/img/iconbox3.png')}}" alt="Foto Excel sejak tahun 1969" style="width:100%"></a>
-                                            <label>ELITEROOF</label>
+                                            <div class="col-6 p-0">
+                                            <input type="number" class="lebar" id="lebar" style="background: #efefef; border: 1px solid #efefef;height: 35px;width: 190px;"></input>
+                                            <br>
+                                            <label>Lebar (Meter)</label>
                                         </div>
                                     </div>
                                 </div>
-                                <h6>PILIH WARNA ATAP</h6>
-                                <div id="warna_atap" class="options"></div>
-                                <h6>AKSESORIS</h6>
-                                <div id="aksesoris" class="options"></div>
-                                <h6>UKURAN ATAP</h6>
-                                <div class="row user-input">
-                                    <div class="col-6">
-                                        <input type="number" id="panjang" style="background: #efefef; border: 1px solid #efefef;"></input>
-                                        <label>Panjang (Meter)</label>
-                                    </div>
-                                        <div class="col-6">
-                                        <input type="number" id="lebar" style="background: #efefef; border: 1px solid #efefef;"></input>
-                                        <label>Lebar (Meter)</label>
-                                    </div>
-                                </div>
-                                <div class="content-bottom" style="">
+                                <div class="col-lg-6 content-bottom">
+                                    <h5 class="text-light not-small" style="font-size: 20px"><b>PREDIKSI KEBUTUHAN</b></h5>
                                     <div class="form-box-result-calc">
                                         <div class="row">
                                             <div class="col-11">
-                                                <input type="number" id="jumlah_lembaran" readonly style="background: #efefef; border: 1px solid #efefef;display:inline-block;" />
-                                                <div class="unit" style="display:inline-block">Lembar</div>
+                                                <input type="number" class="jumlah_lembaran" id="jumlah_lembaran" readonly style="background: #efefef; border: 10px solid #efefef;display:inline-block;" />
+                                                <div class="unit" style="display:inline-block">LEMBAR</div>
                                                 <label>Jumlah lembaran atap UPVC</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-11">
-                                                <input type="number" id="total_kebutuhan" readonly style="background: #efefef; border: 1px solid #efefef;display:inline-block;" />
-                                                <div class="unit" style="display:inline-block">Meter Lari</div>
+                                                <input type="number" class="total_kebutuhan" id="total_kebutuhan" readonly style="background: #efefef; border: 10px solid #efefef;display:inline-block;" />
+                                                <div class="unit" style="display:inline-block">METER LARI</div>
                                                 <label>Total kebutuhan atap UPVC</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-11">
-                                                <input type="number" id="jumlah_gep" readonly style="background: #efefef; border: 1px solid #efefef;display:inline-block;" />
-                                                <div class="unit" style="display:inline-block">Pak</div>
-                                                <label id="jumlah_gep_label">Jumlah GEP Weather Seal K<br />*) 1 pak = 20 pcs</label>
+                                                <input type="number" class="jumlah_gep" id="jumlah_gep" readonly style="background: #efefef; border: 10px solid #efefef;display:inline-block;" />
+                                                <div class="unit" style="display:inline-block">PAK</div>
+                                                <label class="jumlah_gep_label" id="jumlah_gep_label">Jumlah GEP Weather Seal K<br />*) 1 pak = 20 pcs</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 text-right">
-                        <img src="{{asset('assets/web/img/right bottom box.png')}}" alt="Foto Excel sejak tahun 1969" style="width:95%">
-                    </div>
                 </div>
+                
                 <div class="row mt-4">
                     <div class="col-12 col-lg-6">
                         <h4 style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px;"><b>Catatan :</b></h4>
@@ -265,19 +362,15 @@
                             <li>Kalkulator ini untuk atap standar</li>
                             <li>Warna "others" bisa dipesan dengan batas minimal kuantitas</li>
                             <li>Jika ingin menanyakan harga sesuai kebutuhan,<br>bisa hubungi customer care kami di:</li>
-                    </div>
-                    <div class="col-12 col-lg-6">
+                        </ul>
                         <br>
-                        <p class="text-right"><b>+62 21 - 6393394</b> (hotline)<br><b>+62 21 - 6393394</b> (fax)<br><b>+62 81399808057</b> (whatsapp)</b></p>
+                        <p class=""><b>+62 21 - 6393394</b> (hotline)<br><b>+62 21 - 6393394</b> (fax)<br><b>+62 81399808057</b> (whatsapp)</b></p>
+                        <div class="text-center">
+                            <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium add-to-cart' style="min-width: 100%; margin-bottom: 150px; margin-left: auto; margin-right: auto; background: #cf987e; margin-top:40px;">HUBUNGI KAMI</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium add-to-cart' style="min-width: 60%; margin-bottom: 150px; margin-left: auto; margin-right: auto; background: #cf987e; margin-top:80px;">HUBUNGI KAMI</a>
+                    <div class="col-12 col-lg-6 text-right">
+                        <img src="{{asset('assets/web/img/right bottom box.png')}}" alt="Foto Excel sejak tahun 1969" style="width:95%">
                     </div>
                 </div>
             </div>
@@ -292,33 +385,34 @@
         $(this).closest('.select-icon').addClass('active');
         id = $(this).data("id");
         if(id == "sk785"){
-            $('#warna_atap').html("<a class='content_warna'>Solid White</a><br><a class='content_warna'>Semitransparant</a><br><a class='content_warna'>Others*</a>");
-            $('#aksesoris').html("<div>GEP Weather Seal K</div>");
+            $('.warna_atap').html("<a class='content_warna btn btn-outline-dark'>Solid White</a><a class='content_warna btn btn-outline-dark'>Semitransparant</a><a class='content_warna btn btn-outline-dark'>Others*</a>");
+            $('.aksesoris').html("<div>GEP Weather Seal K</div>");
         }
         else if(id == "sk1000"){
-            $('#warna_atap').html("<a class='content_warna'>Solid White</a><br><a class='content_warna'>Light Blue</a><br><a class='content_warna'>Others*</a>");
-            $('#aksesoris').html("<div>GEP Weather Seal K</div>");
+            $('.warna_atap').html("<a class='content_warna btn btn-outline-dark'>Solid White</a><a class='content_warna btn btn-outline-dark'>Light Blue</a><a class='content_warna btn btn-outline-dark'>Others*</a>");
+            $('.aksesoris').html("<div>GEP Weather Seal K</div>");
         }
         else if(id == "elite"){
-            $('#warna_atap').html("<a class='content_warna'>Natural</a>");
-            $('#aksesoris').html("<div>GEP Weather Seal B</div>");
+            $('.warna_atap').html("<a class='content_warna btn btn-outline-dark'>Natural</a>");
+            $('.aksesoris').html("<div>GEP Weather Seal B</div>");
         }
         calculate();
     })
     
     $(document).on("click",".content_warna", function(){
-        $(".content_warna").css("font-weight","unset")
+        $(".content_warna").css("font-weight","unset").css("background-color","white")
         $(this).css("font-weight","bold")
+        $(this).css("background-color","#D4D4D4")
     })
     
     function calculate(){
-        var panjang = $('#panjang').val()
-        var lebar = $('#lebar').val()
+        var panjang = $('.panjang').val()
+        var lebar = $('.lebar').val()
         if(panjang == "" || lebar == "")
         {
-            $('#jumlah_lembaran').val("")
-            $('#total_kebutuhan').val("")
-            $('#jumlah_gep').val("")
+            $('.jumlah_lembaran').val("")
+            $('.total_kebutuhan').val("")
+            $('.jumlah_gep').val("")
             return false
         }
         var lebar_efektif = 0
@@ -345,28 +439,27 @@
             jumlah_lembaran_atap = Math.ceil(lebar/lebar_efektif)
             total_atap = panjang*jumlah_lembaran_atap
             jumlah_gep = Math.ceil(((4*panjang)*jumlah_lembaran_atap)/20)
-            $('#jumlah_gep_label').html("Jumlah GEP Weather Seal K")
+            $('.jumlah_gep_label').html("Jumlah GEP Weather Seal K")
         }
         else if(id == "elite"){
             jumlah_lembaran_atap = Math.ceil(Math.ceil((lebar/lebar_efektif))*Math.ceil((panjang/2)))
             total_atap = jumlah_lembaran_atap*2.25
             jumlah_gep = Math.ceil((jumlah_lembaran_atap*9)/20)
-            $('#jumlah_gep_label').html("Jumlah GEP Weather Seal B")
+            $('.jumlah_gep_label').html("Jumlah GEP Weather Seal B")
         }
-        
-        $('#jumlah_lembaran').val(jumlah_lembaran_atap)
-        $('#total_kebutuhan').val(total_atap)
-        $('#jumlah_gep').val(jumlah_gep)
+
+        $('.jumlah_lembaran').val(jumlah_lembaran_atap)
+        $('.total_kebutuhan').val(total_atap)
+        $('.jumlah_gep').val(jumlah_gep)
     }
     
-    $('#panjang').keyup(function(){
+    $('.panjang').keyup(function(){
         calculate()
     })
     
-    $('#lebar').keyup(function(){
+    $('.lebar').keyup(function(){
         calculate()
     })
-    
 </script>
 <!-- script -->
 @endsection
