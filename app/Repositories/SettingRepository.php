@@ -503,9 +503,9 @@ class SettingRepository
      */
     public static function googleCaptchaSiteKey()
     {
-        $siteKey = Setting::where(['key' => 'google_captcha_site_key'])->first()->value ?? null;
-        if ($siteKey)
-            return decrypt($siteKey);
+        // $siteKey = Setting::where(['key' => 'google_captcha_site_key'])->first()->value ?? null;
+        // if ($siteKey)
+        //     return decrypt($siteKey);
         return null;
     }
 
@@ -516,9 +516,9 @@ class SettingRepository
      */
     public static function googleCaptchaSecret()
     {
-        $secret = Setting::where(['key' => 'google_captcha_secret'])->first()->value ?? null;
-        if ($secret)
-            return decrypt($secret);
+        // $secret = Setting::where(['key' => 'google_captcha_secret'])->first()->value ?? null;
+        // if ($secret)
+        //     return decrypt($secret);
         return null;
     }
 

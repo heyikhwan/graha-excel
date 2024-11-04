@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="kGPwhydgHLKRqvdOhiNo6ZTup5A-AQVXyvqvzXOd950" />
     <meta name="description" content="<?php echo strip_tags($metaDescription); ?>">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <title>{{$pageTitle}}</title>
     <link rel="stylesheet" href="{{asset('assets/css/header-combined.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/smart-whatsapp-box/smart-whatsapp-box.css')}}">

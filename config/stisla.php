@@ -657,7 +657,7 @@ return [
         ['key' => 'country', 'value' => 'Indonesia'],
         [
             'key' => 'favicon',
-            'value' => 'assets/icons/favicon.ico',
+            'value' => 'assets/images/favicon.png',
             'is_url' => true
         ],
         ['key' => 'logo', 'value' => 'assets/images/logo.png', 'is_url' => true],
