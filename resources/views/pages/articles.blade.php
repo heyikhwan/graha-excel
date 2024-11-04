@@ -26,8 +26,7 @@
                                         <div class="image">
                                             <?php
                                                 if ($articleCategory->image) {
-                                                    $findImage = DB::table('uploads')->where('id', $articleCategory->image)->first();
-                                                    echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$articleCategory->title."'  />";
+                                                    echo "<img src='". get_uploaded_file_name($articleCategory->image) ."' alt='".$articleCategory->title."'  />";
                                                 } else {
                                                     echo "<img src='{{asset('public/main/img/c6.jpg')}}' alt='".$articleCategory->title."' />";
                                                 }

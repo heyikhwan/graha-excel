@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\NewsCategory;
@@ -30,6 +31,7 @@ class MainController extends Controller
             'getData'   => Product::orderBy('id', 'desc')->limit(6)->get(),
             'pageTitle'   => 'Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC',
             'metaDescription'   => 'Grahaexcel telah dikenal sebagai distributor toren air excel, tangki kimia dan atap uPVC sejak tahun 1969.',
+            'banners'   => Banner::orderBy('id', 'asc')->get(),
         ];
 
         return view('pages.home', $data);

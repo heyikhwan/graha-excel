@@ -48,14 +48,12 @@
     if (!function_exists('getDocumentUrl')) {
         function getDocumentUrl($id)
         {
-            $findImage = DB::table('uploads')->where('id', $id)->first();
-            return asset('storage/files/1/' . rawurlencode(substr($findImage?->path, strrpos($findImage?->path, '/') + 1)));
+            return get_uploaded_file_name($id);
             
         }
     }
         if ($getProduct->image) {
-            $findImage = DB::table('uploads')->where('id', $getProduct->image)->first();
-            $img = asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1)));
+            $img = get_uploaded_file_name($getProduct->image);
         }
         else
         {

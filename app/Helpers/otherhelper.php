@@ -3,6 +3,7 @@
 use App\Models\ActivityLog;
 use App\Repositories\SettingRepository;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 function active_template()
 {
@@ -73,5 +74,24 @@ if (!function_exists('decode_id')) {
     {
         $secure = unserialize(base64_decode($val));
         return $secure['val'];
+    }
+}
+
+if (!function_exists('get_uploaded_file_name')) {
+    /**
+     * get file name
+     *
+     * @param int
+     * @return String
+     */
+    function get_uploaded_file_name(int $id)
+    {
+        $findImage = DB::table('uploads')->where('id', $id)->first();
+        $path = str_replace(DIRECTORY_SEPARATOR, '/', $findImage->path);
+        $filename = substr($path, strrpos($path, '/') + 1);
+        
+        $file_url = asset('storage/files/1/' . $filename);
+
+        return $file_url;
     }
 }

@@ -38,8 +38,7 @@
 @section('content')
     <?php
         if ($getProduct->image) {
-            $findImage = DB::table('uploads')->where('id', $getProduct->image)->first();
-            $img = asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1)));
+            $img = get_uploaded_file_name($getProduct->image);
         }
         else
         {
@@ -76,8 +75,7 @@
                                                         <figure class="product-gallery__image zoom">
                                                         <?php
                                                             if ($getProduct->image) {
-                                                                $findImage = DB::table('uploads')->where('id', $getProduct->image)->first();
-                                                                echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$getProduct->title."' />";
+                                                                echo "<img src='". get_uploaded_file_name($getProduct->image) ."' alt='".$getProduct->title."' />";
                                                             }
                                                         ?>
                                                         </figure>
@@ -136,8 +134,7 @@
                                     <div class="clearfix"></div>
                                     <?php
                                         if ($getProduct->dimention) {
-                                            $findImage = DB::table('uploads')->where('id', $getProduct->dimention)->first();
-                                            echo "<a href=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." class='btn btn-style-1 btn-medium btn-block add-to-cart popup-btn'>DIMENSI</a>";
+                                            echo "<a href='". get_uploaded_file_name($getProduct->dimention) ."' class='btn btn-style-1 btn-medium btn-block add-to-cart popup-btn'>DIMENSI</a>";
                                         }
                                     ?>
                                     <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium btn-block add-to-cart' style="background: #cf987e; margin-top:10px;">HUBUNGI KAMI</a>
@@ -175,8 +172,7 @@
                                             <div class="product-description">
                                                 <?php
                                                     if ($setAttr->image) {
-                                                        $findImage = DB::table('uploads')->where('id', $setAttr->image)->first();
-                                                        echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt=\"Gambar ".$getProduct->title." ".intval(rand(0,10))."\" style='margin-top:-55px' />";
+                                                        echo "<img src='". get_uploaded_file_name($setAttr->image) ."' alt=\"Gambar ".$getProduct->title." ".intval(rand(0,10))."\" style='margin-top:-55px' />";
                                                         echo "<br/>";
                                                         echo "<br/>";
                                                     }
@@ -273,8 +269,7 @@
                                                 <a href="{{url('product') .'/'. $setRelated->url_title}}">
                                                     <?php
                                                         if ($setRelated->image) {
-                                                            $findImage = DB::table('uploads')->where('id', $setRelated->image)->first();
-                                                            echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$setRelated->title."' class='single-image' />";
+                                                            echo "<img src=". get_uploaded_file_name($setRelated->image) ." alt='".$setRelated->title."' class='single-image' />";
                                                         }
                                                     ?>
                                                 </a>

@@ -22,8 +22,6 @@
 
       @include('stisla.auth.login.input-password')
 
-      @include('stisla.auth.gcaptcha')
-
       <div class="form-group">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
@@ -58,4 +56,3 @@
   </div>
 @endsection
 
-@include('stisla.auth.script-gcaptcha')

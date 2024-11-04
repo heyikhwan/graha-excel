@@ -19,17 +19,12 @@
         <i class="fa fa-image"></i> Choose
       </a>
     </span>
-    @isset($d)
-    @php
-      $findImage = DB::table('uploads')->where('id', $d[$name ?? $id])->first();
-    @endphp
-    @endisset
-    <input id="{{ $name ?? $id }}" class="form-control" type="text" name="{{ $name ?? $id }}" readonly @if ($required) required @endif @if(isset($d) && !empty($d[$name])) value="{{ asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) }}" @endif>
+    <input id="{{ $name ?? $id }}" class="form-control" type="text" name="{{ $name ?? $id }}" readonly @if ($required) required @endif @if(isset($d) && !empty($d[$name])) value="{{ get_uploaded_file_name($d[$name ?? $id]) }}" @endif>
   </div>
   <div id="{{ 'holder' . ($name ?? $id) }}" style="margin-top:15px;max-height:100px;">
       @php
         if (isset($d) && !empty($d[$name])) {
-            echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." style='height: 5rem;' />";
+            echo "<img src='". get_uploaded_file_name($d[$name ?? $id]) ."' style='height: 5rem;' />";
         }
       @endphp
   </div>

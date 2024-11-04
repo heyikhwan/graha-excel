@@ -506,7 +506,7 @@ class SettingRepository
         // $siteKey = Setting::where(['key' => 'google_captcha_site_key'])->first()->value ?? null;
         // if ($siteKey)
         //     return decrypt($siteKey);
-        return null;
+        return false;
     }
 
     /**
@@ -519,7 +519,7 @@ class SettingRepository
         // $secret = Setting::where(['key' => 'google_captcha_secret'])->first()->value ?? null;
         // if ($secret)
         //     return decrypt($secret);
-        return null;
+        return false;
     }
 
     /**

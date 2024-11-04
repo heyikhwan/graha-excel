@@ -37,7 +37,7 @@
               <h4>Products</h4>
             </div>
             <div class="card-body">
-              22
+              {{ $products_count }}
             </div>
           </div>
       </div>
@@ -52,7 +52,7 @@
               <h4>News</h4>
             </div>
             <div class="card-body">
-              147
+              {{ $news_count }}
             </div>
           </div>
       </div>
@@ -67,7 +67,7 @@
               <h4>Users</h4>
             </div>
             <div class="card-body">
-              2
+              {{ $users_count }}
             </div>
           </div>
       </div>

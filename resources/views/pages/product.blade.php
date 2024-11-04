@@ -30,8 +30,7 @@
                             <?php
                                 $getCatId = DB::table('categories')->where('id', Request::Input('cat'))->first();
                                 if ($getCatId->image) {
-                                    $findImage = DB::table('uploads')->where('id', $getCatId->image)->first();
-                                    echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$getCatId->name."' />";
+                                    echo "<img src='". get_uploaded_file_name($getCatId->image) ."' alt='".$getCatId->name."' />";
                                 }
                             ?>
                             @endif
@@ -47,8 +46,7 @@
                                                     <a href="{{url('product') .'/'. $setProduct->url_title}}">
                                                         <?php
                                                             if ($setProduct->image) {
-                                                                $findImage = DB::table('uploads')->where('id', $setProduct->image)->first();
-                                                                echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$setProduct->title."' class='single-image' />";
+                                                                echo "<img src='". get_uploaded_file_name($setProduct->image) ."' alt='".$setProduct->title."' class='single-image' />";
                                                             }
                                                         ?>
                                                     </a>

@@ -2,10 +2,49 @@
 @section('title', 'PROJECT NAME')
 
 @section('style')
-<!-- script -->
+<style>
+    .carousel-caption {
+        position: absolute;
+        right: 0;
+        top: 20%;
+        left: 5%;
+        z-index: 10;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #fff;
+        text-align: start;
+    }
+    .carousel .btn {
+        padding: 0 5rem;
+        min-height: 5rem;
+        line-height: 5rem;
+    }
+    .btn-outline-light {
+        color: #f8f9fa!important;
+        background-color: transparent!important;
+        background-image: none;
+        border-color: #f8f9fa;
+    }
+</style>
 @endsection
 
 @section('content')
+    <div class="banner">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach($banners as $key => $banner)
+                <div class="carousel-item active">
+                    <a href="{{ $banner?->link ?? '#' }}">
+                        <img class="d-block w-100" src="{{ $banner?->image ? get_uploaded_file_name($banner->image) : '' }}" alt="{{ $banner->title }}"  />
+                    </a>
+                    <div class="carousel-caption">
+                        {!! $banner->content !!}
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     <section class="home-product">
         <div class="container">
             <div class="row">
@@ -320,8 +359,7 @@
                             <div>
                                 <?php
                                                 if ($newscategory->image) {
-                                                    $findImage = DB::table('uploads')->where('id', $newscategory->image)->first();
-                                                    echo "<a href='".url('/articles') .'/'. $newscategory->url_title."'><img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$newscategory->title."'  /></a>";
+                                                    echo "<a href='".url('/articles') .'/'. $newscategory->url_title."'><img src='". get_uploaded_file_name($newscategory->image) ."' alt='".$newscategory->title."'  /></a>";
                                                 } else {
                                                     // echo "<img src='{{asset('assets/web/img/c6.jpg')}}' class='img-square-2' />";
                                                 }
@@ -354,8 +392,7 @@
                                 $currentCategory = App\Models\Newscategory::where('id', $article->category)->first();
                                 
                                                 if ($article->image) {
-                                                    $findImage = DB::table('uploads')->where('id', $article->image)->first();
-                                                    echo "<a href='".url('/articles') .'/'. $currentCategory->url_title.'/'.$article->url_title."'><img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$article->title."'  /></a>";
+                                                    echo "<a href='".url('/articles') .'/'. $currentCategory->url_title.'/'.$article->url_title."'><img src='". get_uploaded_file_name($article->image) ."' alt='".$article->title."'  /></a>";
                                                 } else {
                                                     // echo "<img src='{{asset('assets/web/img/c6.jpg')}}' class='img-square-2' />";
                                                 }

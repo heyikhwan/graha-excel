@@ -32,11 +32,9 @@ class LoginRequest extends FormRequest
             ];
         }
 
-        $isGoogleCaptcha = SettingRepository::isGoogleCaptchaLogin();
         return [
             'email'                => 'required|exists:users,email',
             'password'             => 'required|min:4',
-            'g-recaptcha-response' => $isGoogleCaptcha ? 'required|captcha' : 'nullable'
         ];
     }
 }

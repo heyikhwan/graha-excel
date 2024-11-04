@@ -12,8 +12,7 @@
 </style>
 <?php
         if ($getNews->image) {
-            $findImage = DB::table('uploads')->where('id', $getNews->image)->first();
-            $img = asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1)));
+            $img = get_uploaded_file_name($getNews->image);
         }
         else
         {
@@ -72,8 +71,7 @@
                                         <div class="image">
                                             <?php
                                                 if ($getNews->image) {
-                                                    $findImage = DB::table('uploads')->where('id', $getNews->image)->first();
-                                                    echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='Gambar ".$getNews->title."'  />";
+                                                    echo "<img src='". get_uploaded_file_name($getNews->image) ."' alt='Gambar ".$getNews->title."'  />";
                                                 }
                                             ?>
                                         </div>

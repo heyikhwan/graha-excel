@@ -12,7 +12,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PermissionGroupController;
-use App\Http\Controllers\PersonController;
 use App\Http\Controllers\Product\AttributeController;
 use App\Http\Controllers\Product\ReviewController;
 use App\Http\Controllers\Product\SizeController;
@@ -20,12 +19,12 @@ use App\Http\Controllers\Product\ColorController;
 use App\Http\Controllers\Product\SubCategoryController;
 use App\Http\Controllers\Product\CategoryController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestLogController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestingController;
-use App\Http\Controllers\UbuntuController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\YoutubeController;
 use App\Http\Middleware\FileManagerPermission;
@@ -55,6 +54,8 @@ Route::prefix('products')->as('products.')->group(function () {
     Route::resource('sub-categories', SubCategoryController::class);
     Route::resource('categories', CategoryController::class);
 });
+
+Route::resource('banner', BannerController::class);
 
 # SETTINGS
 Route::get('settings/all', [SettingController::class, 'allSetting'])->name('settings.all');
@@ -142,11 +143,6 @@ Route::get('notifications', [NotificationController::class, 'index'])->name('not
 # BACKUP DATABASE
 Route::resource('backup-databases', BackupDatabaseController::class);
 
-# FILE MANAGER
-Route::group(['prefix' => 'file-managers', 'middleware' => [FileManagerPermission::class]], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
-
 # LOG VIEWER
 Route::get('logs-viewer', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs.index')->middleware('can:Laravel Log Viewer');
 
@@ -191,4 +187,9 @@ Route::get('testing/modal', [TestingController::class, 'modal']);
 Route::get('dropboxs', [DropboxController::class, 'index'])->name('dropboxs.index');
 Route::post('dropboxs', [DropboxController::class, 'upload'])->name('dropboxs.upload');
 Route::delete('dropboxs', [DropboxController::class, 'destroy'])->name('dropboxs.destroy');
+});
+
+# FILE MANAGER
+Route::group(['prefix' => 'file-managers', 'middleware' => [FileManagerPermission::class]], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

@@ -37,8 +37,7 @@
                                             // if($currentCategory->url_title == "tips-toren-air") $currentCategory->url_title = "tips";
                                             // if($currentCategory->url_title == "tips-atap-upvc") $currentCategory->url_title = "tips";
                                                 if ($article->image) {
-                                                    $findImage = DB::table('uploads')->where('id', $article->image)->first();
-                                                    echo "<img src=". asset('storage/files/1/' . rawurlencode(substr($findImage->path, strrpos($findImage->path, '/') + 1))) ." alt='".$article->title."'  />";
+                                                    echo "<img src='". get_uploaded_file_name($article->image) ."' alt='".$article->title."'  />";
                                                 } else {
                                                     echo "<img src='{{asset('public/main/img/c6.jpg')}}' />";
                                                 }

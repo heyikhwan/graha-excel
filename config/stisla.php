@@ -95,6 +95,13 @@ return [
                     ]
                 ],
                 [
+                    'menu_name' => 'Banner',
+                    'route_name' => 'banner.index',
+                    'icon' => 'fas fa-image',
+                    'permission' => 'Banner',
+                    'is_active_if_url_includes' => 'banner*'
+                ],
+                [
                     'menu_name' => 'Users',
                     'route_name' => null,
                     'icon' => 'fas fa-users',
@@ -639,6 +646,26 @@ return [
             'name' => 'Products Delete',
             'roles' => ['superadmin', 'admin', 'user'],
             'group' => 'Products'
+        ],
+        [
+            'name' => 'Banner',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Banner'
+        ],
+        [
+            'name' => 'Banner Create',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Banner'
+        ],
+        [
+            'name' => 'Banner Update',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Banner'
+        ],
+        [
+            'name' => 'Banner Delete',
+            'roles' => ['superadmin', 'admin', 'user'],
+            'group' => 'Banner'
         ],
     ],
 

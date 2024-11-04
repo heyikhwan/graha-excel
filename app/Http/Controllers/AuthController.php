@@ -115,16 +115,12 @@ class AuthController extends StislaController
      */
     public function loginForm()
     {
-        $isGoogleCaptcha = SettingRepository::isGoogleCaptchaLogin();
         if (TEMPLATE === STISLA) {
             $template = $this->settingRepository->stislaLoginTemplate();
-            $data     = [
-                'isGoogleCaptcha' => $isGoogleCaptcha,
-            ];
             if ($template === 'tampilan 2' || Route::is('login2')) {
-                return view('stisla.auth.login.index', $data);
+                return view('stisla.auth.login.index');
             } else {
-                return view('stisla.auth.login.index2', $data);
+                return view('stisla.auth.login.index2');
             }
         }
         return view('stisla.auth.login.index');
