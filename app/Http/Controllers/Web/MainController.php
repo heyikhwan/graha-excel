@@ -262,11 +262,9 @@ class MainController extends Controller
     
     public function sitemap(Request $request)
     {
-        header("Content-Type: text/xml");
-        $data['categories'] = Category::get();
-        $data['products'] = Product::get();
-        $data['articles'] = News::orderBy('updated_at','asc')->get();
-        return response()->view('sitemap', $data)->header('Content-Type', 'application/xml');
+        return response()->file(storage_path('app/public/sitemap.xml'), [
+            'Content-Type' => 'application/xml'
+        ]);
     }
     
     public function showImage(Request $request)
