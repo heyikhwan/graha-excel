@@ -10,6 +10,7 @@ use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Setting;
 use App\Models\Upload;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -200,13 +201,17 @@ class MainController extends Controller
     public function articlesCategory (Request $request)
     {
         $data['currentCategory'] = $category = Newscategory::where('url_title', $request->categoryUrlTitle)->first();
+        $_num_of_post_per_page = Setting::firstOrCreate(
+            ['key' => 'num_of_post_per_page'],
+            ['value' => '15']
+        )->value;
         if($category->id == 3)
         {
-            $data['articles'] = News::with(["article_category"])->whereIn('category',[3,4,5])->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate(15);
+            $data['articles'] = News::with(["article_category"])->whereIn('category',[3,4,5])->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate($_num_of_post_per_page);
         }
         else
         {
-            $data['articles'] = News::with(["article_category"])->where('category',$category->id)->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate(15);
+            $data['articles'] = News::with(["article_category"])->where('category',$category->id)->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate($_num_of_post_per_page);
         }
         
         if($category->page_title == "") $page_title = $category->title;

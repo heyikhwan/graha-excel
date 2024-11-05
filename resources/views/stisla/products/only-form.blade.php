@@ -80,7 +80,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'page_title', 'label' => 'Page Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'page_title', 'label' => 'Page Title', 'value' => isset($d) ? $d['page_title'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
@@ -92,13 +92,13 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'url_title', 'label' => 'Url Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'url_title', 'label' => 'Url Title', 'value' => isset($d) ? $d['url_title'] : ''])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'ordering', 'label' => 'Ordering'])
+    @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'ordering', 'label' => 'Ordering', 'value' => isset($d) ? $d['ordering'] : ''])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'sidebar_ordering', 'label' => 'Sidebar Ordering'])
+    @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'sidebar_ordering', 'label' => 'Sidebar Ordering', 'value' => isset($d) ? $d['sidebar_ordering'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -115,7 +115,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'katalog_label', 'label' => 'Katalog Label'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'katalog_label', 'label' => 'Katalog Label', 'value' => isset($d) ? $d['katalog_label'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -132,10 +132,10 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'below_banner_tagline', 'label' => 'Below Banner Tagline'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'below_banner_tagline', 'label' => 'Below Banner Tagline', 'value' => isset($d) ? $d['below_banner_tagline'] : ''])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'below_banner_title', 'label' => 'Below Banner Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'below_banner_title', 'label' => 'Below Banner Title', 'value' => isset($d) ? $d['below_banner_title'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
@@ -160,7 +160,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'banner_bawah_link', 'label' => 'Banner Bawah Link'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'banner_bawah_link', 'label' => 'Banner Bawah Link', 'value' => isset($d) ? $d['banner_bawah_link'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -170,7 +170,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_1', 'label' => 'Keunggulan Text 1'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_1', 'label' => 'Keunggulan Text 1', 'value' => isset($d) ? $d['keunggulan_text_1'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -187,7 +187,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_2', 'label' => 'Keunggulan Text 2'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_2', 'label' => 'Keunggulan Text 2', 'value' => isset($d) ? $d['keunggulan_text_2'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -204,7 +204,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_3', 'label' => 'Keunggulan Text 3'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_3', 'label' => 'Keunggulan Text 3', 'value' => isset($d) ? $d['keunggulan_text_3'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -221,7 +221,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_4', 'label' => 'Keunggulan Text 4'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'keunggulan_text_4', 'label' => 'Keunggulan Text 4', 'value' => isset($d) ? $d['keunggulan_text_4'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [

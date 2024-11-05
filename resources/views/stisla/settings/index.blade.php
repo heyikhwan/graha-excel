@@ -443,6 +443,9 @@
                 @method('put')
                 @csrf
                 <div class="row clearfix">
+                  <div class="col-12">
+                    <h6>Account</h6>
+                  </div>
                   <div class="col-sm-6">
                     @include('stisla.includes.forms.selects.select', [
                         'id' => 'is_login_must_verified',
@@ -474,6 +477,19 @@
                   </div>
 
                   <div class="col-12">
+                    <hr>
+                    <h6>Others</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    @include('stisla.includes.forms.inputs.input', [
+                        'id' => 'num_of_post_per_page',
+                        'label' => __('Number of Post per Page'),
+                        'value' => $_num_of_post_per_page,
+                        'required' => false,
+                    ])
+                  </div>
+
+                  {{-- <div class="col-12">
                     <hr>
                     <h6>Aktivasi Google Captcha</h6>
                   </div>
@@ -528,7 +544,7 @@
                         'options' => ['0' => 'Tidak', '1' => 'Ya'],
                         'required' => true,
                     ])
-                  </div>
+                  </div> --}}
 
                   <div class="col-md-12">
                     @include('stisla.includes.forms.buttons.btn-save')

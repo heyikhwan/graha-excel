@@ -523,6 +523,19 @@ class SettingRepository
     }
 
     /**
+     * num of post per page
+     *
+     * 
+     */
+    public static function numOfPostPerPage()
+    {
+        return Setting::firstOrCreate(
+            ['key' => 'num_of_post_per_page'],
+            ['value' => '15']
+        )->value;
+    }
+
+    /**
      * isLoginWithGoogle
      *
      * @return bool

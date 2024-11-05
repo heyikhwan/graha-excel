@@ -52,10 +52,11 @@ class SettingRequest extends FormRequest
                     'is_login_must_verified'            => 'required|numeric',
                     'is_active_register_page'           => 'required|numeric',
                     'is_forgot_password_send_to_email'  => 'required|numeric',
-                    'is_google_captcha_login'           => 'required|numeric',
-                    'is_google_captcha_register'        => 'required|numeric',
-                    'is_google_captcha_forgot_password' => 'required|numeric',
-                    'is_google_captcha_reset_password'  => 'required|numeric',
+                    // 'is_google_captcha_login'           => 'required|numeric',
+                    // 'is_google_captcha_register'        => 'required|numeric',
+                    // 'is_google_captcha_forgot_password' => 'required|numeric',
+                    // 'is_google_captcha_reset_password'  => 'required|numeric',
+                    'num_of_post_per_page'              => 'required|numeric',
                 ];
             } else if ($this->type === 'email') {
                 return [
