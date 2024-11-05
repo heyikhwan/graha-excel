@@ -49,6 +49,17 @@
         .product-image img {
             object-position: 50% 15%;
         }
+        h2.mm-text {
+            line-height: 1.5;
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+        .content-img p {
+            font-size: 13px;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
         @media (max-width: 768px) {
             .header-fullwidth {
                 display:none;
@@ -113,39 +124,39 @@
                                 <ul class="mainmenu mainmenu--centered">
                                     <li class="mainmenu__item">
                                         <a href="{{url('')}}" class="mainmenu__link">
-                                            <span class="mm-text">Home</span>
+                                            <h2 class="mm-text">Home</h2>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/products')}}" class="mainmenu__link">
-                                            <span class="mm-text">Produk</span>
+                                            <h2 class="mm-text">Produk</h2>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}" class="mainmenu__link">
-                                            <span class="mm-text">Tentang Kami</span>
+                                            <h2 class="mm-text">Tentang Kami</h2>
                                         </a>
                                     </li>
                                     
                                     
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}#contact-us" class="mainmenu__link">
-                                            <span class="mm-text">Hubungi Kami</span>
+                                            <h2 class="mm-text">Hubungi Kami</h2>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
-                                        <a href="{{url('/page/kalkulator-biaya-atap')}}#contact-us" class="mainmenu__link">
-                                            <span class="mm-text">Kalkulator Biaya Atap</span>
+                                        <a href="{{url('/page/kalkulator-biaya-atap')}}" class="mainmenu__link">
+                                            <h2 class="mm-text">Kalkulator Biaya Atap</h2>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}#career" class="mainmenu__link">
-                                            <span class="mm-text">Karir</span>
+                                            <h2 class="mm-text">Karir</h2>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/articles')}}" class="mainmenu__link">
-                                            <span class="mm-text">Blog</span>
+                                            <h2 class="mm-text">Blog</h2>
                                         </a>
                                     </li>
                                 </ul>
@@ -198,22 +209,25 @@
                             <button class="dl-trigger">Open Menu</button>
                             <ul class="dl-menu">
                                 <li>
-                                    <a href="{{url('')}}">Home</a>
+                                    <a href="{{url('')}}"><h2>Home</h2></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/products')}}">Products</a>
+                                    <a href="{{url('/products')}}"><h2>Produk</h2></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}">Tentang Kami</a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><h2>Tentang Kami</h2></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}#contact-us">Hubungi Kami</a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><h2>Hubungi Kami</h2></a>
                                 </li>
                                  <li>
-                                    <a href="{{url('/page/kalkulator-biaya-atap')}}">Kalkulator Biaya Atap</a>
+                                    <a href="{{url('/page/kalkulator-biaya-atap')}}"><h2>Kalkulator Biaya Atap</h2></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}#career">Karir</a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}#career"><h2>Karir</h2></a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/articles')}}"><h2>Blog</h2></a>
                                 </li>
                             </ul>
                         </div>
@@ -234,7 +248,7 @@
                             <div class="content-img">
                                 <a href="{{url('/page/kenapa-memilih-excel')}}">
                                     <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
-                                    <h3>Kenapa Memilih Excel</h3>
+                                    <p>Kenapa Memilih Excel</p>
                                 </a>
                             </div>
                         </div>
@@ -242,7 +256,7 @@
                             <div class="content-img">
                                 <a href="{{url('/page/teknologi-tangki-air')}}">
                                     <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
-                                    <h3>Teknologi Tangki Air</h3>
+                                    <p>Teknologi Tangki Air</p>
                                 </a>
                             </div>
                         </div>
@@ -250,7 +264,7 @@
                             <div class="content-img">
                                 <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
                                     <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
-                                    <h3>Tips Mengukur Tangki Air</h3>
+                                    <p>Tips Mengukur Tangki Air</p>
                                 </a>
                             </div>
                         </div>
@@ -258,7 +272,7 @@
                             <div class="content-img">
                                 <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
                                     <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
-                                    <h3>Harga dan Kualitas Tangki Air</h3>
+                                    <p>Harga dan Kualitas Tangki Air</p>
                                 </a>
                             </div>
                         </div>
@@ -271,7 +285,7 @@
                         <div class="row">
                             <div class="col-md-3 mb-sm--30">
                                 <div class="footer-widget">
-                                    <h3 class="widget-title">PT. GRAHAEXCEL PLASTINDO</h3>
+                                    <p class="widget-title">PT. GRAHAEXCEL PLASTINDO</p>
                                     <ul class="widget-menu">
                                         <li><a href="{{url('/page/kenapa-memilih-excel')}}">Tentang Kami</a></li>
                                         <li><a href="{{url('/page/kenapa-memilih-excel')}}#awards">Award & Sertifikasi</a></li>
@@ -281,7 +295,7 @@
                             </div>
                             <div class="col-md-3 mb-sm--30">
                                 <div class="footer-widget">
-                                    <h3 class="widget-title">Informasi</h3>
+                                    <p class="widget-title">Informasi</p>
                                     <ul class="widget-menu">
                                         <li><a href="{{url('/page/waspada-penipuan')}}">Waspada Penipuan</a></li>
                                         <li><a href="{{url('/articles')}}">News & Announcement</a></li>
@@ -292,7 +306,7 @@
                             </div>
                             <div class="col-md-3 mb-sm--30">
                                 <div class="footer-widget">
-                                    <h3 class="widget-title">Mengenal Lebih Dalam Produk Excel</h3>
+                                    <p class="widget-title">Mengenal Lebih Dalam Produk Excel</p>
                                     <ul class="widget-menu">
                                         <li><a href="{{url('/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya')}}">Atap uPVC dan Keuntungannya</a></li>
                                         <!--<li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-excel-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>-->
@@ -304,7 +318,7 @@
                             </div>
                             <div class="col-md-3 mb-sm--30">
                                 <div class="footer-widget">
-                                    <h3 class="widget-title">Connect</h3>
+                                    <p class="widget-title">Connect</p>
                                     <ul class="widget-menu">
                                         <li><a href="{{url('/page/kenapa-memilih-excel')}}#contact-us">Hubungi</a></li>
                                         <li><a href="{{url('/page/kenapa-memilih-excel')}}#career">Karir</a></li>

@@ -31,6 +31,17 @@
         background-image: none;
         border-color: #343a40;
     }
+    .home-info h2 {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    .home-info h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
 </style>
 @endsection
 
@@ -55,7 +66,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 m-auto p-5">
-                    <h1 style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Pionir Tangki Air Berkualitas Sejak 1969</h1>
+                    <h2 style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Pionir Tangki Air Berkualitas Sejak 1969</h2>
                     <p class="justifys">Sejak 1969, GRAHAEXCEL PLASTINDO menjadi pelopor industri plastik di Indonesia dengan inovasi Triple Construction System untuk tangki air. Kami terus berkomitmen menghadirkan produk penampungan air dan kimia berkualitas, didukung oleh tim Research & Development serta teknologi terbaru. Produk EXCEL diproduksi dengan standar SNI, JIS, dan FDA, melalui pengawasan ketat untuk menjaga kualitas.</p>
                     <div class="row">
                         <div class="col-6 p-3">
@@ -88,6 +99,7 @@
     </section>
     <section class="home-product">
         <div class="container">
+            <h2 class="text-center" style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Produk Tangki Air</h2>
             <div class="row">
                 
                 <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
@@ -259,7 +271,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h3>News &amp; Events</h3>
+                    <h2>News &amp; Events</h2>
                     <p>Memproduksi merek-merek terbaik di industri bahan bangunan. Kami telah menghadirkan lebih dari 20 brand yang turut andil dalam membangun Indonesia. 
                     Jutaan manusia telah menggunakan produk kami setiap harinya. Berikut adalah reviu tentang beberapa produk GRAHAEXCEL serta editorial tentang produk kami.</p>
                 </div>
@@ -275,9 +287,9 @@
                                                     // echo "<img src='{{asset('assets/web/img/c6.jpg')}}' class='img-square-2' />";
                                                 }
                                             ?>
-                                <h4 class="post-title">
+                                <h3 class="post-title">
                                             <a href="{{url('/articles') .'/'. $newscategory->url_title}}">{{$newscategory->title}}</a>
-                                        </h4>
+                                        </h3>
                                 <p class="m-10">{{substr(strip_tags($newscategory->description), 0, 60)}}..</p>
                             </div>
                         </div>
@@ -291,7 +303,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h3><a href='https://www.grahaexcel.com/articles/tips'>Tips Toren Air dan Atap uPVC</a></h3>
+                    <h2><a href='https://www.grahaexcel.com/articles/tips'>Tips Toren Air dan Atap uPVC</a></h2>
                     <p>Tips, cara pasang dan cara pemeliharaan produk-produk Excel.</p>
                 </div>
                 <div class="col-md-7">
@@ -308,9 +320,9 @@
                                                     // echo "<img src='{{asset('assets/web/img/c6.jpg')}}' class='img-square-2' />";
                                                 }
                                             ?>
-                                <h4 class="post-title">
+                                <h3 class="post-title">
                                             <a href="{{url('/articles') .'/'. $currentCategory->url_title.'/'.$article->url_title}}">{{$article->title}}</a>
-                                        </h4>
+                                        </h3>
                                 <p class="m-10">{{substr(strip_tags($article->description), 0, 60)}}..</p>
                             </div>
                         </div>

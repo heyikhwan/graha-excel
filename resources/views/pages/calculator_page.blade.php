@@ -56,7 +56,7 @@
     /* .calculator-left .content { position:absolute;width:62%;left:36%;top:0;z-index:3; margin-top:50px; } */
     .calculator-left .content { left: 6%;top: 0;z-index: 3; margin-top: 7%; }
     .calculator-left .options { margin-bottom: 10px; font-size: 14px; line-height: 18px; }
-    .calculator-left h6 { margin-top: 5%; margin-bottom:6px; }
+    .calculator-left .title { margin-top: 5%; margin-bottom:6px; }
     .not-small { display: block; }
     .small-only { display: none; }
     .form-box-result-calc .col-11 { margin-bottom: 20px; }
@@ -150,7 +150,7 @@
             line-height: 3rem;
         }
 
-        .calculator-left h6 {
+        .calculator-left .title {
             margin-top: 2%;
         }
 
@@ -236,7 +236,7 @@
      }
      @media (max-width: 400px) {
          .content-bottom { margin-top: 80px; }
-         .calculator-left h6 {
+         .calculator-left .title {
             margin-top: 1%;
             margin-bottom: 1px;
         }
@@ -274,13 +274,14 @@
                 
                 <div class="row bg-head">
                     <div class="col-12">
-                        <h5 class="text-center my-5" style="font-size: 32px">KALKULATOR BIAYA ATAP</h5>
+                        <h1 class="text-center my-5" style="font-size: 32px">KALKULATOR BIAYA ATAP</h1>
                         <img src="{{asset('assets/web/img/banner-calculator.png')}}" alt="Kalkulator Biaya Atap" style="width:100%;">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 col-lg-12">
+                        <h2 class="text-center my-5" style="font-size: 24px">PERHITUNGAN BIAYA ATAP</h2>
                         <div class="calculator-left">
                             <div class="background">
                                 <img src="<?php echo url(asset('assets/web/img/calc-bg-2.png')); ?>" style="width:100%;" class="not-small" />
@@ -288,8 +289,8 @@
                             </div>
                             <div class="row" style="position: absolute;top: 0;width: 100%;">
                                 <div class="col-lg-6 content">
-                                    <h5>PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></h5>
-                                    <h6><b>PILIH PRODUK ATAP</b></h6>
+                                    <p style="font-size: 20px;margin-bottom: 10px;">PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></p>
+                                    <p class="title" style="font-size: 11px;"><b>PILIH PRODUK ATAP</b></p>
                                     <div class="row list_opsi_atap">
                                         <div class="col-12">
                                             <div class="select-icon">
@@ -306,11 +307,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h6><b>PILIH WARNA ATAP</b></h6>
+                                    <p class="title" style="font-size: 11px;"><b>PILIH WARNA ATAP</b></p>
                                     <div id="warna_atap" class="options warna_atap"></div>
-                                    <h6 class="h6_aksesoris"><b>AKSESORIS</b></h6>
+                                    <p class="title h6_aksesoris" style="font-size: 11px;"><b>AKSESORIS</b></p>
                                     <div id="aksesoris" class="options aksesoris"></div>
-                                    <h6><b>UKURAN ATAP</b></h6>
+                                    <p class="title" style="font-size: 11px;"><b>UKURAN ATAP</b></p>
                                     <div class="col-lg-9 row user-input">
                                         <div class="col-6 p-0">
                                             <input type="number" class="panjang" id="panjang" style="background: #efefef; border: 1px solid #efefef;height: 35px;width: 190px;"></input>
@@ -325,7 +326,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 content-bottom">
-                                    <h5 class="text-light not-small" style="font-size: 20px"><b>PREDIKSI KEBUTUHAN</b></h5>
+                                    <p class="text-light not-small" style="font-size: 20px"><b>PREDIKSI KEBUTUHAN</b></p>
                                     <div class="form-box-result-calc">
                                         <div class="row">
                                             <div class="col-11">
@@ -357,7 +358,7 @@
                 
                 <div class="row mt-4">
                     <div class="col-12 col-lg-6">
-                        <h4 style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px;"><b>Catatan :</b></h4>
+                        <h3 style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px;"><b>Catatan :</b></h3>
                         <ul class="ml-5 dashed">
                             <li>Kalkulator ini untuk atap standar</li>
                             <li>Warna "others" bisa dipesan dengan batas minimal kuantitas</li>
