@@ -40,7 +40,7 @@
             <div class="carousel-inner">
                 @foreach($banners as $key => $banner)
                 <div class="carousel-item active">
-                    <a href="{{ $banner?->link ?? '#' }}">
+                    <a href="{{ $banner?->link ?? '#' }}" class="w-100">
                         <img class="d-block w-100" src="{{ $banner?->image ? get_uploaded_file_name($banner->image) : '' }}" alt="{{ $banner->title }}"  />
                     </a>
                     <div class="carousel-caption">

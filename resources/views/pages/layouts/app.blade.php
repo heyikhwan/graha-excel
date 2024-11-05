@@ -225,118 +225,119 @@
         <div id="content" class="main-content-wrapper">
             @yield('content')
         </div>
-
-        <div class="default-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="content-img">
-                            <a href="{{url('/page/kenapa-memilih-excel')}}">
-                                <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
-                                <h3>Kenapa Memilih Excel</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="content-img">
-                            <a href="{{url('/page/teknologi-tangki-air')}}">
-                                <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
-                                <h3>Teknologi Tangki Air</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="content-img">
-                            <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
-                                <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
-                                <h3>Tips Mengukur Tangki Air</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="content-img">
-                            <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
-                                <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
-                                <h3>Harga dan Kualitas Tangki Air</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         
-        <footer class="footer footer-1 bg--dark pt--40">
-            <div class="footer-top pb--40 pb-md--30">
+        <footer>
+            <div class="default-content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 mb-sm--30">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">PT. GRAHAEXCEL PLASTINDO</h3>
-                                <ul class="widget-menu">
-                                    <li><a href="{{url('/page/kenapa-memilih-excel')}}">Tentang Kami</a></li>
-                                    <li><a href="{{url('/page/kenapa-memilih-excel')}}#awards">Award & Sertifikasi</a></li>
-                                    <li><a href="{{url('/page/kenapa-memilih-excel')}}#visi">Visi & Misi</a></li>
-                                </ul>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/kenapa-memilih-excel')}}">
+                                    <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
+                                    <h3>Kenapa Memilih Excel</h3>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-md-3 mb-sm--30">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Informasi</h3>
-                                <ul class="widget-menu">
-                                    <li><a href="{{url('/page/waspada-penipuan')}}">Waspada Penipuan</a></li>
-                                    <li><a href="{{url('/articles')}}">News & Announcement</a></li>
-                                    <li><a href="{{url('/articles/tips')}}">Artikel & Tips</a></li>
-                                    <li><a href="{{url('/page/harga-dan-kualitas-tangki-air')}}#faq">FAQ</a></li>
-                                </ul>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/teknologi-tangki-air')}}">
+                                    <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
+                                    <h3>Teknologi Tangki Air</h3>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-md-3 mb-sm--30">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Mengenal Lebih Dalam Produk Excel</h3>
-                                <ul class="widget-menu">
-                                    <li><a href="{{url('/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya')}}">Atap uPVC dan Keuntungannya</a></li>
-                                    <!--<li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-excel-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>-->
-                                    <li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>
-                                    <li><a href="{{url('/articles/tips-atap-upvc')}}">Tips Mengenai Atap uPVC</a></li>
-                                    <li><a href="{{url('/articles/tips-toren-air')}}">Tips Tentang Toren Air</a></li>
-                                </ul>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
+                                    <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
+                                    <h3>Tips Mengukur Tangki Air</h3>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-md-3 mb-sm--30">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Connect</h3>
-                                <ul class="widget-menu">
-                                    <li><a href="{{url('/page/kenapa-memilih-excel')}}#contact-us">Hubungi</a></li>
-                                    <li><a href="{{url('/page/kenapa-memilih-excel')}}#career">Karir</a></li>
-                                </ul>
-                                <br/>
-                                <ul class="social">
-                                    <li class="social__item">
-                                        <a href="https://www.facebook.com/grahaexcelid" target="_blank" rel="nofollow" class="social__link color--white">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="https://www.instagram.com/grahaexcel" target="_blank" rel="nofollow" class="social__link color--white">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li class="social__item">
-                                        <a href="https://www.youtube.com/c/TangkiAirTangkiKimiaEXCEL" target="_blank" rel="nofollow" class="social__link color--white">
-                                            <i class="fa fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
+                                    <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
+                                    <h3>Harga dan Kualitas Tangki Air</h3>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom bg--white">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <p class="copyright-text">© PT. Grahaexcel Plastindo 2020. All Right Reserved</p>
+            <div class="footer footer-1 bg--dark pt--40">
+                <div class="footer-top pb--40 pb-md--30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 mb-sm--30">
+                                <div class="footer-widget">
+                                    <h3 class="widget-title">PT. GRAHAEXCEL PLASTINDO</h3>
+                                    <ul class="widget-menu">
+                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}">Tentang Kami</a></li>
+                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#awards">Award & Sertifikasi</a></li>
+                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#visi">Visi & Misi</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-sm--30">
+                                <div class="footer-widget">
+                                    <h3 class="widget-title">Informasi</h3>
+                                    <ul class="widget-menu">
+                                        <li><a href="{{url('/page/waspada-penipuan')}}">Waspada Penipuan</a></li>
+                                        <li><a href="{{url('/articles')}}">News & Announcement</a></li>
+                                        <li><a href="{{url('/articles/tips')}}">Artikel & Tips</a></li>
+                                        <li><a href="{{url('/page/harga-dan-kualitas-tangki-air')}}#faq">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-sm--30">
+                                <div class="footer-widget">
+                                    <h3 class="widget-title">Mengenal Lebih Dalam Produk Excel</h3>
+                                    <ul class="widget-menu">
+                                        <li><a href="{{url('/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya')}}">Atap uPVC dan Keuntungannya</a></li>
+                                        <!--<li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-excel-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>-->
+                                        <li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>
+                                        <li><a href="{{url('/articles/tips-atap-upvc')}}">Tips Mengenai Atap uPVC</a></li>
+                                        <li><a href="{{url('/articles/tips-toren-air')}}">Tips Tentang Toren Air</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-sm--30">
+                                <div class="footer-widget">
+                                    <h3 class="widget-title">Connect</h3>
+                                    <ul class="widget-menu">
+                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#contact-us">Hubungi</a></li>
+                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#career">Karir</a></li>
+                                    </ul>
+                                    <br/>
+                                    <ul class="social">
+                                        <li class="social__item">
+                                            <a href="https://www.facebook.com/grahaexcelid" target="_blank" rel="nofollow" class="social__link color--white">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a href="https://www.instagram.com/grahaexcel" target="_blank" rel="nofollow" class="social__link color--white">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li class="social__item">
+                                            <a href="https://www.youtube.com/c/TangkiAirTangkiKimiaEXCEL" target="_blank" rel="nofollow" class="social__link color--white">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom bg--white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <p class="copyright-text">© PT. Grahaexcel Plastindo 2020. All Right Reserved</p>
+                            </div>
                         </div>
                     </div>
                 </div>

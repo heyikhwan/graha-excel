@@ -2,7 +2,12 @@
 @section('title', 'PROJECT NAME')
 
 @section('style')
-<style>iframe[src*="youtube.com"]{width: 100% !important;height: auto!important;aspect-ratio:16/9 !important;}</style>
+<style>iframe[src*="youtube.com"]{width: 100% !important;height: auto!important;aspect-ratio:16/9 !important;}
+    .post-content a{
+        font-weight: 700;
+        color: blue;
+    }
+</style>
 <!-- script -->
 @endsection
 
