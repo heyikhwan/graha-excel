@@ -46,9 +46,35 @@
         "name": "Grahaexcel",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.grahaexcel.com/public/main/img/logo.png"
+          "url": "https://www.grahaexcel.com/assets/images/logo.png"
         }
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+        "@type": "ListItem",
+        "position": "1",
+        "name": "Home",
+        "item": "https://www.grahaexcel.com/"
+        },
+        {
+        "@type": "ListItem",
+        "position": "2",
+        "name": "'.$getNews->news_category->title.'",
+        "item": "https://www.grahaexcel.com/articles/'.$getNews->news_category->url_title.'"
+        },
+        {
+        "@type": "ListItem",
+        "position": "3",
+        "name": "'.$getNews->title.'",
+        "item": "'.url($_SERVER['REQUEST_URI']).'"
+        }
+    ]
     }
     </script>';
     ?>

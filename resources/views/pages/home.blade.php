@@ -335,5 +335,31 @@
 @endsection
 
 @section('script')
-<!-- script -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Organization",
+        "url": "https://www.grahaexcel.com/",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.grahaexcel.com/assets/images/logo.png"
+        },
+        "name": "EXCEL"
+    }
+</script> 
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "name": "GRAHA EXCEL",
+    "url": "https://www.grahaexcel.com/",
+    "sameAs": "https://www.grahaexcel.com/",
+    "description": "Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.grahaexcel.com/assets/images/logo.png"
+    },
+    "identifier": "Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC"
+    }
+</script>
 @endsection

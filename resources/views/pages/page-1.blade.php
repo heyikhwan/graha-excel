@@ -203,5 +203,36 @@
 @endsection
 
 @section('script')
-<!-- script -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "AboutPage",
+      "about": {
+        "@type": "Thing",
+        "sameAs": "https://www.grahaexcel.com/",
+        "url": "https://www.grahaexcel.com/page/kenapa-memilih-excel",
+        "image": "https://www.grahaexcel.com/assets/images/logo.png",
+        "additionalType": "https://www.grahaexcel.com/page/kenapa-memilih-excel",
+        "name": "TENTANG GRAHAEXCEL",
+        "identifier": "TENTANG GRAHAEXCEL\n\nDimulai dari tahun 1969, sebagai pelopor dan inovator dalam industri plastik pertama di Indonesia yang menerapkan Triple Construction System pada produk jual tangki air/tandon air, GRAHAEXCEL PLASTINDO selalu mempersembahkan produk-produk penampungan air/ kimia terbaik bagi masyarakat Indonesia.\n\nKomitmen kami terhadap konsumen terus kami kembangkan dengan memperkuat team Research & Development serta mengaplikasikan teknologi terbaru. Produk EXCEL diproduksi dengan teknologi tinggi oleh tenaga profesional yang telah melewati Quality Control yang ketat sesuai dengan standar SNI (Standard Nasional Indonesia), JIS (Japan Industrial Standard) dan Food and Drug Association (FDA-USA).\n\nKonsep utama GRAHAEXCEL adalah menjadi perusahaan dengan fondasi yang kokoh, profesional serta energetik. “Kokoh”, perusahaan yang akan selalu memberikan produk dan layanan yang memuaskan konsumen. “Profesional” – memberikan kontribusi untuk kesehatan dan pertumbuhan masyarakat serta lingkungan dengan kualitas produk yang aman bagi kesehatan. “Energetik” – mempunyai energi ingin selalu berkembang menjadi lebih baik.",
+        "disambiguatingDescription": ""
+      }
+    }
+</script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "ContactPage",
+      "about": {
+        "@type": "Thing",
+        "sameAs": "https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us",
+        "url": "https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us",
+        "additionalType": "https://www.grahaexcel.com/",
+        "name": "KONTAK",
+        "disambiguatingDescription": "Customer Care\n+62 21 – 6393394 (hotline).\n+62 21 – 6393396 (fax).\ninfo@grahaexcel.com\nMonday – Friday 8 AM – 4.30 PM (WIB), Saturday 8 AM – 2 PM (WIB).",
+        "description": "KONTAK\n\nKepada seluruh pelanggan, waspadailah penipuan! Lakukan transaksi pembayaran melalui rekening perusahaan yang resmi PT. GRAHAEXCEL PLASTINDO\n\nxxx-xxx-2288 Bank BCA/ PT Grahaexcel Plastindo\n\nTeliti sebelum membeli, hubungi customer care kami untuk memastikan barang asli\n\n \n\nUntuk layanan konsumen, pertanyaan mengenai produk, custom orders, distributor, dan lainnya, hubungi kami di :\n\nWebsite Resmi\nwww.grahaexcel.com\nwww.skydeckroof.com\n\nKampung Periuk RT. 001/ RW. 04 Desa Periuk, Tangerang 15131, Indonesia\n\nGraha Excel Youtube\nDicari Agen & Distributor di seluruh Indonesia!!\n\nCustomer Care\n+62 21 – 6393394 (hotline).\n+62 21 – 6393396 (fax).\ninfo@grahaexcel.com\nMonday – Friday 8 AM – 4.30 PM (WIB), Saturday 8 AM – 2 PM (WIB).",
+        "alternateName": "HUBUNGI KAMI"
+      }
+    }
+</script>
 @endsection
