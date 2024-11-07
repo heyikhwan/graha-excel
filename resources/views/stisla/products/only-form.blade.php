@@ -50,11 +50,35 @@
     @endisset
     <div class="form-group">
       <label for="color">Color</label>
-      <select class="form-control select2" name="color[]" multiple>
+      <select class="form-control select2" name="color[]" multiple id="colorSelect">
         @foreach ($colorOptions as $value => $text)
           <option value="{{ $value }}" @isset($d) {{ in_array($value, $selectedColors ?? []) ? 'selected' : '' }} @endisset>{{ $text }}</option>
         @endforeach
       </select>
+    </div>
+    <div id="imageInputs">
+      @isset($d)
+        @if($d->image_color)
+          @foreach ($d->image_color as $key => $img_color)
+            <div class="form-group" data-color="{{ $img_color->color_id }}">
+              <label for="image_color_{{ $img_color->color_id }}">Upload Image for {{ $img_color->color->name }}</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <a data-input="image_color_{{ $img_color->color_id }}" data-preview="holder_{{ $img_color->color_id }}" class="btn btn-primary lfm" target="popup" style="color: white; padding: .5rem .8rem!important;">
+                    <i class="fa fa-image"></i> Choose
+                  </a>
+                </span>
+                <input id="image_color_{{ $img_color->color_id }}" class="form-control" type="text" name="image_color[{{ $key }}][{{ $img_color->color_id }}]" value="{{ get_uploaded_file_name($img_color->image) }}" readonly>
+              </div>
+              <div id="holder_{{ $img_color->color_id }}" style="margin-top:15px;max-height:100px;">
+                @php
+                    echo "<img src='". get_uploaded_file_name($img_color->image) ."' style='height: 5rem;' />";
+                @endphp
+              </div>
+            </div>
+          @endforeach
+        @endif
+      @endisset
     </div>
   </div>
   <div class="col-md-12">
@@ -65,11 +89,35 @@
     @endisset
     <div class="form-group">
       <label for="size">Size</label>
-      <select class="form-control select2" name="size[]" multiple>
+      <select class="form-control select2" name="size[]" multiple id="sizeSelect">
         @foreach ($sizeOptions as $value => $text)
           <option value="{{ $value }}" @isset($d) {{ in_array($value, $selectedSizes ?? []) ? 'selected' : '' }} @endisset>{{ $text }}</option>
         @endforeach
       </select>
+    </div>
+    <div id="imageSizeInputs">
+      @isset($d)
+        @if($d->image_size)
+          @foreach ($d->image_size as $key => $img_size)
+            <div class="form-group" data-size="{{ $img_size->size_id }}">
+              <label for="image_size_{{ $img_size->size_id }}">Upload Image for {{ $img_size->size->name }}</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <a data-input="image_size_{{ $img_size->size_id }}" data-preview="holder_size_{{ $img_size->size_id }}" class="btn btn-primary lfm" target="popup" style="color: white; padding: .5rem .8rem!important;">
+                    <i class="fa fa-image"></i> Choose
+                  </a>
+                </span>
+                <input id="image_size_{{ $img_size->size_id }}" class="form-control" type="text" name="image_size[{{ $key }}][{{ $img_size->size_id }}]" value="{{ get_uploaded_file_name($img_size->image) }}" readonly>
+              </div>
+              <div id="holder_size_{{ $img_size->size_id }}" style="margin-top:15px;max-height:100px;">
+                @php
+                    echo "<img src='". get_uploaded_file_name($img_size->image) ."' style='height: 5rem;' />";
+                @endphp
+              </div>
+            </div>
+          @endforeach
+        @endif
+      @endisset
     </div>
   </div>
   <div class="col-md-12">
@@ -276,4 +324,130 @@
       lfm: LFMButton
     }
   })
+
+  $(document).ready(function () {
+    // Simpan data gambar yang sudah diunggah
+    var uploadedImages = {};
+
+    $('#colorSelect').on('change', function () {
+      const selectedColors = $(this).val(); // Dapatkan warna yang dipilih
+      const imageInputsContainer = $('#imageInputs');
+
+      // Simpan data gambar yang sudah diunggah
+      imageInputsContainer.children().each(function () {
+        const color = $(this).data('color');
+        const imageUrl = $(this).find('input').val();
+        if (imageUrl) {
+          uploadedImages[color] = imageUrl;
+        }
+      });
+
+      // Hapus input gambar yang tidak sesuai pilihan
+      imageInputsContainer.children().each(function () {
+        const color = $(this).data('color');
+        if (!selectedColors.includes(color)) {
+          $(this).remove(); // Hapus input jika warna tidak dipilih
+        }
+      });
+
+      // Tambah input gambar untuk setiap warna yang dipilih
+      $.each(selectedColors, function (index, colorValue) {
+        // Ambil teks warna dari opsi select
+        const colorText = $('#colorSelect option[value="' + colorValue + '"]').text();
+
+        // Cek apakah input gambar untuk warna ini sudah ada
+        if (imageInputsContainer.find(`[data-color="${colorValue}"]`).length === 0) {
+          const colorInputDiv = $(`
+            <div class="form-group" data-color="${colorValue}">
+              <label for="image_color_${colorValue}">Upload Image for ${colorText}</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <a data-input="image_color_${colorValue}" data-preview="holder_${colorValue}" class="btn btn-primary lfm" target="popup" style="color: white; padding: .5rem .8rem!important;">
+                    <i class="fa fa-image"></i> Choose
+                  </a>
+                </span>
+                <input id="image_color_${colorValue}" class="form-control" type="text" name="image_color[${index}][${colorValue}]" readonly>
+              </div>
+              <div id="holder_${colorValue}" style="margin-top:15px;max-height:100px;">
+              </div>
+            </div>
+          `);
+          imageInputsContainer.append(colorInputDiv); // Tambahkan elemen ke container
+
+          // Jalankan filemanager untuk elemen yang baru ditambahkan
+          var route_prefix = "/file-managers";
+          colorInputDiv.find('.lfm').filemanager('file', {prefix: route_prefix});
+
+          // Kembalikan gambar yang sudah diunggah sebelumnya
+          if (uploadedImages[colorValue]) {
+            $(`#image_color_${colorValue}`).val(uploadedImages[colorValue]);
+            $(`#holder_${colorValue}`).html(`<img src="${uploadedImages[colorValue]}" style="max-height:100px;">`);
+          }
+        }
+      });
+    });
+  });
+
+  $(document).ready(function () {
+    // Simpan data gambar yang sudah diunggah
+    var uploadedImages = {};
+
+    $('#sizeSelect').on('change', function () {
+      const selectedSizes = $(this).val(); // Dapatkan warna yang dipilih
+      const imageInputsContainer = $('#imageSizeInputs');
+
+      // Simpan data gambar yang sudah diunggah
+      imageInputsContainer.children().each(function () {
+        const size = $(this).data('size');
+        const imageUrl = $(this).find('input').val();
+        if (imageUrl) {
+          uploadedImages[size] = imageUrl;
+        }
+      });
+
+      // Hapus input gambar yang tidak sesuai pilihan
+      imageInputsContainer.children().each(function () {
+        const size = $(this).data('size');
+        if (!selectedSizes.includes(size)) {
+          $(this).remove(); // Hapus input jika warna tidak dipilih
+        }
+      });
+
+      // Tambah input gambar untuk setiap warna yang dipilih
+      $.each(selectedSizes, function (index, sizeValue) {
+        // Ambil teks warna dari opsi select
+        const sizeText = $('#sizeSelect option[value="' + sizeValue + '"]').text();
+
+        // Cek apakah input gambar untuk warna ini sudah ada
+        if (imageInputsContainer.find(`[data-size="${sizeValue}"]`).length === 0) {
+          const sizeInputDiv = $(`
+            <div class="form-group" data-size="${sizeValue}">
+              <label for="image_size_${sizeValue}">Upload Image for ${sizeText}</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <a data-input="image_size_${sizeValue}" data-preview="holder_size_${sizeValue}" class="btn btn-primary lfm" target="popup" style="color: white; padding: .5rem .8rem!important;">
+                    <i class="fa fa-image"></i> Choose
+                  </a>
+                </span>
+                <input id="image_size_${sizeValue}" class="form-control" type="text" name="image_size[${index}][${sizeValue}]" readonly>
+              </div>
+              <div id="holder_size_${sizeValue}" style="margin-top:15px;max-height:100px;">
+              </div>
+            </div>
+          `);
+          imageInputsContainer.append(sizeInputDiv); // Tambahkan elemen ke container
+
+          // Jalankan filemanager untuk elemen yang baru ditambahkan
+          var route_prefix = "/file-managers";
+          sizeInputDiv.find('.lfm').filemanager('file', {prefix: route_prefix});
+
+          // Kembalikan gambar yang sudah diunggah sebelumnya
+          if (uploadedImages[sizeValue]) {
+            $(`#image_size_${sizeValue}`).val(uploadedImages[sizeValue]);
+            $(`#holder_size_${sizeValue}`).html(`<img src="${uploadedImages[sizeValue]}" style="max-height:100px;">`);
+          }
+        }
+      });
+    });
+  });
 </script>

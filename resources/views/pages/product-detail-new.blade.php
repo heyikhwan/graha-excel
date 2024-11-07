@@ -39,6 +39,26 @@
     .below_banner_tagline { color: #ccc; font-size: 14px; margin-bottom: 15px; }
     .below_banner_title { color: #666; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
     .below_banner_desc { color: #333; }
+    .color-thumb:nth-of-type(1) {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    .color-thumb {
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 34px;
+        margin: 0 4px;
+        cursor: pointer;
+        outline: none;
+        display: inline-block;
+    }
+
+    .color-thumb i {
+        font-size: 24px;
+        line-height: 24px;
+    }
 </style>
 @endsection
 
@@ -88,13 +108,25 @@
                                             <div class="gallery-with-thumbs">
                                                 <div class="product-gallery__wrapper">
                                                     <div class="main-slider product-gallery__full-image image-popup">
-                                                        <figure class="product-gallery__image zoom">
+                                                        <figure class="product-gallery__image zoom" data-type="color" data-color-id="default">
                                                         <?php
                                                             if ($getProduct->image) {
-                                                                echo "<img src=". getDocumentUrl($getProduct->image) ." alt='".$getProduct->title."' />";
+                                                                echo "<img src='". getDocumentUrl($getProduct->image) ."' alt='".$getProduct->title."' />";
                                                             }
                                                         ?>
                                                         </figure>
+
+                                                        @foreach ($getProduct->image_color as $colorImage)
+                                                            <figure class="product-gallery__image zoom" data-type="color" data-color-id="{{ $colorImage->color_id }}">
+                                                                <img src="{{ getDocumentUrl($colorImage->image) }}" alt="{{ $colorImage->color->name }}" />
+                                                            </figure>
+                                                        @endforeach
+
+                                                        @foreach ($getProduct->image_size as $sizeImage)
+                                                            <figure class="product-gallery__image zoom" data-type="size" data-size-id="{{ $sizeImage->size_id }}">
+                                                                <img src="{{ getDocumentUrl($sizeImage->image) }}" alt="{{ $sizeImage->size->name }}" />
+                                                            </figure>
+                                                        @endforeach
                                                     </div>
                                                     <div class="product-gallery__actions">
                                                         <button class="action-btn btn-zoom-popup"><i class="dl-icon-zoom-in"></i></button>
@@ -138,23 +170,19 @@
                                     <hr>
                                     <h4>Pilihan Warna</h4>
                                     <div class="product-gallery__thumb">
-                                        <div class="product-gallery__thumb--image">
-                                            <div>
-                                                <?php
-                                                    if ($getProduct->color) {
-                                                        $setDecode = json_decode($getProduct->color);
-                                                        foreach ($setDecode as $getColor) {
-                                                            $findColor = DB::table('colors')->where('id', $getColor)->first();
-                                                            if ($findColor) {
-                                                                echo "<figure class='product-gallery__thumb--single'>";
-                                                                echo "<i class='fa fa-circle' style='color:". $findColor->color ."'></i>";
-                                                                echo "</figure>";
-                                                            }
-                                                        }
-                                                    }
-                                                ?>
-                                            </div>
-                                        </div>
+                                        @php
+                                        if ($getProduct->color){
+                                            $setDecode = json_decode($getProduct->color);
+                                            foreach ($setDecode as $getColor){
+                                                $findColor = DB::table('colors')->where('id', $getColor)->first();
+                                                if ($findColor) {
+                                                    echo "<button class='product-gallery__thumb--single color-thumb' data-color-id='{$findColor->id }'>";
+                                                    echo "<i class='fa fa-circle' style='color: {$findColor->color }'></i>";
+                                                    echo "</button>";
+                                                }
+                                            }
+                                        }
+                                        @endphp
                                     </div>
                                     <div style="clear:both"></div>
                                     <hr>
@@ -166,7 +194,7 @@
                                             foreach ($setDecode as $getSize) {
                                                 $findSize = DB::table('sizes')->where('id', $getSize)->first();
                                                 if ($findSize) {
-                                                    echo "<li><a href='#'>". $findSize->size ."</a></li>";
+                                                    echo "<li><a href='#' data-size-id='{$findSize->id}'>". $findSize->size ."</a></li>";
                                                 }
                                             }
                                         }
@@ -350,5 +378,61 @@
 @endsection
 
 @section('script')
-<!-- script -->
+<script>
+    $(document).ready(function() {
+        const $productImages = $('.product-gallery__image');
+        const $colorThumbs = $('.color-thumb');
+        const $sizeLinks = $('.product-widget__list a');
+
+        function showImagesByType(type, id) {
+            $productImages.hide(); 
+
+            let $selectedImages;
+
+            if (type === 'color') {
+                $selectedImages = $productImages.filter(`[data-type="color"][data-color-id="${id}"]`);
+            } else if (type === 'size') {
+                $selectedImages = $productImages.filter(`[data-type="size"][data-size-id="${id}"]`);
+            }
+
+            if ($selectedImages.length) {
+                $selectedImages.show().css({
+                    'position': 'relative',
+                    'overflow': 'hidden',
+                    'width': '495px',
+                    'left': '0px',
+                    'top': '0px',
+                    'z-index': '999',
+                    'opacity': '1'
+                });
+            } else {
+                $productImages.filter('[data-type="color"][data-color-id="default"]').show().css({
+                    'position': 'relative',
+                    'overflow': 'hidden',
+                    'width': '495px',
+                    'left': '0px',
+                    'top': '0px',
+                    'z-index': '999',
+                    'opacity': '1'
+                });
+            }
+        }
+
+        $colorThumbs.on('click', function() {
+            const colorId = $(this).data('color-id');
+            showImagesByType('color', colorId);
+        });
+
+        $sizeLinks.on('click', function(e) {
+            e.preventDefault(); 
+            $sizeLinks.removeClass('active');
+            $(this).addClass('active');
+
+            const sizeId = $(this).data('size-id');
+            showImagesByType('size', sizeId);
+        });
+
+        showImagesByType('color', 'default'); 
+    });
+</script>
 @endsection

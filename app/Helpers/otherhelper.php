@@ -87,11 +87,16 @@ if (!function_exists('get_uploaded_file_name')) {
     function get_uploaded_file_name(int $id)
     {
         $findImage = DB::table('uploads')->where('id', $id)->first();
-        $path = str_replace(DIRECTORY_SEPARATOR, '/', $findImage->path);
-        $filename = substr($path, strrpos($path, '/') + 1);
         
-        $file_url = asset('storage/files/1/' . $filename);
+        if($findImage){
+            $path = str_replace(DIRECTORY_SEPARATOR, '/', $findImage->path);
+            $filename = substr($path, strrpos($path, '/') + 1);
+            
+            $file_url = asset('storage/files/1/' . $filename);
 
-        return $file_url;
+            return $file_url;
+        }
+        
+        return null;
     }
 }

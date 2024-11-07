@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\Product;
+use App\Models\ProductImageColor;
 use App\Models\Review;
 use App\Models\Setting;
 use App\Models\Upload;

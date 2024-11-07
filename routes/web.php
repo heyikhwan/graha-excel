@@ -11,11 +11,11 @@ Route::get('/product/penghalang-jalan-road-barrier', function() {
 Route::get('/category/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'listProductByCategory']);
 Route::get('/products', [App\Http\Controllers\Web\MainController::class, 'listProduct']);
 
-Route::get('/product/{id}', [App\Http\Controllers\Web\MainController::class, 'detailProduct']);
-Route::get('/product/{id}/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'detailProduct']);
+Route::get('/product/{id}', [App\Http\Controllers\Web\MainController::class, 'detailProductNew']);
+Route::get('/product/{id}/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'detailProductNew']);
 
-Route::get('/product_new/{id}', [App\Http\Controllers\Web\MainController::class, 'detailProductNew']);
-Route::get('/product_new/{id}/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'detailProductNew']);
+Route::get('/product_new/{id}', [App\Http\Controllers\Web\MainController::class, 'detailProduct']);
+Route::get('/product_new/{id}/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'detailProduct']);
 
 // page
 Route::get('/page/kenapa-memilih-excel', [App\Http\Controllers\Web\MainController::class, 'pageKenapaMemilihExcel']);

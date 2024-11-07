@@ -17,4 +17,11 @@ class Product extends Model
 	protected $guarded = [];
 
 	protected $dates = ['deleted_at'];
+
+	public function image_color() {
+	    return $this->hasMany(ProductImageColor::class, 'product_id');
+	}
+	public function image_size() {
+	    return $this->hasMany(ProductImageSize::class, 'product_id');
+	}
 }

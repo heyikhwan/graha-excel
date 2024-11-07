@@ -7,6 +7,8 @@ use App\Http\Requests\Product\ProductRequest;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
+use App\Models\ProductImageColor;
+use App\Models\ProductImageSize;
 use App\Models\Size;
 use App\Models\SubCategory;
 use App\Models\Upload;
@@ -101,8 +103,9 @@ class ProductController extends StislaController
             'keunggulan_link_1',
         ]);
 
-        $data['color'] = $request?->color ? json_encode($data['color']) : [];
-        $data['size'] = $request?->size ? json_encode($data['size']) : [];
+        $data['url_title']  = $request->url_title ? $request->url_title : Str::slug($request->title);
+        $data['color'] = $request->color ? json_encode($data['color']) : json_encode([]);
+        $data['size'] = $request->size ? json_encode($data['size']) : json_encode([]);
 
         $data['image'] = $this->getFileId($request->image) ?? 0;
 
@@ -247,8 +250,57 @@ class ProductController extends StislaController
     public function store(ProductRequest $request)
     {
         $data   = $this->getStoreData($request);
-        
+
         $result = Product::create($data);
+
+        if (isset($request['image_color'])) { 
+            $hasValidImages = false; 
+            foreach ($request['image_color'] as $images) { 
+                foreach ($images as $imageData) { 
+                    if (!empty($imageData)) { 
+                        $hasValidImages = true; 
+                        break 2; 
+                    } 
+                } 
+            }
+
+            if ($hasValidImages) {
+                foreach ($request['image_color'] as $images) {
+                    foreach ($images as $colorValue => $imageData) {
+                        ProductImageColor::create([
+                            'product_id'    => $result->id,
+                            'color_id'      => $colorValue,
+                            'image'      => $this->getFileId($imageData),
+                        ]);
+                    }
+                }
+            }
+        }
+
+        if (isset($request['image_size'])) { 
+            $hasValidImages = false; 
+            foreach ($request['image_size'] as $images) { 
+                foreach ($images as $imageData) { 
+                    if (!empty($imageData)) { 
+                        $hasValidImages = true; 
+                        break 2; 
+                    } 
+                } 
+            }
+
+            if ($hasValidImages) {
+                foreach ($request['image_size'] as $images) {
+                    foreach ($images as $sizeValue => $imageData) {
+                        ProductImageSize::create([
+                            'product_id'    => $result->id,
+                            'size_id'      => $sizeValue,
+                            'image'      => $this->getFileId($imageData),
+                        ]);
+                    }
+                }
+            }
+        }
+        
         $successMessage = successMessageCreate("Product");
 
         if ($request->ajax()) {
@@ -288,6 +340,41 @@ class ProductController extends StislaController
         $product = Product::find($product->id);
 
         $newData = $product->update($data);
+
+        if (isset($request['image_color'])) { 
+            $receivedColorIds = [];
+            $hasValidImages = false; 
+
+            foreach ($request['image_color'] as $images) { 
+                foreach ($images as $imageData) { 
+                    if (!empty($imageData)) { 
+                        $hasValidImages = true; 
+                        break 2; 
+                    } 
+                } 
+            }
+
+            if ($hasValidImages) {
+                foreach ($request['image_color'] as $images) {
+                    foreach ($images as $colorValue => $imageData) {
+                        $receivedColorIds[] = $colorValue;
+
+                        ProductImageColor::updateOrCreate(
+                            [
+                                'product_id' => $product->id,
+                                'color_id' => $colorValue, 
+                            ], 
+                            [
+                                'image' => $this->getFileId($imageData) 
+                            ] 
+                        );
+                    }
+                }
+            }
+
+            ProductImageColor::where('product_id', $product->id) ->whereNotIn('color_id', $receivedColorIds)->delete();
+        }
+        
         $successMessage = successMessageUpdate("Product");
 
         if ($request->ajax()) {
@@ -316,6 +403,7 @@ class ProductController extends StislaController
     public function destroy(Product $product)
     {
         $product = Product::find($product->id);
+        $product->image_color()->delete();
         $product->delete();
         $successMessage = successMessageDelete("Product");
 

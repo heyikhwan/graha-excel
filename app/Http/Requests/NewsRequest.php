@@ -30,6 +30,8 @@ class NewsRequest extends FormRequest
             'description'           => 'required',
             'page_title'            => 'required',
             'meta_description'      => 'required',
+            'meta_title'            => 'nullable',
+            'meta_keyword'          => 'nullable',
             'url_title'             => 'required',
             'dt_published'          => 'required',
         ];

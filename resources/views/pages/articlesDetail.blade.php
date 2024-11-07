@@ -1,6 +1,8 @@
 @extends('pages.layouts.app')
 @section('title', 'PROJECT NAME')
-
+@section('meta_tag')
+    <meta name="keywords" content="{{ $getNews?->meta_keyword ?? $getNews->news_category->title }}">
+@endsection
 @section('style')
 <style>iframe[src*="youtube.com"]{width: 100% !important;height: auto!important;aspect-ratio:16/9 !important;}
     .post-content a{
