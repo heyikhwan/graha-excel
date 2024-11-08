@@ -104,7 +104,8 @@
                                         <div class="image">
                                             <?php
                                                 if ($getNews->image) {
-                                                    echo "<img src='". get_uploaded_file_name($getNews->image) ."' alt='Gambar ".$getNews->title."'  />";
+                                                    $alt = $getNews?->image_alt_text ?? "Gambar ".$getNews->title;
+                                                    echo "<img src='". get_uploaded_file_name($getNews->image) ."' alt='".$alt."'  />";
                                                 }
                                             ?>
                                         </div>

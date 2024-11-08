@@ -149,11 +149,42 @@
     @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'sidebar_ordering', 'label' => 'Sidebar Ordering', 'value' => isset($d) ? $d['sidebar_ordering'] : ''])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input-image', [
-        'required' => false,
-        'name' => 'slideshows',
-        'label' => 'Slideshows',
-    ])
+    @isset($d)
+      @php
+        $selectedSlideshow = json_decode($d['slideshows']);
+      @endphp
+    @endisset
+    <div class="form-group slideshows-container">
+      <label for="slideshows" class="{{ $errors->has('slideshows') ? 'is-invalid' : '' }}">Slideshows
+      </label>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <a data-input="slideshows" data-preview="holder-slideshows" class="btn btn-primary lfm-multiple" data-multiple="true" style="color: white; padding: .5rem .8rem!important;">
+            <i class="fa fa-image"></i> Choose
+          </a>
+        </span>
+        <!-- Menggunakan array di input -->
+        <input id="slideshows" class="form-control" type="hidden" name="slideshows[]">
+      </div>
+      <div id="holder-slideshows" style="margin-top:15px;max-height:100px; display: flex; gap: 10px;">
+        @isset($d)
+          @if($d->slideshows)
+            @foreach ($selectedSlideshow as $index => $slideshow)
+              @php
+                  echo "<img src='". get_uploaded_file_name($slideshow) ."' style='height: 5rem;' />";
+              @endphp
+            @endforeach
+          @endif
+        @endisset
+      </div>
+      @isset($d)
+        @if($d->slideshows)
+          @foreach ($selectedSlideshow as $index => $slideshow)
+            <input type="hidden" name="slideshows[]" value="{{ get_uploaded_file_name($slideshow) }}">
+          @endforeach
+        @endif
+      @endisset
+    </div>
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -283,6 +314,33 @@
 <script>
   var route_prefix = "/file-managers";
   $('.lfm').filemanager('file', {prefix: route_prefix});
+
+  // Mengaktifkan Laravel FileManager dengan multiple selection
+  $('.lfm-multiple').filemanager('file', {prefix: route_prefix, multiple: true});
+
+  // Menangani hasil gambar yang dipilih
+  $('.lfm-multiple').on('click', function () {
+    let route_prefix = '/file-managers';
+    window.open(route_prefix + '?type=file&multiple=true', 'FileManager', 'width=900,height=600');
+    
+    window.SetUrl = function (items) {
+      // Kosongkan tampilan pratinjau dan input hidden
+      $('#holder-slideshows').empty();
+      $('input[name="slideshows[]"]').remove();
+
+      items.forEach(function (item) {
+        // Tambahkan setiap URL gambar ke input hidden
+        $('<input>').attr({
+          type: 'hidden',
+          name: 'slideshows[]',
+          value: item.url
+        }).appendTo('.slideshows-container');
+
+        // Tampilkan pratinjau gambar
+        $('#holder-slideshows').append('<img src="' + item.url + '" style="height: 5rem;" />');
+      });
+    };
+  });
 
   // Define function to open filemanager window
   var lfm = function(options, cb) {

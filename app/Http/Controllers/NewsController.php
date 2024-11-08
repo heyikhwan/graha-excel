@@ -62,6 +62,7 @@ class NewsController extends StislaController
             'title',
             'category',
             'image',
+            'image_alt_text',
             'description',
             'page_title',
             'meta_description',

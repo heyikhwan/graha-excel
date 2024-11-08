@@ -225,7 +225,7 @@
                                                         <div class="col-md-12">
                                                             <?php
                                                             if ($getProduct->Aksesoris) {
-                                                                echo "<img src=". getDocumentUrl($getProduct->Aksesoris) ." alt='Aksesoris ".$getProduct->title."' />";
+                                                                echo "<img src='". getDocumentUrl($getProduct->Aksesoris) ."' alt='Aksesoris ".$getProduct->title."' />";
                                                             }
                                                             ?>
                                                         </div>
@@ -237,7 +237,7 @@
                                                     <div class="col-md-12">
                                                         <?php
                                                         if ($getProduct->cara_pasang) {
-                                                            echo "<img src=". getDocumentUrl($getProduct->cara_pasang) ." alt='Cara Pasang ".$getProduct->title."' />";
+                                                            echo "<img src='". getDocumentUrl($getProduct->cara_pasang) ."' alt='Cara Pasang ".$getProduct->title."' />";
                                                         }
                                                         ?>
                                                     </div>
@@ -259,7 +259,7 @@
                             <div class="col-12 col-sm-6">
                                 <?php
                                 if ($getProduct->right_banner) {
-                                    echo "<img src=". getDocumentUrl($getProduct->right_banner) ." alt='Right Banner ".$getProduct->title."' />";
+                                    echo "<img src='". getDocumentUrl($getProduct->right_banner) ."' alt='Right Banner ".$getProduct->title."' />";
                                 }
                                 ?>
                             </div>
@@ -340,7 +340,7 @@
             <?php
             if($getProduct->banner_bawah)
             {
-                echo "<a href='".$getProduct->banner_bawah_link."' target='_blank' style='width:100%;'><img src=". getDocumentUrl($getProduct->banner_bawah) ." alt='Bottom Banner ".$getProduct->title."' style='width:100%;' /></a>";
+                echo "<a href='".$getProduct->banner_bawah_link."' target='_blank' style='width:100%;'><img src='". getDocumentUrl($getProduct->banner_bawah) ."' alt='Bottom Banner ".$getProduct->title."' style='width:100%;' /></a>";
             }
             ?>
         </div>

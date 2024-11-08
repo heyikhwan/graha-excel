@@ -31,7 +31,7 @@
     <style>
         .header-graha img {
             display: block;
-            max-height: 125px;
+            max-height: 100px;
             margin: 0 auto;
         }
         .header-graha p {
@@ -43,6 +43,9 @@
         }
         .header-graha {
             padding: 20px 0 0;
+        }
+        .header-inner{
+            padding-top:1.75rem;
         }
         p {
             text-align:justify;
@@ -125,39 +128,39 @@
                                 <ul class="mainmenu mainmenu--centered">
                                     <li class="mainmenu__item">
                                         <a href="{{url('')}}" class="mainmenu__link">
-                                            <h2 class="mm-text">Home</h2>
+                                            <p class="mm-text">Home</p>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/products')}}" class="mainmenu__link">
-                                            <h2 class="mm-text">Produk</h2>
+                                            <p class="mm-text">Produk</p>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}" class="mainmenu__link">
-                                            <h2 class="mm-text">Tentang Kami</h2>
+                                            <p class="mm-text">Tentang Kami</p>
                                         </a>
                                     </li>
                                     
                                     
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}#contact-us" class="mainmenu__link">
-                                            <h2 class="mm-text">Hubungi Kami</h2>
+                                            <p class="mm-text">Hubungi Kami</p>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kalkulator-biaya-atap')}}" class="mainmenu__link">
-                                            <h2 class="mm-text">Kalkulator Biaya Atap</h2>
+                                            <p class="mm-text">Kalkulator Biaya Atap</p>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}#career" class="mainmenu__link">
-                                            <h2 class="mm-text">Karir</h2>
+                                            <p class="mm-text">Karir</p>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/articles')}}" class="mainmenu__link">
-                                            <h2 class="mm-text">Blog</h2>
+                                            <p class="mm-text">Blog</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -210,25 +213,25 @@
                             <button class="dl-trigger">Open Menu</button>
                             <ul class="dl-menu">
                                 <li>
-                                    <a href="{{url('')}}"><h2>Home</h2></a>
+                                    <a href="{{url('')}}"><p>Home</p></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/products')}}"><h2>Produk</h2></a>
+                                    <a href="{{url('/products')}}"><p>Produk</p></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><h2>Tentang Kami</h2></a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Tentang Kami</p></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><h2>Hubungi Kami</h2></a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Hubungi Kami</p></a>
                                 </li>
                                  <li>
-                                    <a href="{{url('/page/kalkulator-biaya-atap')}}"><h2>Kalkulator Biaya Atap</h2></a>
+                                    <a href="{{url('/page/kalkulator-biaya-atap')}}"><p>Kalkulator Biaya Atap</p></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}#career"><h2>Karir</h2></a>
+                                    <a href="{{url('/page/kenapa-memilih-excel')}}#career"><p>Karir</p></a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/articles')}}"><h2>Blog</h2></a>
+                                    <a href="{{url('/articles')}}"><p>Blog</p></a>
                                 </li>
                             </ul>
                         </div>
@@ -373,7 +376,7 @@
     </div>
     
     <!-- Modal Contact WhatsApp -->
-    <div class="modal fade" id="contactWhatsappModal" tabindex="-1" role="dialog" aria-labelledby="contactWhatsappModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="contactWhatsappModal" tabindex="-1" role="dialog" aria-labelledby="contactWhatsappModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-body p-0">
@@ -383,7 +386,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- /.Modal Contact WhatsApp -->
     
     <!-- Floating WhatsApp Button -->
@@ -396,13 +399,13 @@
     @yield('script')
     
     <!-- Modal Contact WhatsApp Script -->
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             if (window.location.pathname == "/") {
                 $("#contactWhatsappModal").modal("show");
             }
         })
-    </script>
+    </script> -->
     <!-- /.Modal Contact WhatsApp Script -->
 </body>
 </html>

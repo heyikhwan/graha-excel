@@ -110,7 +110,14 @@ class ProductController extends StislaController
         $data['image'] = $this->getFileId($request->image) ?? 0;
 
         $data['dimention'] = $request?->dimention ? $this->getFileId($request->dimention) : 0;
-        $data['slideshows'] = $request->slideshows ? $this->getFileId($request->slideshows) : 0;
+
+        $slidePaths = $request->input('slideshows');
+        $slideIds = array_map(function($path) {
+            return (string) $this->getFileId($path);
+        }, $slidePaths);
+        $slideshows = json_encode($slideIds);
+
+        $data['slideshows'] = $request->slideshows ? $slideshows : json_encode([]);
         $data['katalog_link'] = $request->katalog_link ? $this->getFileId($request->katalog_link) : 0;
         $data['Aksesoris'] = $request->Aksesoris ? $this->getFileId($request->Aksesoris) : 0;
         $data['cara_pasang'] = $request->cara_pasang ? $this->getFileId($request->cara_pasang) : 0;

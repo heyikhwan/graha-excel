@@ -26,6 +26,9 @@
     ])
   </div>
   <div class="col-md-12">
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'image_alt_text', 'label' => 'Image ALT Text'])
+  </div>
+  <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
         'required' => true,
         'name' => 'description',

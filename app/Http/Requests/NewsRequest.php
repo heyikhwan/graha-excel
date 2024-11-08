@@ -27,6 +27,7 @@ class NewsRequest extends FormRequest
             'title'                 => 'required',
             'category'              => 'required',
             'image'                 => 'required',
+            'image_alt_text'        => 'nullable',
             'description'           => 'required',
             'page_title'            => 'required',
             'meta_description'      => 'required',
