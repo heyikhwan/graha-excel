@@ -97,8 +97,9 @@ class SubCategoryController extends StislaController
             }
         }
 
-        $data['image'] = $upload->id ?? 0;
-        $data['idx'] = $data['ordering'];
+        $data['image'] = $upload?->id ?? 0;
+        $data['url_title'] = $request->url_title == "" || $request->url_title == null ? Str::slug($request->name, '-') : $request->url_title;
+        $data['idx'] = $data['ordering'] ?? 0;
 
         return $data;
     }

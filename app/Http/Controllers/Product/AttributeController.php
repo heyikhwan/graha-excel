@@ -94,7 +94,7 @@ class AttributeController extends StislaController
             }
         }
 
-        $data['image'] = $upload->id ?? 0;
+        $data['image'] = $upload?->id ?? 0;
 
         if (strpos($data['title'], 'Aksesoris') !== false) {
             $data['idx'] = 1;

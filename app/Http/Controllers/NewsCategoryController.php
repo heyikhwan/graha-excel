@@ -65,7 +65,7 @@ class NewsCategoryController extends StislaController
             'meta_description',
             'url_title',
         ]);
-        $data['url_title'] = $request->url_title == "" || $request->url_title == null ? Str::slug('$request->title', '-') : $request->url_title;
+        $data['url_title'] = $request->url_title == "" || $request->url_title == null ? Str::slug($request->title, '-') : $request->url_title;
         
         if($request->image){
             $folder = storage_path('files') .DIRECTORY_SEPARATOR. '1';

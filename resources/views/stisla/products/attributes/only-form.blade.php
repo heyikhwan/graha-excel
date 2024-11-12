@@ -20,14 +20,14 @@
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
-        'required' => true,
+        'required' => false,
         'name' => 'image',
         'label' => 'Image',
     ])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
-        'required' => true,
+        'required' => false,
         'name' => 'description',
         'label' => 'Description',
         'id' => 'summernote',

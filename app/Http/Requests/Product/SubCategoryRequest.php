@@ -26,11 +26,11 @@ class SubCategoryRequest extends FormRequest
         return [
             'parent'            => 'required',
             'name'              => 'required',
-            'image'             => 'required',
-            'page_title'        => 'required',
-            'meta_description'  => 'required',
-            'url_title'  => 'required',
-            'ordering'          => 'required',
+            'image'             => 'nullable',
+            'page_title'        => 'nullable',
+            'meta_description'  => 'nullable',
+            'url_title'  => 'nullable',
+            'ordering'          => 'nullable',
         ];
     }
 }

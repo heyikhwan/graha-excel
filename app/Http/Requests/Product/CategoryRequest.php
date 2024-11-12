@@ -25,12 +25,12 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name'              => 'required',
-            'description'  => 'required',
-            'image'             => 'required',
-            'page_title'        => 'required',
-            'meta_description'  => 'required',
-            'url_title'         => 'required',
-            'ordering'          => 'required',
+            'description'  => 'nullable',
+            'image'             => 'nullable',
+            'page_title'        => 'nullable',
+            'meta_description'  => 'nullable',
+            'url_title'         => 'nullable',
+            'ordering'          => 'nullable',
         ];
     }
 }

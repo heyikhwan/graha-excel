@@ -11,7 +11,7 @@
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
-        'required' => true,
+        'required' => false,
         'name' => 'description',
         'label' => 'Description',
         'id' => 'summernote',
@@ -19,17 +19,17 @@
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
-        'required' => true,
+        'required' => false,
         'name' => 'image',
         'label' => 'Image',
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'page_title', 'label' => 'Page Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'page_title', 'label' => 'Page Title'])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
-        'required' => true,
+        'required' => false,
         'name' => 'meta_description',
         'label' => 'Meta Description',
         'simple' => true,
@@ -37,10 +37,10 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'url_title', 'label' => 'Url Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'url_title', 'label' => 'Url Title'])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input-number', ['required' => true, 'name' => 'ordering', 'label' => 'Ordering'])
+    @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'ordering', 'label' => 'Ordering'])
   </div>
 </div>
 

@@ -26,8 +26,8 @@ class AttributeRequest extends FormRequest
         return [
             'product'          => 'required',
             'title'            => 'required',
-            'image'            => 'required',
-            'description'      => 'required',
+            'image'            => 'nullable',
+            'description'      => 'nullable',
         ];
     }
 }

@@ -8,7 +8,7 @@
  */
 function successMessageCreate($nextTitle = '')
 {
-    return __('Berhasil Menambahkan Data ' . ($nextTitle));
+    return __('Success Create Data ' . ($nextTitle));
 }
 
 /**
@@ -19,7 +19,7 @@ function successMessageCreate($nextTitle = '')
  */
 function successMessageUpdate($nextTitle = '')
 {
-    return __('Berhasil Memperbarui Data ' . ($nextTitle));
+    return __('Success Update Data ' . ($nextTitle));
 }
 
 /**
@@ -30,7 +30,7 @@ function successMessageUpdate($nextTitle = '')
  */
 function successMessageDelete($nextTitle = '')
 {
-    return __('Berhasil Menghapus Data ' . ($nextTitle));
+    return __('Success Delete Data ' . ($nextTitle));
 }
 
 /**
@@ -41,7 +41,7 @@ function successMessageDelete($nextTitle = '')
  */
 function successMessageImportExcel($nextTitle = '')
 {
-    return __('Berhasil Mengimpor Data ' . ($nextTitle) . ' Dari Excel');
+    return __('Success Import Data ' . ($nextTitle) . ' From Excel');
 }
 
 
@@ -53,7 +53,7 @@ function successMessageImportExcel($nextTitle = '')
  */
 function successMessageLoadData($nextTitle = '')
 {
-    return __('Berhasil Mengambil Data ' . ($nextTitle));
+    return __('Success Load Data ' . ($nextTitle));
 }
 
 
@@ -68,7 +68,7 @@ function successMessageLoadData($nextTitle = '')
  */
 function failedMessageCreate($nextTitle = '')
 {
-    return __('Gagal Menambahkan Data ' . ($nextTitle));
+    return __('Failed Create Data ' . ($nextTitle));
 }
 
 /**
@@ -79,7 +79,7 @@ function failedMessageCreate($nextTitle = '')
  */
 function failedMessageUpdate($nextTitle = '')
 {
-    return __('Gagal Memperbarui Data ' . ($nextTitle));
+    return __('Failed Update Data ' . ($nextTitle));
 }
 
 /**
@@ -90,7 +90,7 @@ function failedMessageUpdate($nextTitle = '')
  */
 function failedMessageDelete($nextTitle = '')
 {
-    return __('Gagal Menghapus Data ' . ($nextTitle));
+    return __('Failed Delete Data ' . ($nextTitle));
 }
 
 
@@ -102,5 +102,5 @@ function failedMessageDelete($nextTitle = '')
  */
 function failedMessageLoadData($nextTitle = '')
 {
-    return __('Gagal Mengambil Data ' . ($nextTitle));
+    return __('Failed Load Data ' . ($nextTitle));
 }
