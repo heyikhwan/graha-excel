@@ -23,7 +23,7 @@ class UserManagementController extends StislaController
     {
         parent::__construct();
 
-        $this->defaultMiddleware('Pengguna');
+        $this->defaultMiddleware('User');
 
         $this->icon           = 'fa fa-users';
         $this->viewFolder     = 'user-management';
@@ -37,7 +37,7 @@ class UserManagementController extends StislaController
     protected function getIndexData()
     {
         $roleOptions = $this->userRepository->getRoleOptions();
-        $defaultData = $this->getDefaultDataIndex(__('Pengguna'), 'Pengguna', 'user-management.users');
+        $defaultData = $this->getDefaultDataIndex(__('Pengguna'), 'User', 'user-management.users');
         return array_merge($defaultData, [
             'data'      => $this->userRepository->getUsers(),
             'roleCount' => count($roleOptions),
