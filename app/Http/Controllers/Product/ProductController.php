@@ -386,6 +386,38 @@ class ProductController extends StislaController
 
             ProductImageColor::where('product_id', $product->id) ->whereNotIn('color_id', $receivedColorIds)->delete();
         }
+
+        if (isset($request['image_size'])) { 
+            $receivedSizeIds = [];
+            $hasValidImages = false; 
+            foreach ($request['image_size'] as $images) { 
+                foreach ($images as $imageData) { 
+                    if (!empty($imageData)) { 
+                        $hasValidImages = true; 
+                        break 2; 
+                    } 
+                } 
+            }
+
+            if ($hasValidImages) {
+                foreach ($request['image_size'] as $images) {
+                    foreach ($images as $sizeValue => $imageData) {
+                        $receivedSizeIds[] = $sizeValue;
+                        ProductImageSize::updateOrCreate(
+                            [
+                                'product_id' => $product->id,
+                                'size_id' => $sizeValue, 
+                            ], 
+                            [
+                                'image' => $this->getFileId($imageData) 
+                            ] 
+                        );
+                    }
+                }
+            }
+
+            ProductImageSize::where('product_id', $product->id) ->whereNotIn('size_id', $receivedSizeIds)->delete();
+        }
         
         $successMessage = successMessageUpdate("Product");
 
