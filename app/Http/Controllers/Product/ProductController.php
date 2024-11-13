@@ -115,7 +115,12 @@ class ProductController extends StislaController
         $slideIds = array_map(function($path) {
             return (string) $this->getFileId($path);
         }, $slidePaths);
-        $slideshows = json_encode($slideIds);
+
+        $slideIds = array_filter($slideIds, function($id) {
+            return !empty($id);
+        });
+
+        $slideshows = json_encode(array_values($slideIds));
 
         $data['slideshows'] = $request->slideshows ? $slideshows : json_encode([]);
         $data['katalog_link'] = $request->katalog_link ? $this->getFileId($request->katalog_link) : 0;
@@ -424,35 +429,39 @@ class ProductController extends StislaController
         return back()->with('successMessage', $successMessage);
     }
 
-    private function getFileId(string $file)
+    private function getFileId($file)
     {
-        $folder = storage_path('files') .DIRECTORY_SEPARATOR. '1';
-        $filename = preg_replace('/^\d{4}-\d{2}-\d{2}-\d{6}-/', '', basename($file));
-        $path = $folder.DIRECTORY_SEPARATOR. $filename;
-        $hash = strtolower(Str::random(20));
+        if(!is_null($file) && is_string($file)){
+            $folder = storage_path('files') .DIRECTORY_SEPARATOR. '1';
+            $filename = preg_replace('/^\d{4}-\d{2}-\d{2}-\d{6}-/', '', basename($file));
+            $path = $folder.DIRECTORY_SEPARATOR. $filename;
+            $hash = strtolower(Str::random(20));
 
-        $upload = Upload::where('name', $filename)->first();
+            $upload = Upload::where('name', $filename)->first();
 
-        if(is_null($upload)){
-            $upload = Upload::create([
-                "name" => $filename,
-                "path" => $path,
-                "extension" => pathinfo($filename, PATHINFO_EXTENSION),
-                "caption" => "",
-                "hash" => "",
-                "public" => 0,
-                "user_id" => Auth::user()->id,
-            ]);
-            while(true) {
-                if(!Upload::where("hash", $hash)->count()) {
-                    $upload->hash = $hash;
-                    break;
+            if(is_null($upload)){
+                $upload = Upload::create([
+                    "name" => $filename,
+                    "path" => $path,
+                    "extension" => pathinfo($filename, PATHINFO_EXTENSION),
+                    "caption" => "",
+                    "hash" => "",
+                    "public" => 0,
+                    "user_id" => Auth::user()->id,
+                ]);
+                while(true) {
+                    if(!Upload::where("hash", $hash)->count()) {
+                        $upload->hash = $hash;
+                        break;
+                    }
                 }
+                $upload->save();
             }
-            $upload->save();
+
+            return $upload->id;
         }
 
-        return $upload->id;
+        return null;
     }
 
 }
