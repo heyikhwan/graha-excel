@@ -100,7 +100,7 @@
         @if($d->image_size)
           @foreach ($d->image_size as $key => $img_size)
             <div class="form-group" data-size="{{ $img_size->size_id }}">
-              <label for="image_size_{{ $img_size->size_id }}">Upload Image for {{ $img_size->size->name }}</label>
+              <label for="image_size_{{ $img_size->size_id }}">Upload Image for {{ $img_size->size->size }}</label>
               <div class="input-group">
                 <span class="input-group-btn">
                   <a data-input="image_size_{{ $img_size->size_id }}" data-preview="holder_size_{{ $img_size->size_id }}" class="btn btn-primary lfm" target="popup" style="color: white; padding: .5rem .8rem!important;">
