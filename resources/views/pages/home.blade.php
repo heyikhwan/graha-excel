@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-md-6 p-0">
                     <br/>
-                    <img src="{{asset('assets/web/img/placeholder/excel-sejak-tahun-1969.jpg')}}" alt="Foto Excel sejak tahun 1969">
+                    <img src="{{asset('assets/web/img/tangki-excel-di-pabrik-grahaexcel.png')}}" alt="Tangki Excel di Pabrik Grahaexcel">
                 </div>
             </div>
         </div>
