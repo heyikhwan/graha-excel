@@ -201,12 +201,9 @@
                                         ?>
                                     </ul>
                                     <div class="clearfix"></div>
-                                    <?php
-                                        if ($getProduct->katalog_link) {
-                                            
-                                            echo "<a href=". getDocumentUrl($getProduct->katalog_link) ." class='btn btn-style-1 btn-medium btn-block add-to-cart' target='_blank'>{$getProduct->katalog_label}</a>";
-                                        }
-                                    ?>
+                                    @if($getProduct->katalog_link)
+                                        <a href="{{ getDocumentUrl($getProduct->katalog_link) }}" class='btn btn-style-1 btn-medium btn-block add-to-cart' target='_blank'>{{ $getProduct->katalog_label }}</a>
+                                    @endif
                                     <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium btn-block add-to-cart' style="background: #cf987e; margin-top:10px;">HUBUNGI KAMI</a>
                                     <div class="product-data-tab tab-style-1">
                                         <div class="nav nav-tabs product-data-tab__head mb--40 mb-md--30" id="product-tab" role="tablist">

@@ -24,7 +24,14 @@
   <div id="{{ 'holder' . ($name ?? $id) }}" style="margin-top:15px;max-height:100px;">
       @php
         if (isset($d) && !empty($d[$name]) && $d[$name] != '[]') {
-            echo "<img src='". get_uploaded_file_name($d[$name ?? $id]) ."' style='height: 5rem;' />";
+            $fileExtension = pathinfo(get_uploaded_file_name($d[$name ?? $id]), PATHINFO_EXTENSION); 
+            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+
+            if (!in_array($fileExtension, $imageExtensions)) {
+              echo "<i class='fa fa-file' style='font-size: 5rem;'></i>";
+            }else{
+              echo "<img src='". get_uploaded_file_name($d[$name ?? $id]) ."' style='height: 5rem;' />";
+            }
         }
       @endphp
   </div>
