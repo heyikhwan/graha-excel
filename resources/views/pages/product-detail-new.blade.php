@@ -59,6 +59,33 @@
         font-size: 24px;
         line-height: 24px;
     }
+    .slick-dots {
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .slick-dots li button {
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+    .slick-dots li button:before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #D8D8D8;
+    }
+
+    .slick-dots li.slick-active button:before {
+        background: #B8B8BA;
+    }
+
+
 </style>
 @endsection
 
@@ -141,9 +168,11 @@
                                     "spaceBetween": 0,
                                     "slidesToShow": 1,
                                     "slidesToScroll": 1,
-                                    "arrows": true, 
-                                    "prevArrow": "dl-icon-left", 
-                                    "nextArrow": "dl-icon-right" 
+                                    "arrows": true,
+                                    "dots": true,
+                                    "infinite": true,
+                                    "prevArrow": "fa fa-chevron-circle-left", 
+                                    "nextArrow": "fa fa-chevron-circle-right" 
                                     }'
                                     data-slick-responsive='[
                                         {"breakpoint":1200, "settings": {"slidesToShow": 1} },

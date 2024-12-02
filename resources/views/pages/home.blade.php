@@ -234,6 +234,139 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/tangki-air-stainless')}}">
+                                        <img src="{{asset('assets/web/img/TANGKI-AIR-STAINLESS-STEEL.webp')}}" alt="Tangki Air Stainless Steel Excel" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/tangki-air-stainless')}}">TANGKI STAINLESS</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Tandon air Stainless Steel Excel dibuat dari bahan dasar stainless steel dengan grade terbaik yaitu AISI 304 (8% Nickel). Memiliki ketahanan korosi paling tinggi dibanding tangki air stainless merek lain di Indonesia. Tangki air khusus untuk penyimpanan air bersih (PAM) dan minyak.</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/hidran-umum')}}">
+                                        <img src="{{asset('assets/web/img/TANGKI-HIDRAN-UMUM-EXCEL-1.webp')}}" alt="Tangki Hidran Umum Excel" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/hidran-umum')}}">Tangki Hidran Umum | Roto</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Hidran umum merupakan tangki air (program pemerintah) untuk menyediakan air bersih ke korban bencana dan pelosok desa. Tangki air ini bisa disusun (stack) untuk mempermudah pada saat pengiriman/ transportasi.</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/atap-dingin-upvc-sheets')}}">
+                                        <img src="{{asset('assets/web/img/ATAP-UPVC-1.webp')}}" alt="Atap uPVC / Dingin" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/atap-dingin-upvc-sheets')}}">Atap uPVC & PC</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Berbagai macam atap dingin untuk keperluan gudang, perumahan, kanopi, pabrik, dan aplikasi tidak terbatas dibuat dari bahan uPVC - <i>single layer</i> dan <i>double layer</i> yang bisa dikombinasikan dengan atap penerangan berbahan dasar PC.</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">
+                                        <img src="{{asset('assets/web/img/ATAP-BENING-PET-PP-1.webp')}}" alt="Atap Bening / Gelombang PET PP" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">Atap Gelombang Bening | PET & PP</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Atap gelombang bening yang terbuat dari bahan PET dan PP dengan perbedaan transmisi cahaya 78%-98% untuk keperluan penerangan di dapur, jemuran, gudang, <i>green house</i>, pertanian, dan sebagainya. </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/lembaran-pp')}}">
+                                        <img src="{{asset('assets/web/img/Penutup-Pagar-EXCELBOX.webp')}}" alt="Penutup pagar" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">Penutup pagar/ seng plastik | PP</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Penutup pagar plastik/ seng plastik yang dibuat dari bahan PP dengan berbagai motif 2 dimensi dan 3 dimensi. Untuk menjaga privasi hunian Anda. </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
+                    <div class="airi-product">
+                        <div class="product-inner">
+                            <figure class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="{{url('/category/others')}}">
+                                        <img src="{{asset('assets/web/img/cone-dan-road-barrier-excel.webp')}}" alt="Product Image" class="single-image">
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="{{url('/category/others')}}">OTHER</a>
+                                </h3>
+                                <span class="product-price-wrapper">
+                                    <p>Produk-produk penampungan lainnya dan sistem pengaturan jalan seperti Bak Terbuka, Coolbox, Traffic Cone, dan Road Barrier.</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="more-btn m-auto" style="padding-bottom: 100px">
                     <a href="{{url('/products')}}" class="btn btn-outline-dark">LIHAT LEBIH BANYAK</a>
                 </div>
