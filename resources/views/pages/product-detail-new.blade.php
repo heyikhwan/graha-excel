@@ -143,15 +143,9 @@
                                                         ?>
                                                         </figure>
 
-                                                        @foreach ($getProduct->image_color as $colorImage)
-                                                            <figure class="product-gallery__image zoom" data-type="color" data-color-id="{{ $colorImage->color_id }}">
-                                                                <img src="{{ getDocumentUrl($colorImage->image) }}" alt="{{ $colorImage->color->name }}" />
-                                                            </figure>
-                                                        @endforeach
-
-                                                        @foreach ($getProduct->image_size as $sizeImage)
-                                                            <figure class="product-gallery__image zoom" data-type="size" data-size-id="{{ $sizeImage->size_id }}">
-                                                                <img src="{{ getDocumentUrl($sizeImage->image) }}" alt="{{ $sizeImage->size->name }}" />
+                                                        @foreach ($getProduct->image_color_sizes as $colorImageSize)
+                                                            <figure class="product-gallery__image zoom" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
+                                                                <img src="{{ getDocumentUrl($colorImageSize->image) }}" alt="{{ $colorImageSize->color->name }}" />
                                                             </figure>
                                                         @endforeach
                                                     </div>
@@ -220,11 +214,25 @@
                                         <?php
                                         if ($getProduct->size) {
                                             $setDecode = json_decode($getProduct->size);
+                                            $sizes = [];
                                             foreach ($setDecode as $getSize) {
                                                 $findSize = DB::table('sizes')->where('id', $getSize)->first();
                                                 if ($findSize) {
-                                                    echo "<li><a href='#' data-size-id='{$findSize->id}'>". $findSize->size ."</a></li>";
+                                                    $sizes[] = $findSize;
                                                 }
+                                            }
+
+                                            function extractNumberFromSize($sizeName) {
+                                                preg_match('/\d+/', $sizeName, $matches);
+                                                return isset($matches[0]) ? (int) $matches[0] : 0;
+                                            }
+
+                                            usort($sizes, function($a, $b) {
+                                                return extractNumberFromSize($a->size) - extractNumberFromSize($b->size);
+                                            });
+
+                                            foreach ($sizes as $findSize) {
+                                                echo "<li><a href='#' data-size-id='{$findSize->id}'>" . $findSize->size . "</a></li>";
                                             }
                                         }
                                         ?>
@@ -410,17 +418,20 @@
         const $colorThumbs = $('.color-thumb');
         const $sizeLinks = $('.product-widget__list a');
 
-        function showImagesByType(type, id) {
-            $productImages.hide(); 
+        let selectedColorId = 'default'; // Default color
+        let selectedSizeId = null; // No size selected initially
 
-            let $selectedImages;
+        function showImagesByType() {
+            $productImages.hide(); // Hide all images first
 
-            if (type === 'color') {
-                $selectedImages = $productImages.filter(`[data-type="color"][data-color-id="${id}"]`);
-            } else if (type === 'size') {
-                $selectedImages = $productImages.filter(`[data-type="size"][data-size-id="${id}"]`);
-            }
+            // Filter images by both selected color and selected size
+            let $selectedImages = $productImages.filter(function() {
+                const colorMatch = $(this).data('color-id') === selectedColorId;
+                const sizeMatch = selectedSizeId ? $(this).data('size-id') === selectedSizeId : true;
+                return colorMatch && sizeMatch;
+            });
 
+            // If selected images exist, show them
             if ($selectedImages.length) {
                 $selectedImages.show().css({
                     'position': 'relative',
@@ -432,6 +443,7 @@
                     'opacity': '1'
                 });
             } else {
+                // Show default image if no matching images found
                 $productImages.filter('[data-type="color"][data-color-id="default"]').show().css({
                     'position': 'relative',
                     'overflow': 'hidden',
@@ -444,21 +456,24 @@
             }
         }
 
+        // Handle color selection
         $colorThumbs.on('click', function() {
-            const colorId = $(this).data('color-id');
-            showImagesByType('color', colorId);
+            selectedColorId = $(this).data('color-id');
+            showImagesByType(); // Update images based on the current selection
         });
 
+        // Handle size selection
         $sizeLinks.on('click', function(e) {
             e.preventDefault(); 
             $sizeLinks.removeClass('active');
             $(this).addClass('active');
 
-            const sizeId = $(this).data('size-id');
-            showImagesByType('size', sizeId);
+            selectedSizeId = $(this).data('size-id');
+            showImagesByType(); // Update images based on the current selection
         });
 
-        showImagesByType('color', 'default'); 
+        // Initialize images display based on the default color
+        showImagesByType();
     });
 </script>
 @endsection

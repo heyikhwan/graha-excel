@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductImageColor;
+use App\Models\ProductImageColorSize;
 use App\Models\ProductImageSize;
 use App\Models\Size;
 use App\Models\SubCategory;
@@ -15,6 +16,7 @@ use App\Models\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends StislaController
@@ -265,47 +267,25 @@ class ProductController extends StislaController
 
         $result = Product::create($data);
 
-        if (isset($request['image_color'])) { 
-            $hasValidImages = false; 
-            foreach ($request['image_color'] as $images) { 
-                foreach ($images as $imageData) { 
-                    if (!empty($imageData)) { 
-                        $hasValidImages = true; 
-                        break 2; 
-                    } 
-                } 
-            }
-
-            if ($hasValidImages) {
-                foreach ($request['image_color'] as $images) {
-                    foreach ($images as $colorValue => $imageData) {
-                        ProductImageColor::create([
-                            'product_id'    => $result->id,
-                            'color_id'      => $colorValue,
-                            'image'      => $this->getFileId($imageData),
-                        ]);
-                    }
+        if (isset($request['image_color_size'])) { 
+            $hasValidImages = false;
+        
+            foreach ($request['image_color_size'] as $key => $imageData) {
+                if (!empty($imageData)) {
+                    $hasValidImages = true;
+                    break;
                 }
             }
-        }
-
-        if (isset($request['image_size'])) { 
-            $hasValidImages = false; 
-            foreach ($request['image_size'] as $images) { 
-                foreach ($images as $imageData) { 
-                    if (!empty($imageData)) { 
-                        $hasValidImages = true; 
-                        break 2; 
-                    } 
-                } 
-            }
-
+        
             if ($hasValidImages) {
-                foreach ($request['image_size'] as $images) {
-                    foreach ($images as $sizeValue => $imageData) {
-                        ProductImageSize::create([
-                            'product_id'    => $result->id,
-                            'size_id'      => $sizeValue,
+                foreach ($request['image_color_size'] as $key => $imageData) {
+                    if (!empty($imageData)) {
+                        list($colorValue, $sizeValue) = explode('-', $key);
+        
+                        ProductImageColorSize::create([
+                            'product_id' => $result->id,
+                            'color_id'   => $colorValue,
+                            'size_id'    => $sizeValue,
                             'image'      => $this->getFileId($imageData),
                         ]);
                     }
@@ -353,70 +333,39 @@ class ProductController extends StislaController
 
         $newData = $product->update($data);
 
-        if (isset($request['image_color'])) { 
-            $receivedColorIds = [];
+        if (isset($request['image_color_size'])) { 
+            $receivedColorSizeIds = []; 
             $hasValidImages = false; 
-
-            foreach ($request['image_color'] as $images) { 
-                foreach ($images as $imageData) { 
-                    if (!empty($imageData)) { 
-                        $hasValidImages = true; 
-                        break 2; 
-                    } 
+        
+            foreach ($request['image_color_size'] as $key => $imageData) { 
+                if (!empty($imageData)) { 
+                    $hasValidImages = true; 
+                    break; 
                 } 
             }
-
+        
             if ($hasValidImages) {
-                foreach ($request['image_color'] as $images) {
-                    foreach ($images as $colorValue => $imageData) {
-                        $receivedColorIds[] = $colorValue;
-
-                        ProductImageColor::updateOrCreate(
-                            [
-                                'product_id' => $product->id,
-                                'color_id' => $colorValue, 
-                            ], 
-                            [
-                                'image' => $this->getFileId($imageData) 
-                            ] 
-                        );
-                    }
+                foreach ($request['image_color_size'] as $key => $imageData) {
+                    [$colorValue, $sizeValue] = explode('-', $key);
+        
+                    $receivedColorSizeIds[] = "{$colorValue}-{$sizeValue}";
+        
+                    ProductImageColorSize::updateOrCreate(
+                        [
+                            'product_id' => $product->id,
+                            'color_id' => $colorValue,
+                            'size_id' => $sizeValue,
+                        ],
+                        [
+                            'image' => $this->getFileId($imageData),
+                        ]
+                    );
                 }
             }
-
-            ProductImageColor::where('product_id', $product->id) ->whereNotIn('color_id', $receivedColorIds)->delete();
-        }
-
-        if (isset($request['image_size'])) { 
-            $receivedSizeIds = [];
-            $hasValidImages = false; 
-            foreach ($request['image_size'] as $images) { 
-                foreach ($images as $imageData) { 
-                    if (!empty($imageData)) { 
-                        $hasValidImages = true; 
-                        break 2; 
-                    } 
-                } 
-            }
-
-            if ($hasValidImages) {
-                foreach ($request['image_size'] as $images) {
-                    foreach ($images as $sizeValue => $imageData) {
-                        $receivedSizeIds[] = $sizeValue;
-                        ProductImageSize::updateOrCreate(
-                            [
-                                'product_id' => $product->id,
-                                'size_id' => $sizeValue, 
-                            ], 
-                            [
-                                'image' => $this->getFileId($imageData) 
-                            ] 
-                        );
-                    }
-                }
-            }
-
-            ProductImageSize::where('product_id', $product->id) ->whereNotIn('size_id', $receivedSizeIds)->delete();
+        
+            ProductImageColorSize::where('product_id', $product->id)
+                ->whereNotIn(DB::raw("CONCAT(color_id, '-', size_id)"), $receivedColorSizeIds)
+                ->delete();
         }
         
         $successMessage = successMessageUpdate("Product");

@@ -4,11 +4,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ProductImageColor extends Model
+class ProductImageColorSize extends Model
 {
     use SoftDeletes;
 	
-	protected $table = 'product_image_color';
+	protected $table = 'product_image_color_size';
 	
 	protected $hidden = [
         
@@ -20,5 +20,8 @@ class ProductImageColor extends Model
 
 	public function color() {
 	    return $this->belongsTo(Color::class, 'color_id');
+	}
+	public function size() {
+	    return $this->belongsTo(Size::class, 'size_id');
 	}
 }
