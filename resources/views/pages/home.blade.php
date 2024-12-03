@@ -48,6 +48,10 @@
         }
     }
     @media only screen and (max-width: 600px) {
+        #content .banner img{
+            height: 300px;
+            filter: brightness(0.5);
+        }
         #content .banner {
             margin-top: 0%;
         }
@@ -58,14 +62,15 @@
             font-size: 15px!important;
         }
         #content .banner a.btn{
-            margin-top: 0px!important;
             padding: 0 3rem!important;
             min-height: 3rem!important;
             line-height: 3rem!important;
             font-size: 1rem!important
         }
         #content .banner .carousel-caption {
-            top: 0!important;
+            left: 15%!important;
+            right: 15%!important;
+            text-align: center!important;
         }
     }
 
