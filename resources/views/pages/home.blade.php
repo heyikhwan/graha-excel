@@ -42,6 +42,44 @@
         margin-top: 10px;
         margin-bottom: 5px;
     }
+    @media only screen and (max-width: 320px) {
+        .carousel-caption {
+            padding-top: 10px!important;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        #content .banner {
+            margin-top: 0%;
+        }
+        #content .banner h1{
+            font-size: 14px!important;
+        }
+        #content .banner h2{
+            font-size: 15px!important;
+        }
+        #content .banner a.btn{
+            margin-top: 0px!important;
+            padding: 0 3rem!important;
+            min-height: 3rem!important;
+            line-height: 3rem!important;
+            font-size: 1rem!important
+        }
+        #content .banner .carousel-caption {
+            top: 0!important;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #content .banner {
+            margin-top: 0%;
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        #content .banner {
+            margin-top: 0%;
+        }
+    }
 </style>
 @endsection
 
