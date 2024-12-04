@@ -56,16 +56,16 @@
             margin-top: 0%;
         }
         #content .banner h1{
-            font-size: 14px!important;
+            font-size: 16px!important;
         }
         #content .banner h2{
-            font-size: 15px!important;
+            font-size: 22px!important;
         }
         #content .banner a.btn{
             padding: 0 3rem!important;
             min-height: 3rem!important;
             line-height: 3rem!important;
-            font-size: 1rem!important
+            font-size:12px!important
         }
         #content .banner .carousel-caption {
             left: 15%!important;
