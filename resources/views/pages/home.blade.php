@@ -42,15 +42,34 @@
         margin-top: 10px;
         margin-bottom: 5px;
     }
+    #content .banner h2{
+        line-height: 1.2!important;
+    }
+    .about-1 h2 {
+        line-height: 1.2!important;
+    }
+    .small-img {
+        display: none;
+    }
     @media only screen and (max-width: 320px) {
         .carousel-caption {
             padding-top: 10px!important;
         }
     }
     @media only screen and (max-width: 600px) {
+        .small-img {
+            display: block;
+        }
+        .large-img {
+            display: none!important;
+        }
+        .about-1 {
+            padding: 0!important;
+        }
         #content .banner img{
             height: 300px;
             filter: brightness(0.5);
+            object-fit: cover!important;
         }
         #content .banner {
             margin-top: 0%;
@@ -95,7 +114,8 @@
                 @foreach($banners as $key => $banner)
                 <div class="carousel-item active">
                     <a href="{{ $banner?->link ?? '#' }}" class="w-100">
-                        <img class="d-block w-100" src="{{ $banner?->image ? get_uploaded_file_name($banner->image) : '' }}" alt="{{ $banner->title }}"  />
+                        <img class="large-img d-block w-100" src="{{ $banner?->image ? get_uploaded_file_name($banner->image) : '' }}" alt="{{ $banner->title }}"  />
+                        <img class="small-img w-100" src="{{ $banner?->mobile_image ? get_uploaded_file_name($banner->mobile_image) : '' }}" alt="{{ $banner->title }}"  />
                     </a>
                     <div class="carousel-caption">
                         {!! $banner->content !!}

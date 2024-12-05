@@ -32,17 +32,6 @@
         text-align: center;
         cursor: default;
     }
-    .product-data-tab { margin-top: 30px; }
-    .tab-style-1 .nav-tabs { justify-content: flex-start; }
-    .tab-style-1.product-data-tab .product-data-tab__link.nav-link { text-transform: initial; margin-left: 0; font-size: 14px; }
-    .below_banner_container { padding: 15px; padding-top: 0px; }
-    .below_banner_tagline { color: #ccc; font-size: 14px; margin-bottom: 15px; }
-    .below_banner_title { color: #666; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
-    .below_banner_desc { color: #333; }
-    .color-thumb:nth-of-type(1) {
-        margin-left: 0px;
-        padding-left: 0px;
-    }
     .color-thumb {
         background-color: transparent;
         border: none;
@@ -84,8 +73,23 @@
     .slick-dots li.slick-active button:before {
         background: #B8B8BA;
     }
-
-
+    
+    .product-data-tab { margin-top: 30px; }
+    .tab-style-1 .nav-tabs { justify-content: flex-start; }
+    .tab-style-1.product-data-tab .product-data-tab__link.nav-link { text-transform: initial; margin-left: 0; font-size: 14px; }
+    .below_banner_container { padding: 15px; padding-top: 0px; }
+    .below_banner_tagline { color: #ccc; font-size: 14px; margin-bottom: 15px; }
+    .below_banner_title { color: #666; font-size: 18px; margin-bottom: 20px; font-weight: bold; }
+    .below_banner_desc { color: #333; }
+    .color-thumb:nth-of-type(1) {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    @media only screen and (max-width: 600px) {
+        .product-gallery__image img {
+            height: auto!important;
+        }
+    }
 </style>
 @endsection
 
@@ -436,7 +440,6 @@
                 $selectedImages.show().css({
                     'position': 'relative',
                     'overflow': 'hidden',
-                    'width': '495px',
                     'left': '0px',
                     'top': '0px',
                     'z-index': '999',
@@ -447,7 +450,6 @@
                 $productImages.filter('[data-type="color"][data-color-id="default"]').show().css({
                     'position': 'relative',
                     'overflow': 'hidden',
-                    'width': '495px',
                     'left': '0px',
                     'top': '0px',
                     'z-index': '999',

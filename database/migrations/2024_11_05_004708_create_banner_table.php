@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 256);
             $table->text('link')->nullable();
             $table->integer('image');
+            $table->integer('mobile_image');
             $table->text('content');
             $table->softDeletes();
             $table->timestamps();

@@ -396,7 +396,7 @@ class ProductController extends StislaController
     public function destroy(Product $product)
     {
         $product = Product::find($product->id);
-        $product->image_color()->delete();
+        $product?->image_color_sizes()?->delete();
         $product->delete();
         $successMessage = successMessageDelete("Product");
 

@@ -20,6 +20,13 @@
     ])
   </div>
   <div class="col-md-12">
+    @include('stisla.includes.forms.inputs.input-image', [
+        'required' => true,
+        'name' => 'mobile_image',
+        'label' => 'Mboile Image',
+    ])
+  </div>
+  <div class="col-md-12">
     @include('stisla.includes.forms.editors.summernote', [
         'required' => true,
         'name' => 'content',

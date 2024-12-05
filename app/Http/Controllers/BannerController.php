@@ -60,39 +60,13 @@ class BannerController extends StislaController
         $data = $request->only([
             'title',
             'image',
+            'mobile_image',
             'content',
             'link',
         ]);
-        
-        if($request->image){
-            $folder = storage_path('files') .DIRECTORY_SEPARATOR. '1';
-            $filename = preg_replace('/^\d{4}-\d{2}-\d{2}-\d{6}-/', '', basename($request->image));
-            $path = $folder . DIRECTORY_SEPARATOR . $filename;
-            $hash = strtolower(Str::random(20));
 
-            $upload = Upload::where('name', $filename)->first();
-
-            if(is_null($upload)){
-                $upload = Upload::create([
-                    "name" => $filename,
-                    "path" => $path,
-                    "extension" => pathinfo($filename, PATHINFO_EXTENSION),
-                    "caption" => "",
-                    "hash" => "",
-                    "public" => 0,
-                    "user_id" => Auth::user()->id,
-                ]);
-                while(true) {
-                    if(!Upload::where("hash", $hash)->count()) {
-                        $upload->hash = $hash;
-                        break;
-                    }
-                }
-                $upload->save();
-            }
-        }
-
-        $data['image'] = $upload->id ?? 0;
+        $data['image'] = $request->image ? $this->getFileId($request->image) : 0;
+        $data['mobile_image'] = $request->mobile_image ? $this->getFileId($request->mobile_image) : 0;
 
         return $data;
     }
@@ -240,5 +214,40 @@ class BannerController extends StislaController
         }
 
         return back()->with('successMessage', $successMessage);
+    }
+
+    private function getFileId($file)
+    {
+        if(!is_null($file) && is_string($file)){
+            $folder = storage_path('files') .DIRECTORY_SEPARATOR. '1';
+            $filename = preg_replace('/^\d{4}-\d{2}-\d{2}-\d{6}-/', '', basename($file));
+            $path = $folder.DIRECTORY_SEPARATOR. $filename;
+            $hash = strtolower(Str::random(20));
+
+            $upload = Upload::where('name', $filename)->first();
+
+            if(is_null($upload)){
+                $upload = Upload::create([
+                    "name" => $filename,
+                    "path" => $path,
+                    "extension" => pathinfo($filename, PATHINFO_EXTENSION),
+                    "caption" => "",
+                    "hash" => "",
+                    "public" => 0,
+                    "user_id" => Auth::user()->id,
+                ]);
+                while(true) {
+                    if(!Upload::where("hash", $hash)->count()) {
+                        $upload->hash = $hash;
+                        break;
+                    }
+                }
+                $upload->save();
+            }
+
+            return $upload->id;
+        }
+
+        return null;
     }
 }
