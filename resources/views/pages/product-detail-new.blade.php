@@ -143,7 +143,7 @@
                                                             $sortedImageColorSizes = $getProduct->image_color_sizes->sortBy('size_id');
                                                         @endphp
                                                         @foreach ($sortedImageColorSizes as $index => $colorImageSize)
-                                                            <figure class="product-gallery__image zoom {{ $index === 1 ? 'default' : '' }}" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
+                                                            <figure class="product-gallery__image zoom {{ $index === 0 ? 'default' : '' }}" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
                                                                 <img src="{{ getDocumentUrl($colorImageSize->image) }}" alt="{{ $colorImageSize->color->name }}" />
                                                             </figure>
                                                         @endforeach
@@ -417,7 +417,7 @@
         const $colorThumbs = $('.color-thumb');
         const $sizeLinks = $('.product-widget__list a');
 
-        let selectedColorId = 'default'; // Default color
+        let selectedColorId = $colorThumbs.first().data('color-id'); // Default to the first color
         let selectedSizeId = null; // No size selected initially
 
         function showImagesByType() {
@@ -471,6 +471,15 @@
 
         // Initialize images display based on the default color
         showImagesByType();
+
+        // Automatically select the first size if available
+        if ($sizeLinks.length > 0) {
+            const firstSizeLink = $sizeLinks.first();
+            firstSizeLink.addClass('active');
+            selectedSizeId = firstSizeLink.data('size-id');
+            showImagesByType();
+        }
     });
+
 </script>
 @endsection
