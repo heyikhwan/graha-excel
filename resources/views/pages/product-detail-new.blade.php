@@ -139,16 +139,11 @@
                                             <div class="gallery-with-thumbs">
                                                 <div class="product-gallery__wrapper">
                                                     <div class="main-slider product-gallery__full-image image-popup">
-                                                        <figure class="product-gallery__image zoom" data-type="color" data-color-id="default">
-                                                        <?php
-                                                            if ($getProduct->image) {
-                                                                echo "<img src='". getDocumentUrl($getProduct->image) ."' alt='".$getProduct->title."' />";
-                                                            }
-                                                        ?>
-                                                        </figure>
-
-                                                        @foreach ($getProduct->image_color_sizes as $colorImageSize)
-                                                            <figure class="product-gallery__image zoom" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
+                                                        @php
+                                                            $sortedImageColorSizes = $getProduct->image_color_sizes->sortBy('size_id');
+                                                        @endphp
+                                                        @foreach ($sortedImageColorSizes as $index => $colorImageSize)
+                                                            <figure class="product-gallery__image zoom {{ $index === 1 ? 'default' : '' }}" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
                                                                 <img src="{{ getDocumentUrl($colorImageSize->image) }}" alt="{{ $colorImageSize->color->name }}" />
                                                             </figure>
                                                         @endforeach
@@ -447,7 +442,7 @@
                 });
             } else {
                 // Show default image if no matching images found
-                $productImages.filter('[data-type="color"][data-color-id="default"]').show().css({
+                $productImages.filter('.default').show().css({
                     'position': 'relative',
                     'overflow': 'hidden',
                     'left': '0px',

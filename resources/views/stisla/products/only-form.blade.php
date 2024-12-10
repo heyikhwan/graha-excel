@@ -130,7 +130,7 @@
     ])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'url_title', 'label' => 'Url Title', 'value' => isset($d) ? $d['url_title'] : ''])
+    @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'url_title', 'label' => 'Permalink', 'value' => isset($d) ? $d['url_title'] : ''])
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-number', ['required' => false, 'name' => 'ordering', 'label' => 'Ordering', 'value' => isset($d) ? $d['ordering'] : ''])

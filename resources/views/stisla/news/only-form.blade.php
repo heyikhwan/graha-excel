@@ -55,7 +55,7 @@
     @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'meta_keyword', 'label' => 'Meta Keyword'])
   </div>
   <div class="col-md-12">
-    @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'url_title', 'label' => 'URL Title'])
+    @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'url_title', 'label' => 'Permalink'])
   </div>
 </div>
 
