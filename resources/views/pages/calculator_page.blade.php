@@ -81,6 +81,12 @@
         border: none;
     }
 
+    .calculator-left {
+        border-image: linear-gradient(to right, #C2C2C2 0%, #F2F2F2 100%) 1;
+        border-width: 15px;
+        border-style: solid;
+    }
+
     @media (min-width:1240px) and (max-width: 1310px) {
         .calculator-left .content { width: 55%; }
         .content-bottom { margin-top:100px; }
@@ -279,12 +285,12 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-bottom: 5%;">
                     <div class="col-12 col-lg-12">
                         <h2 class="text-center my-5" style="font-size: 24px">PERHITUNGAN BIAYA ATAP</h2>
                         <div class="calculator-left">
                             <div class="background">
-                                <img src="<?php echo url(asset('assets/web/img/calc-bg-2.png')); ?>" style="width:100%;" class="not-small" />
+                                <img src="<?php echo url(asset('assets/web/img/calc-bg-new.jpg')); ?>" style="width:100%;" class="not-small" />
                                 <img src="<?php echo url(asset('assets/web/img/calculator-left-bg.jpg')); ?>" style="width:100%;" class="small-only" />
                             </div>
                             <div class="row" style="position: absolute;top: 0;width: 100%;">
