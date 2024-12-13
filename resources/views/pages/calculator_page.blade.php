@@ -133,7 +133,7 @@
         }
     }
     @media (max-width:992px) {
-        .calculator-left { width: 60%; margin-left: 20%; }
+        .calculator-left { width: 60%; margin-left: 20%; border-style: none;}
         .calculator-left .background { position: relative; }
         .calculator-left .content { width: 80%; left: 10%; margin-top: 35px; }
         .not-small { display: none; }
@@ -184,7 +184,12 @@
         }
         h5 { font-size: 12px; margin-bottom: 0; }
         h6 { font-size: 11px; }
-        
+        .pilih_jenis {
+            font-size:14px!important;
+        }
+        .h6_aksesoris{
+            margin-top: 10%!important;
+        }
     }
     
     @media (max-width:720px) {
@@ -222,7 +227,6 @@
         #warna_atap { height: 40px; }
         #aksesoris { height: 10px; }
         .user-input input { width: 100%; }
-        .content-bottom { margin-top: 160px; }
         .form-box-result-calc label {
             color: white;
             font-size: 10px;
@@ -230,6 +234,42 @@
             margin-bottom: 8px;
         }
         .form-box-result-calc .unit { padding: 5px 5px 2px; }
+
+        .pilih_jenis {
+            font-size:14px!important;
+            margin-top:0%;
+        }
+        .title {
+            font-size: 12px !important;
+        }
+        .content_warna {
+            line-height: 2.5rem;
+            font-size: 12px !important;
+        }
+        .form-box-result-calc {
+            margin-top: 15%;
+        }
+        .jumlah_lembaran, .total_kebutuhan, .jumlah_gep {
+            width: 200px !important;
+        }
+        .lebar_label {
+            margin-left: 25%;
+        }
+        .panjang, .lebar {
+            height: 22px !important;
+            width: 125px !important;
+        }
+        .lebar {
+            margin-left: 25% !important;
+        }
+
+        .content-bottom {
+            margin-top: 20px !important;
+            margin-left: 40px !important;
+        }
+        .form-box-result-calc label {
+            font-size: 11px;
+        }
      }
      @media (max-width: 430px) {
          .content-bottom { margin-top: 70px; margin-left: 40px;}
@@ -241,6 +281,10 @@
         }
      }
      @media (max-width: 400px) {
+        .pilih_jenis {
+            font-size:12px!important;
+            margin-top:0%;
+        }
          .content-bottom { margin-top: 80px; }
          .calculator-left .title {
             margin-top: 1%;
@@ -253,9 +297,86 @@
         .form-box-result-calc .col-11 {
             margin-bottom: 5px;
         }
+        .form-box-result-calc {
+            margin-top: 15%;
+        }
+        .panjang, .lebar {
+            height: 22px !important;
+            width: 120px !important;
+        }
+        .jumlah_lembaran, .total_kebutuhan, .jumlah_gep {
+            height: 22px !important;
+            width: 150px !important;
+            border: 5px solid #efefef !important;
+        }
+        .title {
+            font-size: 10px !important;
+        }
+        .content_warna {
+            margin-top: 5px;
+            min-height: 2.5rem;
+            line-height: 2.5rem;
+            font-size: 10px !important;
+        }
+        .h6_aksesoris {
+            margin-top: 15% !important;
+        }
      }
      @media (max-width: 370px) {
          .content-bottom { margin-top: 50px; }
+        .title {
+            font-size:9px!important;
+        }
+        .pilih_jenis {
+            font-size:10px!important;
+        }
+        .content-bottom {
+            margin-top: 20px!important;
+            margin-left: 30px!important;
+        }
+        .content-bottom .row .col-11 {
+            margin-bottom: 0px!important;
+        }
+        .form-box-result-calc label {
+            font-size: 9px;
+        }
+        .jumlah_lembaran, .total_kebutuhan, .jumlah_gep{
+            height: 22px!important;
+            width: 110px!important;
+            border: 5px solid #efefef!important;
+        }
+        .lebar {
+            margin-left:50%!important;
+        }
+        .lebar_label {
+            margin-left:50%;
+        }
+        .content_warna{
+            margin-top: 5px;
+            min-height: 2rem;
+            line-height: 2rem;
+            font-size:9px!important;
+        }
+
+        .h6_aksesoris{
+            margin-top: 10%!important;
+        }
+
+        .calculator-left { border-style: none;}
+        .calculator-left .content { width: 80%; left: 10%; margin-top: 15px; }
+
+        .pilih_jenis {
+            margin-top: 2%;
+        }
+
+        .panjang, .lebar {
+            height: 22px !important;
+            width: 100px !important;
+        }
+
+        .form-box-result-calc {
+            margin-top: 5%;
+        }
      }
      ul {
       margin: 0;
@@ -295,7 +416,7 @@
                             </div>
                             <div class="row" style="position: absolute;top: 0;width: 100%;">
                                 <div class="col-lg-6 content">
-                                    <p style="font-size: 20px;margin-bottom: 10px;">PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></p>
+                                    <p class="pilih_jenis" style="font-size: 20px;margin-bottom: 10px;">PILIH JENIS ATAP <b>SESUAI KEBUTUHAN</b></p>
                                     <p class="title" style="font-size: 11px;"><b>PILIH PRODUK ATAP</b></p>
                                     <div class="row list_opsi_atap">
                                         <div class="col-12">
@@ -324,10 +445,10 @@
                                             <br>
                                             <label>Panjang (Meter)</label>
                                         </div>
-                                            <div class="col-6 p-0">
+                                        <div class="col-6 p-0">
                                             <input type="number" class="lebar" id="lebar" style="background: #efefef; border: 1px solid #efefef;height: 35px;width: 190px;"></input>
                                             <br>
-                                            <label>Lebar (Meter)</label>
+                                            <label class="lebar_label">Lebar (Meter)</label>
                                         </div>
                                     </div>
                                 </div>
