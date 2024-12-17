@@ -1,4 +1,4 @@
-@extends('pages.layouts.app')
+@extends('pages.layouts.app-without-article')
 @section('title', 'PROJECT NAME')
 
 @section('style')
@@ -130,181 +130,261 @@
     <div class="page-content-inner enable-page-sidebar">
         <div class="container-fluid">
             <div class="row shop-sidebar pt--45 pt-md--35 pt-sm--20">
-                    <div class="col-lg-9 order-lg-2" id="main-content">
-                        <div class="row">
-                            <div class="col-md-6 product-main-image">
-                                <div class="product-image">
-                                    <div class="product-gallery ms-dong">
-                                        <div class="product-gallery__large-image">
-                                            <div class="gallery-with-thumbs">
-                                                <div class="product-gallery__wrapper">
-                                                    <div class="main-slider product-gallery__full-image image-popup">
-                                                        @php
-                                                            $sortedImageColorSizes = $getProduct->image_color_sizes->sortBy('size_id');
-                                                        @endphp
-                                                        @foreach ($sortedImageColorSizes as $index => $colorImageSize)
-                                                            <figure class="product-gallery__image zoom {{ $index === 0 ? 'default' : '' }}" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
-                                                                <img src="{{ getDocumentUrl($colorImageSize->image) }}" alt="{{ $colorImageSize->color->name }}" />
-                                                            </figure>
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="product-gallery__actions">
-                                                        <button class="action-btn btn-zoom-popup"><i class="dl-icon-zoom-in"></i></button>
-                                                    </div>
+                <div class="col-lg-9 order-1 order-lg-2" id="main-content">
+                    <div class="row">
+                        <div class="col-md-6 product-main-image">
+                            <div class="product-image">
+                                <div class="product-gallery ms-dong">
+                                    <div class="product-gallery__large-image">
+                                        <div class="gallery-with-thumbs">
+                                            <div class="product-gallery__wrapper">
+                                                <div class="main-slider product-gallery__full-image image-popup">
+                                                    @php
+                                                        $sortedImageColorSizes = $getProduct->image_color_sizes->sortBy('size_id');
+                                                    @endphp
+                                                    @foreach ($sortedImageColorSizes as $index => $colorImageSize)
+                                                        <figure class="product-gallery__image zoom {{ $index === 0 ? 'default' : '' }}" data-type="color" data-color-id="{{ $colorImageSize->color_id }}" data-size-id="{{ $colorImageSize->size_id }}">
+                                                            <img src="{{ getDocumentUrl($colorImageSize->image) }}" alt="{{ $colorImageSize->color->name }}" />
+                                                        </figure>
+                                                    @endforeach
+                                                </div>
+                                                <div class="product-gallery__actions">
+                                                    <button class="action-btn btn-zoom-popup"><i class="dl-icon-zoom-in"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="airi-element-carousel product-carousel nav-vertical-center" 
-                                    data-slick-options='{
-                                    "spaceBetween": 0,
-                                    "slidesToShow": 1,
-                                    "slidesToScroll": 1,
-                                    "arrows": true,
-                                    "dots": true,
-                                    "infinite": true,
-                                    "prevArrow": "fa fa-chevron-circle-left", 
-                                    "nextArrow": "fa fa-chevron-circle-right" 
-                                    }'
-                                    data-slick-responsive='[
-                                        {"breakpoint":1200, "settings": {"slidesToShow": 1} },
-                                        {"breakpoint":991, "settings": {"slidesToShow": 1} },
-                                        {"breakpoint":450, "settings": {"slidesToShow": 1} }
-                                    ]'
-                                    >
-                                    <?php
-                                        if ($getProduct->slideshows) {
-                                            $slideshows = json_decode($getProduct->slideshows);
-                                            foreach ($slideshows as $slideshowId) {
-                                                echo "<div><img src='". getDocumentUrl($slideshowId) ."' alt='Slideshow Banner ".$getProduct->title."' /></div>";
-                                            }
-                                        }
-                                    ?>
                                 </div>
                             </div>
-                            <div class="col-md-6 product-main-details ">
-                                <div class="product-summary">
-                                    <div class="clearfix"></div>
-                                    <h1 class="product-title">{{$getProduct->title}}</h1>
-                                    <p>{{$getProduct->name}}</p>
-                                    <p>{{$category->name}}</p>
-                                    <hr>
-                                    <h4>Pilihan Warna</h4>
-                                    <div class="product-gallery__thumb">
-                                        @php
-                                        if ($getProduct->color){
-                                            $setDecode = json_decode($getProduct->color);
-                                            foreach ($setDecode as $getColor){
-                                                $findColor = DB::table('colors')->where('id', $getColor)->first();
-                                                if ($findColor) {
-                                                    echo "<button class='product-gallery__thumb--single color-thumb' data-color-id='{$findColor->id }'>";
-                                                    echo "<i class='fa fa-circle' style='color: {$findColor->color }'></i>";
-                                                    echo "</button>";
-                                                }
+                            <div class="airi-element-carousel product-carousel nav-vertical-center" 
+                                data-slick-options='{
+                                "spaceBetween": 0,
+                                "slidesToShow": 1,
+                                "slidesToScroll": 1,
+                                "arrows": true,
+                                "dots": true,
+                                "infinite": true,
+                                "prevArrow": "fa fa-chevron-circle-left", 
+                                "nextArrow": "fa fa-chevron-circle-right" 
+                                }'
+                                data-slick-responsive='[
+                                    {"breakpoint":1200, "settings": {"slidesToShow": 1} },
+                                    {"breakpoint":991, "settings": {"slidesToShow": 1} },
+                                    {"breakpoint":450, "settings": {"slidesToShow": 1} }
+                                ]'
+                                >
+                                <?php
+                                    if ($getProduct->slideshows) {
+                                        $slideshows = json_decode($getProduct->slideshows);
+                                        foreach ($slideshows as $slideshowId) {
+                                            echo "<div><img src='". getDocumentUrl($slideshowId) ."' alt='Slideshow Banner ".$getProduct->title."' /></div>";
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="col-md-6 product-main-details ">
+                            <div class="product-summary">
+                                <div class="clearfix"></div>
+                                <h1 class="product-title">{{$getProduct->title}}</h1>
+                                <p>{{$getProduct->name}}</p>
+                                <p>{{$category->name}}</p>
+                                <hr>
+                                <h4>Pilihan Warna</h4>
+                                <div class="product-gallery__thumb">
+                                    @php
+                                    if ($getProduct->color){
+                                        $setDecode = json_decode($getProduct->color);
+                                        foreach ($setDecode as $getColor){
+                                            $findColor = DB::table('colors')->where('id', $getColor)->first();
+                                            if ($findColor) {
+                                                echo "<button class='product-gallery__thumb--single color-thumb' data-color-id='{$findColor->id }'>";
+                                                echo "<i class='fa fa-circle' style='color: {$findColor->color }'></i>";
+                                                echo "</button>";
                                             }
                                         }
-                                        @endphp
+                                    }
+                                    @endphp
+                                </div>
+                                <div style="clear:both"></div>
+                                <hr>
+                                <h4>Pilihan Tipe</h4>
+                                <ul class="product-widget__list four two-column-list">
+                                    <?php
+                                    if ($getProduct->size) {
+                                        $setDecode = json_decode($getProduct->size);
+                                        $sizes = [];
+                                        foreach ($setDecode as $getSize) {
+                                            $findSize = DB::table('sizes')->where('id', $getSize)->first();
+                                            if ($findSize) {
+                                                $sizes[] = $findSize;
+                                            }
+                                        }
+
+                                        function extractNumberFromSize($sizeName) {
+                                            preg_match('/\d+/', $sizeName, $matches);
+                                            return isset($matches[0]) ? (int) $matches[0] : 0;
+                                        }
+
+                                        usort($sizes, function($a, $b) {
+                                            return extractNumberFromSize($a->size) - extractNumberFromSize($b->size);
+                                        });
+
+                                        foreach ($sizes as $findSize) {
+                                            echo "<li><a href='#' data-size-id='{$findSize->id}'>" . $findSize->size . "</a></li>";
+                                        }
+                                    }
+                                    ?>
+                                </ul>
+                                <div class="clearfix"></div>
+                                @if($getProduct->katalog_link)
+                                    <a href="{{ getDocumentUrl($getProduct->katalog_link) }}" class='btn btn-style-1 btn-medium btn-block add-to-cart' target='_blank'>{{ $getProduct->katalog_label }}</a>
+                                @endif
+                                <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium btn-block add-to-cart' style="background: #cf987e; margin-top:10px;">HUBUNGI KAMI</a>
+                                <div class="product-data-tab tab-style-1">
+                                    <div class="nav nav-tabs product-data-tab__head mb--40 mb-md--30" id="product-tab" role="tablist">
+                                        
+                                        <a class="product-data-tab__link nav-link active" id="nav-aksesoris-tab" data-toggle="tab" href="#nav-aksesoris" role="tab" aria-selected="true"> 
+                                            <span>Aksesoris</span>
+                                        </a>
+                                        <a class="product-data-tab__link nav-link" id="nav-carapasang-tab" data-toggle="tab" href="#nav-carapasang" role="tab" aria-selected="true"> 
+                                            <span>Cara Pasang</span>
+                                        </a>
                                     </div>
-                                    <div style="clear:both"></div>
-                                    <hr>
-                                    <h4>Pilihan Tipe</h4>
-                                    <ul class="product-widget__list four two-column-list">
-                                        <?php
-                                        if ($getProduct->size) {
-                                            $setDecode = json_decode($getProduct->size);
-                                            $sizes = [];
-                                            foreach ($setDecode as $getSize) {
-                                                $findSize = DB::table('sizes')->where('id', $getSize)->first();
-                                                if ($findSize) {
-                                                    $sizes[] = $findSize;
-                                                }
-                                            }
-
-                                            function extractNumberFromSize($sizeName) {
-                                                preg_match('/\d+/', $sizeName, $matches);
-                                                return isset($matches[0]) ? (int) $matches[0] : 0;
-                                            }
-
-                                            usort($sizes, function($a, $b) {
-                                                return extractNumberFromSize($a->size) - extractNumberFromSize($b->size);
-                                            });
-
-                                            foreach ($sizes as $findSize) {
-                                                echo "<li><a href='#' data-size-id='{$findSize->id}'>" . $findSize->size . "</a></li>";
-                                            }
-                                        }
-                                        ?>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                    @if($getProduct->katalog_link)
-                                        <a href="{{ getDocumentUrl($getProduct->katalog_link) }}" class='btn btn-style-1 btn-medium btn-block add-to-cart' target='_blank'>{{ $getProduct->katalog_label }}</a>
-                                    @endif
-                                    <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium btn-block add-to-cart' style="background: #cf987e; margin-top:10px;">HUBUNGI KAMI</a>
-                                    <div class="product-data-tab tab-style-1">
-                                        <div class="nav nav-tabs product-data-tab__head mb--40 mb-md--30" id="product-tab" role="tablist">
-                                            
-                                            <a class="product-data-tab__link nav-link active" id="nav-aksesoris-tab" data-toggle="tab" href="#nav-aksesoris" role="tab" aria-selected="true"> 
-                                                <span>Aksesoris</span>
-                                            </a>
-                                            <a class="product-data-tab__link nav-link" id="nav-carapasang-tab" data-toggle="tab" href="#nav-carapasang" role="tab" aria-selected="true"> 
-                                                <span>Cara Pasang</span>
-                                            </a>
-                                        </div>
-                                        <div class="tab-content product-data-tab__content" id="product-tabContent">
-                                            <div class="tab-pane fade show active" id="nav-aksesoris" role="tabpanel" aria-labelledby="nav-aksesoris-tab">
-                                                <div class="product-description">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <?php
-                                                            if ($getProduct->Aksesoris) {
-                                                                echo "<img src='". getDocumentUrl($getProduct->Aksesoris) ."' alt='Aksesoris ".$getProduct->title."' />";
-                                                            }
-                                                            ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="nav-carapasang" role="tabpanel" aria-labelledby="nav-carapasang-tab">
-                                                <div class="product-description">
+                                    <div class="tab-content product-data-tab__content" id="product-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-aksesoris" role="tabpanel" aria-labelledby="nav-aksesoris-tab">
+                                            <div class="product-description">
+                                                <div class="row">
                                                     <div class="col-md-12">
                                                         <?php
-                                                        if ($getProduct->cara_pasang) {
-                                                            echo "<img src='". getDocumentUrl($getProduct->cara_pasang) ."' alt='Cara Pasang ".$getProduct->title."' />";
+                                                        if ($getProduct->Aksesoris) {
+                                                            echo "<img src='". getDocumentUrl($getProduct->Aksesoris) ."' alt='Aksesoris ".$getProduct->title."' />";
                                                         }
                                                         ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="tab-pane fade" id="nav-carapasang" role="tabpanel" aria-labelledby="nav-carapasang-tab">
+                                            <div class="product-description">
+                                                <div class="col-md-12">
+                                                    <?php
+                                                    if ($getProduct->cara_pasang) {
+                                                        echo "<img src='". getDocumentUrl($getProduct->cara_pasang) ."' alt='Cara Pasang ".$getProduct->title."' />";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row justify-content-cente pt--45 pt-lg--50 pt-md--55 pt-sm--35" style="margin-bottom: 80px;">
-                            <div class="col-12 col-sm-6">
-                                <div class="below_banner_container">
-                                    <div class="below_banner_tagline">{{$getProduct->below_banner_tagline}}</div>
-                                    <div class="below_banner_title">{{$getProduct->below_banner_title}}</div>
-                                    <div class="below_banner_desc">{!!$getProduct->below_banner_desc!!}</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <?php
-                                if ($getProduct->right_banner) {
-                                    echo "<img src='". getDocumentUrl($getProduct->right_banner) ."' alt='Right Banner ".$getProduct->title."' />";
-                                }
-                                ?>
+                    </div>
+                    <div class="row justify-content-cente pt--45 pt-lg--50 pt-md--55 pt-sm--35" style="margin-bottom: 80px;">
+                        <div class="col-12 col-sm-6">
+                            <div class="below_banner_container">
+                                <div class="below_banner_tagline">{{$getProduct->below_banner_tagline}}</div>
+                                <div class="below_banner_title">{{$getProduct->below_banner_title}}</div>
+                                <div class="below_banner_desc">{!!$getProduct->below_banner_desc!!}</div>
                             </div>
                         </div>
+                        <div class="col-12 col-sm-6">
+                            <?php
+                            if ($getProduct->right_banner) {
+                                echo "<img src='". getDocumentUrl($getProduct->right_banner) ."' alt='Right Banner ".$getProduct->title."' />";
+                            }
+                            ?>
+                        </div>
                     </div>
-                <div class="col-lg-3 order-lg-1mt-md--40" id="primary-sidebar">
+                </div>
+                <div class="col-lg-3 order-4 order-lg-1 mt-md--40" id="primary-sidebar">
                     <div class="sidebar-widget">
                         <!-- Category Widget Start -->
                         <div class="product-widget categroy-widget mb--35 mb-md--30">
                             @include('pages.components.productCategorySidebar')
                         </div>
                         <!-- Category Widget Start -->
+                    </div>
+                </div>
+                <div class="col-12 order-2 order-lg-3">
+                    <div class="container-fluid" style="padding:0;margin:0;">
+                        <?php
+                        if($getProduct->banner_bawah)
+                        {
+                            echo "<a href='".$getProduct->banner_bawah_link."' target='_blank' style='width:100%;'><img src='". getDocumentUrl($getProduct->banner_bawah) ."' alt='Bottom Banner ".$getProduct->title."' style='width:100%;' /></a>";
+                        }
+                        ?>
+                    </div>
+                    
+                    <div class="default-content" style="margin: 60px 0 0;">
+                        <div class="container">
+                            <div class="row">
+                                <?php
+                                for($i = 1; $i <= 4; $i++)
+                                {
+                                    $content_var = "keunggulan_text_{$i}";
+                                    $content = $getProduct->$content_var;
+                                    $image_var = "keunggulan_produk_{$i}";
+                                    $image = $getProduct->$image_var;
+                                    $url_var = "keunggulan_link_{$i}";
+                                    $url = $getProduct->$url_var;
+                                    if($url == "") $url = "#";
+                                    else $url = getDocumentUrl($getProduct->$url_var);
+                                    ?>
+                                    <div class="col-md-3">
+                                        <div class="content-img">
+                                            <a href='<?php echo $url; ?>'>
+                                            <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
+                                            <h3><?php echo $content; ?></h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 order-3 order-lg-4 mt-md--40">
+                    <div class="default-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="content-img">
+                                        <a href="{{url('/page/kenapa-memilih-excel')}}">
+                                            <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
+                                            <p>Kenapa Memilih Excel</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="content-img">
+                                        <a href="{{url('/page/teknologi-tangki-air')}}">
+                                            <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
+                                            <p>Teknologi Tangki Air</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="content-img">
+                                        <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
+                                            <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
+                                            <p>Tips Mengukur Tangki Air</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="content-img">
+                                        <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
+                                            <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
+                                            <p>Harga dan Kualitas Tangki Air</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,44 +449,6 @@
         </div>
         */
         ?>
-        <div class="container-fluid" style="padding:0;margin:0;">
-            <?php
-            if($getProduct->banner_bawah)
-            {
-                echo "<a href='".$getProduct->banner_bawah_link."' target='_blank' style='width:100%;'><img src='". getDocumentUrl($getProduct->banner_bawah) ."' alt='Bottom Banner ".$getProduct->title."' style='width:100%;' /></a>";
-            }
-            ?>
-        </div>
-        
-        <div class="default-content" style="margin: 60px 0 0;">
-            <div class="container">
-                <div class="row">
-                    <?php
-                    for($i = 1; $i <= 4; $i++)
-                    {
-                        $content_var = "keunggulan_text_{$i}";
-                        $content = $getProduct->$content_var;
-                        $image_var = "keunggulan_produk_{$i}";
-                        $image = $getProduct->$image_var;
-                        $url_var = "keunggulan_link_{$i}";
-                        $url = $getProduct->$url_var;
-                        if($url == "") $url = "#";
-                        else $url = getDocumentUrl($getProduct->$url_var);
-                        ?>
-                        <div class="col-md-3">
-                            <div class="content-img">
-                                <a href='<?php echo $url; ?>'>
-                                <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
-                                <h3><?php echo $content; ?></h3>
-                                </a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
 
