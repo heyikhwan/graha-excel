@@ -273,6 +273,9 @@
         .bg-head h1, .atap-calc h2 {
             font-size: 18px!important;
         }
+        .add-to-cart {
+            margin-bottom: 30px!important;
+        }
      }
      @media (max-width: 430px) {
          .content-bottom { margin-top: 70px; margin-left: 40px;}

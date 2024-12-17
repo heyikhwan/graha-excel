@@ -105,9 +105,6 @@
                 <a href="{{url('')}}">
                     <img src="{{ $_logo_url }}" alt="Logo" />
                     <p style="text-align: center; margin-bottom: 0;">PT GRAHAEXCEL PLASTINDO</p>
-                    @if ($_SERVER['REQUEST_URI'] == "/")
-                    <p style="font-size: 12px; text-align: center; margin: 0;">Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC</p>
-                    @endif
                 </a>
             </div>
             <div class="header-inner fixed-header">
