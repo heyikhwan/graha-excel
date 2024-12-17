@@ -270,6 +270,9 @@
         .form-box-result-calc label {
             font-size: 11px;
         }
+        .bg-head h1, .atap-calc h2 {
+            font-size: 18px!important;
+        }
      }
      @media (max-width: 430px) {
          .content-bottom { margin-top: 70px; margin-left: 40px;}
@@ -406,9 +409,9 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-bottom: 5%;">
+                <div class="row atap-calc" style="margin-bottom: 5%;">
                     <div class="col-12 col-lg-12">
-                        <h2 class="text-center my-5" style="font-size: 24px">PERHITUNGAN BIAYA ATAP</h2>
+                        <h2 class="text-center my-3 my-md-5" style="font-size: 24px">PERHITUNGAN BIAYA ATAP</h2>
                         <div class="calculator-left">
                             <div class="background">
                                 <img src="<?php echo url(asset('assets/web/img/calc-bg-new.jpg')); ?>" style="width:100%;" class="not-small" />

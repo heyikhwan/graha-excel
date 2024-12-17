@@ -245,44 +245,6 @@
         </div>
         
         <footer>
-            <div class="default-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="content-img">
-                                <a href="{{url('/page/kenapa-memilih-excel')}}">
-                                    <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
-                                    <p>Kenapa Memilih Excel</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="content-img">
-                                <a href="{{url('/page/teknologi-tangki-air')}}">
-                                    <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
-                                    <p>Teknologi Tangki Air</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="content-img">
-                                <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
-                                    <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
-                                    <p>Tips Mengukur Tangki Air</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="content-img">
-                                <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
-                                    <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
-                                    <p>Harga dan Kualitas Tangki Air</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="footer footer-1 bg--dark pt--40">
                 <div class="footer-top pb--40 pb-md--30">
                     <div class="container">
