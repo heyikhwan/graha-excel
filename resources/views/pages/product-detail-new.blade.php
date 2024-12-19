@@ -85,6 +85,19 @@
         margin-left: 0px;
         padding-left: 0px;
     }
+
+    .content-img .feature {
+        text-align: center;
+        background: #f7f7f7;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .content-img .feature h3 {
+        font-size: 13px;
+        margin: 15px 0;
+        text-transform: uppercase;
+    }
     @media only screen and (max-width: 600px) {
         .product-gallery__image img {
             height: auto!important;
@@ -335,8 +348,10 @@
                                     <div class="col-md-3">
                                         <div class="content-img">
                                             @if($url == "#")
-                                            <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
-                                            <h3><?php echo $content; ?></h3>
+                                            <div class="feature">
+                                                <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
+                                                <h3><?php echo $content; ?></h3>
+                                            </div>
                                             @else
                                             <a href='<?php echo $url; ?>'>
                                                 <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
