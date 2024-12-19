@@ -329,15 +329,20 @@
                                     $image = $getProduct->$image_var;
                                     $url_var = "keunggulan_link_{$i}";
                                     $url = $getProduct->$url_var;
-                                    if($url == "") $url = "#";
+                                    if($url == "" || $url == 0) $url = "#";
                                     else $url = getDocumentUrl($getProduct->$url_var);
                                     ?>
                                     <div class="col-md-3">
                                         <div class="content-img">
-                                            <a href='<?php echo $url; ?>'>
+                                            @if($url == "#")
                                             <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
                                             <h3><?php echo $content; ?></h3>
+                                            @else
+                                            <a href='<?php echo $url; ?>'>
+                                                <img src="<?php echo getDocumentUrl($getProduct->$image_var); ?>" alt="<?php echo $content; ?>">
+                                                <h3><?php echo $content; ?></h3>
                                             </a>
+                                            @endif
                                         </div>
                                     </div>
                                     <?php
