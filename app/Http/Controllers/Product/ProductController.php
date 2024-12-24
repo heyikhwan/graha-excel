@@ -271,7 +271,7 @@ class ProductController extends StislaController
             $hasValidImages = false;
         
             foreach ($request['image_color_size'] as $key => $imageData) {
-                if (!empty($imageData)) {
+                if (!empty($imageData) && $imageData != null) {
                     $hasValidImages = true;
                     break;
                 }
@@ -279,7 +279,7 @@ class ProductController extends StislaController
         
             if ($hasValidImages) {
                 foreach ($request['image_color_size'] as $key => $imageData) {
-                    if (!empty($imageData)) {
+                    if (!empty($imageData) && $imageData != null) {
                         list($colorValue, $sizeValue) = explode('-', $key);
         
                         ProductImageColorSize::create([
@@ -330,7 +330,6 @@ class ProductController extends StislaController
     {
         $data    = $this->getStoreData($request);
         $product = Product::find($product->id);
-
         $newData = $product->update($data);
 
         if (isset($request['image_color_size'])) { 
@@ -338,7 +337,7 @@ class ProductController extends StislaController
             $hasValidImages = false; 
         
             foreach ($request['image_color_size'] as $key => $imageData) { 
-                if (!empty($imageData)) { 
+                if (!empty($imageData) && $imageData != null) { 
                     $hasValidImages = true; 
                     break; 
                 } 
@@ -346,20 +345,22 @@ class ProductController extends StislaController
         
             if ($hasValidImages) {
                 foreach ($request['image_color_size'] as $key => $imageData) {
-                    [$colorValue, $sizeValue] = explode('-', $key);
-        
-                    $receivedColorSizeIds[] = "{$colorValue}-{$sizeValue}";
-        
-                    ProductImageColorSize::updateOrCreate(
-                        [
-                            'product_id' => $product->id,
-                            'color_id' => $colorValue,
-                            'size_id' => $sizeValue,
-                        ],
-                        [
-                            'image' => $this->getFileId($imageData),
-                        ]
-                    );
+                    if (!empty($imageData) && $imageData != null) {
+                        [$colorValue, $sizeValue] = explode('-', $key);
+            
+                        $receivedColorSizeIds[] = "{$colorValue}-{$sizeValue}";
+            
+                        ProductImageColorSize::updateOrCreate(
+                            [
+                                'product_id' => $product->id,
+                                'color_id' => $colorValue,
+                                'size_id' => $sizeValue,
+                            ],
+                            [
+                                'image' => $this->getFileId($imageData),
+                            ]
+                        );
+                    }
                 }
             }
         
