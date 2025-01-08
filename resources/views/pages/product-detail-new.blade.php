@@ -124,17 +124,32 @@
             $img = "";
         }
         
-        echo '<script type="application/ld+json">
-    {"@context": "https://schema.org/", "@type": "Product", 
-      "name": "'.$getProduct->title.'",
-      "image": "'.$img.'",
-      "description": "'.strip_tags($getProduct->description).'",
-      "brand": "Excel",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "27"
-      }
+    
+    $title = htmlspecialchars($getProduct->title, ENT_QUOTES, 'UTF-8');
+    $image = htmlspecialchars($img, ENT_QUOTES, 'UTF-8');
+
+    
+    $description = !empty($getProduct->description) 
+        ? htmlspecialchars(strip_tags($getProduct->description), ENT_QUOTES, 'UTF-8') 
+        : 'Deskripsi tidak tersedia';
+
+    
+    echo '<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "' . $title . '",
+        "image": "' . $image . '",
+        "description": "' . $description . '",
+        "brand": {
+            "@type": "Brand",
+            "name": "Excel"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "27"
+        }
     }
     </script>';
     ?>
