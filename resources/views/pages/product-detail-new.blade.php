@@ -249,9 +249,11 @@
                                             }
                                         }
 
-                                        function extractNumberFromSize($sizeName) {
-                                            preg_match('/\d+/', $sizeName, $matches);
-                                            return isset($matches[0]) ? (int) $matches[0] : 0;
+                                        if (!function_exists('extractNumberFromSize')) {
+                                            function extractNumberFromSize($sizeName) {
+                                                preg_match('/\d+/', $sizeName, $matches);
+                                                return isset($matches[0]) ? (int) $matches[0] : 0;
+                                            }
                                         }
 
                                         usort($sizes, function($a, $b) {
