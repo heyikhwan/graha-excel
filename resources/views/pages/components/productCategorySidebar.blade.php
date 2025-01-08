@@ -1,5 +1,5 @@
 <h2 class="widget-title">Produk</h2>
-<ul class="prouduct-categories product-widget__list">
+<ul class="product-categories">
 @foreach($getCat as $setCat)
     @php 
         $excl_ids = [8, 9, 10, 2]; 
