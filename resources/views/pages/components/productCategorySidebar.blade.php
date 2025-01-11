@@ -9,7 +9,7 @@
         <ul>
         @php ($resProducts = DB::table('products')->where('sidebar_ordering', 'like', $setCat->id."%")->orderBy('sidebar_ordering', 'asc')->whereNull('deleted_at')->get())
         @foreach($resProducts as $resProduct)
-            <li style="padding: 5px 0 0 10px; font-size: 12px;">
+            <li>
                 <a href="{{url('/product') .'/'. $resProduct->url_title}}">
                     {{$resProduct->title}}
                 </a>
