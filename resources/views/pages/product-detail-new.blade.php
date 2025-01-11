@@ -8,10 +8,9 @@
         line-height: 1;
         list-style: none;
         margin-left: 15px;
-    }
-    .product-categories li ul li a {
         font-size: 12px;
     }
+    
     .ms-dong .slick-slide img {
         height: 500px;
     }
