@@ -4,14 +4,13 @@
 @section('style')
 <!-- script -->
 <style>
-    .prouduct-categories li ul li {
+    .product-categories li ul li {
         line-height: 1;
         list-style: none;
         margin-left: 15px;
-    }
-    .prouduct-categories li ul li a {
         font-size: 12px;
     }
+    
     .ms-dong .slick-slide img {
         height: 500px;
     }
