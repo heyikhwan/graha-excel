@@ -4,12 +4,15 @@
 @section('style')
 <!-- script -->
 <style>
-    .prouduct-categories li ul li {
+    .product-categories li ul li {
         line-height: 1;
         list-style: none;
         margin-left: 15px;
+        margin-bottom: 15px;
+        font-size: 12px;
     }
-    .prouduct-categories li ul li a {
+    
+    .product-categories li ul li a {
         font-size: 12px;
     }
     .product-image img {
@@ -25,7 +28,7 @@
                 <div class="row shop-sidebar pt--45 pt-md--35 pt-sm--20 pb--60-old pb-md--50 pb-sm--40">
                     <div class="col-lg-9 order-1 order-lg-2" id="main-content">
                         <h1 class="text-center" style="margin: 20px 0;">PRODUK GRAHAEXCEL</h1>
-                        <div class="shop-products"> 
+                        <div class="shop-products">
                             @if(Request::Input('cat'))
                             <?php
                                 $getCatId = DB::table('categories')->where('id', Request::Input('cat'))->first();
