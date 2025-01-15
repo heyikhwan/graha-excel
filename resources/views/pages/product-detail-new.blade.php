@@ -73,7 +73,7 @@
     .slick-dots li.slick-active button:before {
         background: #B8B8BA;
     }
-    
+
     .product-data-tab { margin-top: 30px; }
     .tab-style-1 .nav-tabs { justify-content: flex-start; }
     .tab-style-1.product-data-tab .product-data-tab__link.nav-link { text-transform: initial; margin-left: 0; font-size: 14px; }
@@ -108,12 +108,12 @@
 
 @section('content')
     <?php
-    $category = App\Models\Category::find($getProduct->categories); 
+    $category = App\Models\Category::find($getProduct->categories);
     if (!function_exists('getDocumentUrl')) {
         function getDocumentUrl($id)
         {
             return get_uploaded_file_name($id);
-            
+
         }
     }
         if ($getProduct->image) {
@@ -123,17 +123,17 @@
         {
             $img = "";
         }
-        
-    
+
+
     $title = htmlspecialchars($getProduct->title, ENT_QUOTES, 'UTF-8');
     $image = htmlspecialchars($img, ENT_QUOTES, 'UTF-8');
 
-    
-    $description = !empty($getProduct->description) 
-        ? htmlspecialchars(strip_tags($getProduct->description), ENT_QUOTES, 'UTF-8') 
+
+    $description = !empty($getProduct->description)
+        ? htmlspecialchars(strip_tags($getProduct->description), ENT_QUOTES, 'UTF-8')
         : 'Deskripsi tidak tersedia';
 
-    
+
     echo '<script type="application/ld+json">
     {
         "@context": "https://schema.org/",
@@ -153,8 +153,8 @@
     }
     </script>';
     ?>
-    
-    
+
+
     <div class="page-content-inner enable-page-sidebar">
         <div class="container-fluid">
             <div class="row shop-sidebar pt--45 pt-md--35 pt-sm--20">
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="airi-element-carousel product-carousel nav-vertical-center" 
+                            <div class="airi-element-carousel product-carousel nav-vertical-center"
                                 data-slick-options='{
                                 "spaceBetween": 0,
                                 "slidesToShow": 1,
@@ -192,8 +192,8 @@
                                 "arrows": true,
                                 "dots": true,
                                 "infinite": true,
-                                "prevArrow": "fa fa-chevron-circle-left", 
-                                "nextArrow": "fa fa-chevron-circle-right" 
+                                "prevArrow": "fa fa-chevron-circle-left",
+                                "nextArrow": "fa fa-chevron-circle-right"
                                 }'
                                 data-slick-responsive='[
                                     {"breakpoint":1200, "settings": {"slidesToShow": 1} },
@@ -273,11 +273,11 @@
                                 <a href="https://www.grahaexcel.com/page/kenapa-memilih-excel#contact-us"  class='btn btn-style-1 btn-medium btn-block add-to-cart' style="background: #cf987e; margin-top:10px;">HUBUNGI KAMI</a>
                                 <div class="product-data-tab tab-style-1">
                                     <div class="nav nav-tabs product-data-tab__head mb--40 mb-md--30" id="product-tab" role="tablist">
-                                        
-                                        <a class="product-data-tab__link nav-link active" id="nav-aksesoris-tab" data-toggle="tab" href="#nav-aksesoris" role="tab" aria-selected="true"> 
+
+                                        <a class="product-data-tab__link nav-link active" id="nav-aksesoris-tab" data-toggle="tab" href="#nav-aksesoris" role="tab" aria-selected="true">
                                             <span>Aksesoris</span>
                                         </a>
-                                        <a class="product-data-tab__link nav-link" id="nav-carapasang-tab" data-toggle="tab" href="#nav-carapasang" role="tab" aria-selected="true"> 
+                                        <a class="product-data-tab__link nav-link" id="nav-carapasang-tab" data-toggle="tab" href="#nav-carapasang" role="tab" aria-selected="true">
                                             <span>Cara Pasang</span>
                                         </a>
                                     </div>
@@ -346,7 +346,7 @@
                         }
                         ?>
                     </div>
-                    
+
                     <div class="default-content" style="margin: 60px 0 0;">
                         <div class="container">
                             <div class="row">
@@ -440,14 +440,14 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="airi-element-carousel product-carousel nav-vertical-center" 
+                            <div class="airi-element-carousel product-carousel nav-vertical-center"
                             data-slick-options='{
                             "spaceBetween": 30,
                             "slidesToShow": 4,
                             "slidesToScroll": 1,
-                            "arrows": true, 
-                            "prevArrow": "dl-icon-left", 
-                            "nextArrow": "dl-icon-right" 
+                            "arrows": true,
+                            "prevArrow": "dl-icon-left",
+                            "nextArrow": "dl-icon-right"
                             }'
                             data-slick-responsive='[
                                 {"breakpoint":1200, "settings": {"slidesToShow": 3} },
@@ -492,6 +492,8 @@
 @section('script')
 <script>
     $(document).ready(function() {
+        $('.product-gallery__image').slick('setPosition');
+
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
         const $sizeLinks = $('.product-widget__list a');
@@ -540,7 +542,7 @@
 
         // Handle size selection
         $sizeLinks.on('click', function(e) {
-            e.preventDefault(); 
+            e.preventDefault();
             $sizeLinks.removeClass('active');
             $(this).addClass('active');
 
