@@ -61,7 +61,7 @@ class MainController extends Controller
             'pageTitle'    => 'Jual Tangki Air Excel, Atap uPVC, Atap Transparan dan Lainnya',
             'metaDescription'    => 'Grahaexcel menjual Tangki Air Excel, Atap uPVC, Atap transparan dan Lainnya. Produk kami dikenal dengan kualitas terbaik',
         ];
-        
+
         return view('pages.product', $data);
     }
 
@@ -70,7 +70,7 @@ class MainController extends Controller
         $resData = Product::where('categories.url_title', $request->urlTitle)
                     ->leftJoin('categories', 'products.categories', '=', 'categories.id')
                     ->select('products.*', 'categories.name');
-        // }
+
         $data['url_title'] = $request->urlTitle;
         $data['getProduct'] = $resData->whereNull('products.deleted_at')->orderBy('products.id','desc')->paginate(9);
         $data['getCat'] = Category::orderBy('ordering', 'asc')->get();
@@ -81,7 +81,7 @@ class MainController extends Controller
         else $meta_description = $category->meta_description;
         $data['pageTitle'] = $page_title;
         $data['metaDescription'] = $meta_description;
-        
+
         return view('pages.listProductByCategory', $data);
     }
 
@@ -100,8 +100,8 @@ class MainController extends Controller
         }
         if($getProduct == null) { return redirect('/'); exit; }
         $id = $getProduct->id;
-        
-        
+
+
         $data['getReview'] = Review::where('product', $id)->get();
         $data['getAttr'] = Attribute::where('product', $id)->orderBy('idx', 'asc')->get();
         $data['getCat'] = Category::orderBy('ordering', 'asc')->get();
@@ -115,7 +115,7 @@ class MainController extends Controller
 
         return view('pages.product-detail', $data);
     }
-    
+
     public function detailProductNew($id)
     {
         $data['getProduct'] = $getProduct = Product::where('products.id', $id)
@@ -131,8 +131,8 @@ class MainController extends Controller
         }
         if($getProduct == null) { return redirect('/'); exit; }
         $id = $getProduct->id;
-        
-        
+
+
         $data['getReview'] = Review::where('product', $id)->get();
         $data['getAttr'] = Attribute::where('product', $id)->orderBy('idx', 'asc')->get();
         $data['getCat'] = Category::orderBy('ordering', 'asc')->get();
@@ -143,7 +143,7 @@ class MainController extends Controller
         else $meta_description = $getProduct->meta_description;
         $data['pageTitle'] = $page_title;
         $data['metaDescription'] = $meta_description;
-        
+
         return view('pages.product-detail-new', $data);
     }
 
@@ -175,14 +175,14 @@ class MainController extends Controller
         $data['metaDescription'] = 'Visi perusahaan kami adalah selalu memberikan informasi yang transparan tentang proses dan bahan baku yang kami gunakan.';
         return view('pages.page-4', $data);
     }
-    
+
     public function pageWaspada ()
     {
         $data['pageTitle'] = 'Waspada Penipuan Mengatasnamakan Grahaexcel - Grahaexcel';
         $data['metaDescription'] = 'Hati-hati penipuan yang menggunakan nama Grahaexcel atau merek-merek kami. Berikut daftar pihak-pihak yang bersangkutan. ';
         return view('pages.waspada', $data);
     }
-    
+
         public function kalkulatorAtap ()
     {
         $data['pageTitle'] = 'Kalkulator Biaya Atap - Grahaexcel';
@@ -214,7 +214,7 @@ class MainController extends Controller
         {
             $data['articles'] = News::with(["article_category"])->where('category',$category->id)->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate($_num_of_post_per_page);
         }
-        
+
         if($category->page_title == "") $page_title = $category->title;
         else $page_title = $category->page_title;
         if($category->meta_description == "") $meta_description = strip_tags($category->description);
@@ -232,7 +232,7 @@ class MainController extends Controller
         if (empty($category)){
             return redirect('/articles');
         }
-        
+
         $data['getNews'] = $article = News::where('url_title', $request->urlTitle)->where('category', $category->id)->first();
         if(!$article)
         {
@@ -260,14 +260,14 @@ class MainController extends Controller
         $data['metaDescription'] = 'Pelajari lebih lengkap tentang apa itu atap uPVC dan keuntungan-keuntungannya. Dan, temukan kenapa atap uPVC sangat populer dipakai pada saat ini.';
         return view('pages.atapUpvc', $data);
     }
-    
+
     public function sitemap(Request $request)
     {
         return response()->file(storage_path('app/public/sitemap.xml'), [
             'Content-Type' => 'application/xml'
         ]);
     }
-    
+
     public function showImage(Request $request)
     {
         $upload = Upload::where('hash', $request->hashcode)->first();

@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="row shop-sidebar pt--45 pt-md--35 pt-sm--20 pb--60-old pb-md--50 pb-sm--40">
                     <div class="col-lg-9 order-lg-2" id="main-content">
-                        <div class="shop-products"> 
+                        <div class="shop-products">
                             @if($url_title)
                             <?php
                                 $getCatId = DB::table('categories')->where('url_title', $url_title)->first();
@@ -47,7 +47,7 @@
                                                     <a href="{{url('product') .'/'. $setProduct->url_title}}">
                                                         <?php
                                                             if ($setProduct->image) {
-                                                                echo "<img src='". get_uploaded_file_name($getCatId->image) ."' class='single-image' alt='Gambar ".$setProduct->title."' />";
+                                                                echo "<img src='". get_uploaded_file_name($setProduct->image) ."' class='single-image' alt='Gambar ".$setProduct->title."' />";
                                                             }
                                                         ?>
                                                     </a>
