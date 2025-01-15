@@ -4,12 +4,15 @@
 @section('style')
 <!-- script -->
 <style>
-    .prouduct-categories li ul li {
+    .product-categories li ul li {
         line-height: 1;
         list-style: none;
         margin-left: 15px;
+        margin-bottom: 15px;
+        font-size: 12px;
     }
-    .prouduct-categories li ul li a {
+    
+    .product-categories li ul li a {
         font-size: 12px;
     }
     .product-image img {
