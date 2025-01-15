@@ -8,6 +8,7 @@
         line-height: 1;
         list-style: none;
         margin-left: 15px;
+        margin-bottom: 15px;
         font-size: 12px;
     }
 
