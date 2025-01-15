@@ -10,7 +10,7 @@
         margin-left: 15px;
         font-size: 12px;
     }
-    
+
     .ms-dong .slick-slide img {
         height: 500px;
     }
@@ -560,6 +560,51 @@
             showImagesByType();
         }
     });
+
+    function reorderList() {
+        const list = document.querySelector('.product-widget__list');
+        if (!list) return; // Exit if the list is not found
+
+        const items = Array.from(list.querySelectorAll('li'));
+        const withOrder = [];
+        const withoutOrder = [];
+
+        // Separate items with and without '#'
+        items.forEach((item) => {
+            const link = item.querySelector('a');
+            if (!link) return;
+
+            const text = link.textContent.trim();
+            const match = text.match(/^(.*)#(\d+)$/);
+
+            if (match) {
+                const name = match[1].trim(); // Text before the '#'
+                const order = parseInt(match[2], 10); // Order number after the '#'
+                withOrder.push({ name, order, element: item });
+            } else {
+                withoutOrder.push(item); // Items without '#'
+            }
+        });
+
+        // Sort items with '#'
+        withOrder.sort((a, b) => a.order - b.order);
+
+        // Update the list
+        list.innerHTML = ''; // Clear the list
+
+        // Append ordered items
+        withOrder.forEach((item) => {
+            const link = item.element.querySelector('a');
+            if (link) link.textContent = item.name; // Update the text
+            list.appendChild(item.element);
+        });
+
+        // Append items without order at the end
+        withoutOrder.forEach((item) => list.appendChild(item));
+    }
+
+    // Run the reorder function
+    reorderList();
 
 </script>
 @endsection
