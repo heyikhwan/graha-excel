@@ -7,7 +7,7 @@
     @endphp
     <li><a href="{{url('/category') .'/'. $setCat->url_title}}" style="font-size:15px;"><b><u>{{$setCat->name}}</u></b></a>
         <ul>
-        @php ($resProducts = DB::table('products')->where('categories.url_title', $setCat->urlTitle)->leftJoin('categories', 'products.categories', '=', 'categories.id')->orderBy('sidebar_ordering', 'asc')->whereNull('deleted_at')->get())
+        @php ($resProducts = DB::table('products')->where('categories', $setCat->id)->orderBy('sidebar_ordering', 'asc')->whereNull('deleted_at')->get())
         @foreach($resProducts as $resProduct)
             <li>
                 <a href="{{url('/product') .'/'. $resProduct->url_title}}">
