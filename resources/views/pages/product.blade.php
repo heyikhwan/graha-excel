@@ -11,7 +11,7 @@
         margin-bottom: 15px;
         font-size: 12px;
     }
-    
+
     .product-categories li ul li a {
         font-size: 12px;
     }

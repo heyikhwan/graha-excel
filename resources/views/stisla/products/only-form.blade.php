@@ -19,7 +19,7 @@
   <div class="col-md-12">
     @include('stisla.includes.forms.selects.select2', [
         'id' => 'select2',
-        'name' => 'category',
+        'name' => 'categories',
         'options' => $categoryOptions,
         'label' => 'Category',
     ])
@@ -83,19 +83,19 @@
                       </label>
                       <div class="input-group">
                           <span class="input-group-btn">
-                              <a data-input="image_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}" 
-                                 data-preview="holder_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}" 
-                                 class="btn btn-primary lfm" 
-                                 target="popup" 
+                              <a data-input="image_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}"
+                                 data-preview="holder_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}"
+                                 class="btn btn-primary lfm"
+                                 target="popup"
                                  style="color: white; padding: .5rem .8rem!important;">
                                   <i class="fa fa-image"></i> Choose
                               </a>
                           </span>
-                          <input id="image_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}" 
-                                 class="form-control" 
-                                 type="text" 
-                                 name="image_color_size[{{ $img_color_size->color_id }}-{{ $img_color_size->size_id }}]" 
-                                 value="{{ get_uploaded_file_name($img_color_size->image) }}" 
+                          <input id="image_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}"
+                                 class="form-control"
+                                 type="text"
+                                 name="image_color_size[{{ $img_color_size->color_id }}-{{ $img_color_size->size_id }}]"
+                                 value="{{ get_uploaded_file_name($img_color_size->image) }}"
                                  readonly>
                       </div>
                       <div id="holder_{{ $img_color_size->color_id }}_{{ $img_color_size->size_id }}" style="margin-top:15px;max-height:100px;">
@@ -108,7 +108,7 @@
           @endif
       @endisset
     </div>
-  
+
   </div>
   <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input-image', [
@@ -312,7 +312,7 @@
   $('.lfm-multiple').on('click', function () {
     let route_prefix = '/file-managers';
     window.open(route_prefix + '?type=file&multiple=true', 'FileManager', 'width=900,height=600');
-    
+
     window.SetUrl = function (items) {
       // Kosongkan tampilan pratinjau dan input hidden
       $('#holder-slideshows').empty();
