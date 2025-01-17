@@ -493,7 +493,7 @@
 <script>
     $(document).ready(function() {
         if ($('.main-slider').hasClass('slick-initialized')) {
-            $('.product-gallery__image.default').css('display', 'block');
+            $('.slick-active').css('display', '');
             console.log('change style');
         }
 
