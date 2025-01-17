@@ -492,7 +492,11 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $('.product-gallery__image.default').css('display', '');
+        $('.product-gallery__image.default').each(function () {
+            if ($(this).css('display') === 'none') {
+                $(this).css('display', 'block'); 
+            }
+        });
 
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
