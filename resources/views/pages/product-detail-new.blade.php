@@ -492,11 +492,7 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $('.product-gallery__image.default').each(function () {
-            if ($(this).css('display') === 'none') {
-                $(this).css('display', 'block'); 
-            }
-        });
+        $('.main-slider').get(0).slick.setPosition()
 
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
