@@ -492,7 +492,7 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        //$('.product-gallery__image').slick('setPosition');
+        $('.product-gallery__full-image').slick('setPosition');
 
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
