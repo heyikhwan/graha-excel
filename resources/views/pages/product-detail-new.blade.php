@@ -492,7 +492,9 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $('.main-slider').get(0).slick.setPosition()
+        if ($('.product-gallery__image').hasClass('slick-initialized')) {
+            $('.product-gallery__image').slick('setPosition');
+        }
 
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
