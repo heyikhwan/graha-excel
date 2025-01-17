@@ -492,7 +492,7 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        if ($('.product-gallery__image').hasClass('slick-initialized')) {
+        if ($('.main-slider').hasClass('slick-initialized')) {
             $('.product-gallery__image').slick('setPosition');
         }
 
