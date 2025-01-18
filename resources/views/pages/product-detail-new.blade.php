@@ -494,10 +494,9 @@
     $(document).ready(function() {
         if ($('.main-slider').hasClass('slick-initialized')) {
             $('.slick-active').css('display', '');
-            console.log('change style');
+            $('.product-gallery__image').slick('setPosition');
+            console.log('slick display');
         }
-
-        $('.main-slider').find('.slick-active').css('display', '');
 
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
