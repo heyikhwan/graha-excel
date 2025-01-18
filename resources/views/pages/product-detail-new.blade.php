@@ -494,7 +494,8 @@
     $(document).ready(function() {
         if ($('.main-slider').hasClass('slick-initialized')) {
             $('.slick-active').css('display', '');
-            $('.product-gallery__image').slick('setPosition');
+            //$('.product-gallery__image').slick('setPosition');
+            $('.product-gallery__image').slick('slickUnfilter');
             console.log('slick display');
         }
 
