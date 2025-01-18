@@ -563,7 +563,9 @@
             $('.slick-active').css('display', '');
         }
 
-        $productImages.hasClass('default').css('display', '');
+        if($productImages.hasClass('default')) {
+            $productImages.css('display', '');
+        }
     });
 
 </script>
