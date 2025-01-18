@@ -497,6 +497,8 @@
             console.log('change style');
         }
 
+        $('.slick-active').css('display', '');
+
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
         const $sizeLinks = $('.product-widget__list a');
