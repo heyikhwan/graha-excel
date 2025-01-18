@@ -492,13 +492,6 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        if ($('.main-slider').hasClass('slick-initialized')) {
-            $('.slick-active').css('display', '');
-            //$('.product-gallery__image').slick('setPosition');
-            $('.main-slider').slick('slickUnfilter');
-            console.log('slick display');
-        }
-
         const $productImages = $('.product-gallery__image');
         const $colorThumbs = $('.color-thumb');
         const $sizeLinks = $('.product-widget__list a');
@@ -565,6 +558,12 @@
             selectedSizeId = firstSizeLink.data('size-id');
             showImagesByType();
         }
+
+        if ($('.main-slider').hasClass('slick-initialized')) {
+            $('.slick-active').css('display', '');
+        }
+
+        $productImages.hasClass('default').css('display', '');
     });
 
 </script>
