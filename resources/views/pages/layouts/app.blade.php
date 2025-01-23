@@ -6,9 +6,9 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TBDQQMLF');</script>        
+    })(window,document,'script','dataLayer','GTM-TBDQQMLF');</script>
     <!-- End Google Tag Manager -->
-    
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,6 @@
         .header-graha p {
             color: #262626;
             background:#fff;
-            margin-top: -15px;
             position: relative;
             z-index: 99;
         }
@@ -128,8 +127,8 @@
                                             <p class="mm-text">Tentang Kami</p>
                                         </a>
                                     </li>
-                                    
-                                    
+
+
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}#contact-us" class="mainmenu__link">
                                             <p class="mm-text">Hubungi Kami</p>
@@ -170,7 +169,7 @@
                 </div>
             </div>
         </header>
-        
+
         <header class="header-mobile">
             <div class="container-fluid">
                 <div class="row align-items-center">
@@ -226,11 +225,11 @@
                 </div>
             </div>
         </header>
-        
+
         <div id="content" class="main-content-wrapper">
             @yield('content')
         </div>
-        
+
         <footer>
             <div class="default-content">
                 <div class="container">
@@ -361,7 +360,7 @@
         </div>
         <div class="ai-global-overlay"></div>
     </div>
-    
+
     <!-- Modal Contact WhatsApp -->
     <!-- <div class="modal fade" id="contactWhatsappModal" tabindex="-1" role="dialog" aria-labelledby="contactWhatsappModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -375,7 +374,7 @@
       </div>
     </div> -->
     <!-- /.Modal Contact WhatsApp -->
-    
+
     <!-- Floating WhatsApp Button -->
     <div class="smart-wa-button">
         <a href="https://api.whatsapp.com/send?phone=6281399808057&text=Hallo%2C%20saya%20ingin%20mengatahui%20lebih%20lanjut%20tentang%20produk%20GrahaExcel" target="_blank" class="smart-wa-btn"></a>
@@ -384,7 +383,7 @@
 
     <script src="{{asset('assets/js/footer-combined.js')}}"></script>
     @yield('script')
-    
+
     <!-- Modal Contact WhatsApp Script -->
     <!-- <script>
         $(document).ready(function(){
