@@ -43,28 +43,6 @@ Route::get('/sitemap.xml', [App\Http\Controllers\Web\MainController::class, 'sit
 
 Route::get('/images/files/{hashcode}/{filename}', [App\Http\Controllers\Web\MainController::class, 'showImage']);
 Route::get('/page/kalkulator-biaya-atap', [App\Http\Controllers\Web\MainController::class, 'kalkulatorAtap']);
-
-Route::get('/toren-air', function () {
-    $data = [
-        'pageTitle' => 'EXCEL - Toren Air, Tangki Air, Tandon Air Berstandard SNI & FDA',
-        'metaDescription' => 'Toren Air EXCEL dengan 100% Resin Murni, Standard SNI & FDA, Sejak 1969 sebagai pelopor dan inovator ketahanan dengan Triple Construction System '
-    ];
-    return view('pages.toren-air', $data);
-});
-Route::get('/tangki-kimia', function () {
-    $data = [
-        'pageTitle' => 'Tangki Kimia Graha Excel - Solusi Tangki Industri & Kebutuhan Komersial',
-        'metaDescription' => 'Kami menyediakan tangki kimia custom sesuai jenis bahan kimia, kapasitas, HDPE dengan ketebalan khusus, standard K3L, SNI, Regulasi Interantional'
-    ];
-    return view('pages.tangki-kimia', $data);
-});
-Route::get('/atap-upvc', function () {
-    $data = [
-        'pageTitle' => 'Atap UPVC GrahaExcel – Solusi Atap Kuat & Tahan Lama',
-        'metaDescription' => 'Atap UPVC berkualitas,  sejuk & tahan lama. Tersedia tipe Skydeck, Exceltech, EliteRoof untuk rumah, pabrik & ruko. Bergaransi hingga 15 tahun.'
-    ];
-    return view('pages.atap-upvc', $data);
-});
     
 
 //Clear Cache facade value:

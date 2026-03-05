@@ -299,6 +299,14 @@
         'label' => 'Keunggulan File 4',
     ])
   </div>
+   <div class="col-md-12">
+    @include('stisla.includes.forms.editors.summernote', [
+        'required' => false,
+        'name' => 'content_bottom',
+        'label' => 'Content Bottom',
+        'id' => 'summernote',
+    ])
+  </div>
 </div>
 
 <script>

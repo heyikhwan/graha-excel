@@ -327,6 +327,13 @@
                             ?>
                         </div>
                     </div>
+                    <div class="col-12 order-2 order-lg-3 mb-3">
+                    <div class="container-fluid" style="padding:0;margin:0;">
+                        <?php
+                        echo $getProduct->content_bottom
+                        ?>
+                    </div>
+                </div>
                 </div>
                 <div class="col-lg-3 order-4 order-lg-1 mt-md--40" id="primary-sidebar">
                     <div class="sidebar-widget">
@@ -337,8 +344,10 @@
                         <!-- Category Widget Start -->
                     </div>
                 </div>
+                
                 <div class="col-12 order-2 order-lg-3">
                     <div class="container-fluid" style="padding:0;margin:0;">
+                           
                         <?php
                         if($getProduct->banner_bawah)
                         {
@@ -384,6 +393,7 @@
                         </div>
                     </div>
                 </div>
+             
                 <div class="col-12 order-3 order-lg-4 mt-md--40">
                     <div class="default-content">
                         <div class="container">

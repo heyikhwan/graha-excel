@@ -18,7 +18,6 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <title>{{$pageTitle}}</title>
     <link rel="stylesheet" href="{{asset('assets/css/header-combined.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom-menu.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/smart-whatsapp-box/smart-whatsapp-box.css')}}">
     <script src="{{asset('assets/plugins/modernizr/modernizr-2.8.3.min.js')}}"></script>
     @if (isset($canonical))
@@ -48,7 +47,7 @@
             padding-top:1.75rem;
         }
         p {
-            text-align:left;
+            text-align:justify;
         }
         .product-image img {
             object-position: 50% 15%;
@@ -69,27 +68,6 @@
                 display:none;
             }
         }
-        .main-navigation .mainmenu__item.menu-item-has-children>ul
-            {
-            margin-top:7px;
-            box-shadow:none !important;
-            -webkit-box-shadow:none !important;
-            }
-
-    
-    .main-navigation .mainmenu__link{
-            color: #fff;
-            font-size: 14px;
-            line-height: 3rem;
-            padding: .5rem 1.2rem;
-            text-transform: uppercase;
-            font-weight: 400; 
-        }
-          .main-navigation .mainmenu li ul.sub-menu{
-      text-align: left;
-    padding: 0px!important;
-
-  }
     </style>
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -116,9 +94,6 @@
                 <a href="{{url('')}}">
                     <img src="{{ $_logo_url }}" alt="Logo" />
                     <p style="text-align: center; margin-bottom: 0;">PT GRAHAEXCEL PLASTINDO</p>
-                    @if ($_SERVER['REQUEST_URI'] == "/")
-                    <p style="font-size: 12px; text-align: center; margin: 0;">Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC</p>
-                    @endif
                 </a>
             </div>
             <div class="header-inner fixed-header">
@@ -144,20 +119,9 @@
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/products')}}" class="mainmenu__link">
-                                            <p class="mm-text">Semua Produk</p>
+                                            <p class="mm-text">Produk</p>
                                         </a>
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children">
-                                        <a href="#" class="mainmenu__link">
-                                            <p class="mm-text">Kategori Produk</p>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
-                                    </li>
-                                    
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}" class="mainmenu__link">
                                             <p class="mm-text">Tentang Kami</p>
@@ -237,17 +201,8 @@
                                 <li>
                                     <a href="{{url('')}}"><p>Home</p></a>
                                 </li>
-                                 <li>
-                                    <a href="{{url('/products')}}"><p>Semua Produk</p></a>
-                                </li>
                                 <li>
-                                    <a href="#"><p>Kategori Produk</p></a>
-                                
-                                      <ul>
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
+                                    <a href="{{url('/products')}}"><p>Produk</p></a>
                                 </li>
                                 <li>
                                     <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Tentang Kami</p></a>
@@ -276,6 +231,44 @@
         </div>
 
         <footer>
+            <div class="default-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/kenapa-memilih-excel')}}">
+                                    <img src="{{asset('assets/web/img/KENAPA-MEMILIH-TANGKI-EXCEL.webp')}}" alt="Kenapa Memilih Tangki Excel">
+                                    <p>Kenapa Memilih Excel</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/teknologi-tangki-air')}}">
+                                    <img src="{{asset('assets/web/img/TEKNOLOGI-GRAHAEXCEL.webp')}}" alt="Teknologi Tangki Air">
+                                    <p>Teknologi Tangki Air</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/memilih-ukuran-yang-tepat')}}">
+                                    <img src="{{asset('assets/web/img/TIPS-MEMILIH-UKURAN-TANGKI-AIR-YANG-TEPAT.webp')}}" alt="Tips Mengukur Tangki Air">
+                                    <p>Tips Mengukur Tangki Air</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="content-img">
+                                <a href="{{url('/page/harga-dan-kualitas-tangki-air')}}">
+                                    <img src="{{asset('assets/web/img/FAQ.webp')}}" alt="Harga dan Kualitas Tangki Air">
+                                    <p>Harga dan Kualitas Tangki Air</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="footer footer-1 bg--dark pt--40">
                 <div class="footer-top pb--40 pb-md--30">
                     <div class="container">

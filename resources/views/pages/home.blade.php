@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-md-6 p-0">
                     <br/>
-                    <img src="{{asset('assets/web/img/tangki-excel-di-pabrik-grahaexcel.png')}}" alt="Tangki Excel di Pabrik Grahaexcel">
+                    <img src="{{asset('storage/files/1/TangkidiPabrik.jpg')}}" alt="Tangki Excel di Pabrik Grahaexcel">
                 </div>
             </div>
         </div>
@@ -163,21 +163,21 @@
     <section class="home-product">
         <div class="container">
             <h2 class="text-center" style="font-size: 24px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Produk Tangki Air</h2>
-            <div class="row">
+           <div class="row">
                 
                 <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
                     <div class="airi-product">
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/category/tangki-air-crema-stone')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Crystal-Series.webp')}}" alt="Tangki Air Crystal Series" class="single-image">
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-crystal-series-roto">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/Tangki-Air-Crystal-Series.webp" alt="Tangki Air Crystal Series" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                        <a href="{{url('/category/tangki-air-crema-stone')}}">Tangki Air EXCEL - Crystal Series | Roto</a>
+                                        <a href="https://www.grahaexcel.com/product/tangki-air-crystal-series-roto">Tangki Air EXCEL - Crystal Series | Roto</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Solusi penampungan air bersih yang lebih higienis dan sehat. Tersedia 5 warna pilihan dengan corak kristal dan batu alam. Tentunya dengan garansi 20 tahun, bebas lumut, aman untuk kesehatan, dan cocok untuk konsep rumah jenis apapun. Kapasitas 250 liter - 2000 liter.</p>
@@ -192,14 +192,14 @@
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('#')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Pop-Series.webp')}}" alt="Tangki Air Pop Series" class="single-image">
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-pop-series-roto">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/Tangki-Air-Pop-Series.webp" alt="Tangki Air Pop Series" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                        <a href="{{url('#')}}">Tangki Air EXCEL - Pop Series | Roto</a>
+                                        <a href="https://www.grahaexcel.com/product/tangki-air-pop-series-roto">Tangki Air EXCEL - Pop Series | Roto</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Tandon air/ toren air Pop Series tersedia dengan 6 warna pilihan populer yang tentunya trendy dan cocok untuk konsep hunian modern. Tentunya dengan garansi 20 tahun, bebas lumut, dan aman untuk kesehatan. Kapasitas 250 liter - 2000 liter.</p>
@@ -214,14 +214,14 @@
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/category/tangki-air-kimia')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Classic-Series.webp')}}" alt="Tangki Air dan Kimia Excel" class="single-image">
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-kimia-silinder-roto">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/Tangki-Air-Classic-Series.webp" alt="Tangki Air dan Kimia Excel" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                    <a href="{{url('/category/tangki-air-kimia')}}">Tangki Air EXCEL - Classic Series | Roto</a>
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-kimia-silinder-roto">Tangki Air EXCEL - Classic Series | Roto</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Toren air EXCEL dengan warna klasik yang identik dengan warna oranye dan biru. Sekarang dengan teknologi bebas lumut, garansi 20 tahun, dan tentunya aman untuk kesehatan. Tersedia juga tangki untuk kebutuhan penampungan kimia dengan garansi terbatas. Kapasitas 250 liter - 22.500 liter. </p>
@@ -237,14 +237,14 @@
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/category/tangki-total-kuras')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Total-Drain.webp')}}" alt="Tangki Total Kuras Total Drain" class="single-image">
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-total-drain">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/Tangki-Air-Total-Drain.webp" alt="Tangki Total Kuras Total Drain" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                        <a href="{{url('/category/tangki-total-kuras')}}">Tangki Total Kuras, Total Drain | Roto</a>
+                                        <a href="https://www.grahaexcel.com/product/tangki-air-total-drain">Tangki Total Kuras, Total Drain | Roto</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Solusi menguras endapan kotoran lebih maksimal dengan desain khusus di bawah permukaan toren dan tentunya menjadikan perawatan tangki lebih mudah. Tentunya dengan garansi 20 tahun, bebas lumut, dan aman untuk kesehatan. Kapasitas 550 liter - 2100 liter.  </p>
@@ -259,14 +259,14 @@
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/product/tangki-air-sehat-minum')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Blow.webp')}}" alt="Tangki Air Blow" class="single-image">
+                                    <a href="https://www.grahaexcel.com/product/tangki-air-sehat-minum">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/Tangki-Air-Blow.webp" alt="Tangki Air Blow" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                        <a href="{{url('/product/tangki-air-sehat-minum')}}">Tangki Air Sehat | Blow Series</a>
+                                        <a href="https://www.grahaexcel.com/product/tangki-air-sehat-minum">Tangki Air Sehat | Blow Series</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>2x lebih kuat, 2x lebih sehat = awet untuk waktu yang lebih lama. Tangki air Sehat dari EXCEL yang menggunakan teknologi <i>blow moulding</i>. Satu-satunya di Indonesia dengan standard SNI. Kini tersedia di 3 warna pilihan dan kapasitas 250 liter- 3000 liter.</p>
@@ -276,40 +276,20 @@
                     </div>
                 </div>
                 
+              
                 <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
                     <div class="airi-product">
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/product/tangki-bioseptic')}}">
-                                        <img src="{{asset('assets/web/img/Tangki-Air-Bioseptik-Tank.webp')}}" alt="Tangki Bioseptik" class="single-image">
+                                    <a href="https://www.grahaexcel.com/category/tangki-air-stainless">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/TANGKI-AIR-STAINLESS-STEEL.webp" alt="Tangki Air Stainless Steel Excel" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                        <a href="{{url('/product/tangki-bioseptic')}}">Tangki EXCEL Bioseptik | Blow Series</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Satu-satunya di Indonesia dan di Dunia - <i>Septic tank</i> dengan teknologi <i>blow moulding</i>, menjadikan tangki 2x lebih kuat dan 5 tahap filtrasi untuk mengurai lebih maksimal. Hasilnya penguraian maksimal dan kekuatan optimal. Kapasitas 1000 liter dan 1500 liter</p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{url('/category/tangki-air-stainless')}}">
-                                        <img src="{{asset('assets/web/img/TANGKI-AIR-STAINLESS-STEEL.webp')}}" alt="Tangki Air Stainless Steel Excel" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="{{url('/category/tangki-air-stainless')}}">TANGKI STAINLESS</a>
+                                    <a href="https://www.grahaexcel.com/category/tangki-air-stainless">TANGKI STAINLESS</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Tandon air Stainless Steel Excel dibuat dari bahan dasar stainless steel dengan grade terbaik yaitu AISI 304 (8% Nickel). Memiliki ketahanan korosi paling tinggi dibanding tangki air stainless merek lain di Indonesia. Tangki air khusus untuk penyimpanan air bersih (PAM) dan minyak.</p>
@@ -324,14 +304,14 @@
                         <div class="product-inner">
                             <figure class="product-image">
                                 <div class="product-image--holder">
-                                    <a href="{{url('/category/hidran-umum')}}">
-                                        <img src="{{asset('assets/web/img/TANGKI-HIDRAN-UMUM-EXCEL-1.webp')}}" alt="Tangki Hidran Umum Excel" class="single-image">
+                                    <a href="https://www.grahaexcel.com/category/hidran-umum">
+                                        <img src="https://www.grahaexcel.com/assets/web/img/TANGKI-HIDRAN-UMUM-EXCEL-1.webp" alt="Tangki Hidran Umum Excel" class="single-image">
                                     </a>
                                 </div>
                             </figure>
                             <div class="product-info">
                                 <h3 class="product-title">
-                                    <a href="{{url('/category/hidran-umum')}}">Tangki Hidran Umum | Roto</a>
+                                    <a href="https://www.grahaexcel.com/category/hidran-umum">Tangki Hidran Umum | Roto</a>
                                 </h3>
                                 <span class="product-price-wrapper">
                                     <p>Hidran umum merupakan tangki air (program pemerintah) untuk menyediakan air bersih ke korban bencana dan pelosok desa. Tangki air ini bisa disusun (stack) untuk mempermudah pada saat pengiriman/ transportasi.</p>
@@ -342,120 +322,7 @@
                 </div>
                 
 
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{url('/category/atap-dingin-upvc-sheets')}}">
-                                        <img src="{{asset('assets/web/img/ATAP-UPVC-1.webp')}}" alt="Atap uPVC / Dingin" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="{{url('/category/atap-dingin-upvc-sheets')}}">Atap uPVC & PC</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Berbagai macam atap dingin untuk keperluan gudang, perumahan, kanopi, pabrik, dan aplikasi tidak terbatas dibuat dari bahan uPVC - <i>single layer</i> dan <i>double layer</i> yang bisa dikombinasikan dengan atap penerangan berbahan dasar PC.</p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">
-                                        <img src="{{asset('assets/web/img/ATAP-BENING-PET-PP-1.webp')}}" alt="Atap Bening / Gelombang PET PP" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">Atap Gelombang Bening | PET & PP</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Atap gelombang bening yang terbuat dari bahan PET dan PP dengan perbedaan transmisi cahaya 78%-98% untuk keperluan penerangan di dapur, jemuran, gudang, <i>green house</i>, pertanian, dan sebagainya. </p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{url('/category/lembaran-pp')}}">
-                                        <img src="{{asset('assets/web/img/Penutup-Pagar-EXCELBOX.webp')}}" alt="Penutup pagar" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="{{url('/category/atap-bening-gelombang-pet-pp')}}">Penutup pagar/ seng plastik | PP</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Penutup pagar plastik/ seng plastik yang dibuat dari bahan PP dengan berbagai motif 2 dimensi dan 3 dimensi. Untuk menjaga privasi hunian Anda. </p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{url('/category/others')}}">
-                                        <img src="{{asset('assets/web/img/cone-dan-road-barrier-excel.webp')}}" alt="Product Image" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="{{url('/category/others')}}">OTHER</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Produk-produk penampungan lainnya dan sistem pengaturan jalan seperti Bak Terbuka, Coolbox, Traffic Cone, dan Road Barrier.</p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="more-btn m-auto" style="padding-bottom: 100px">
-                    <a href="{{url('/products')}}" class="btn btn-outline-dark">LIHAT LEBIH BANYAK</a>
-                </div>
-                <?php /*
-                <div class="col-xl-4 col-lg-4 col-sm-6 mb--40 mb-md--30">
-                    <div class="airi-product">
-                        <div class="product-inner">
-                            <figure class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="JavaScript:Void(0);">
-                                        <img src="{{asset('assets/web/img/new/soon.jpg')}}" alt="Product Image" class="single-image">
-                                    </a>
-                                </div>
-                            </figure>
-                            <div class="product-info">
-                                <h3 class="product-title">
-                                    <a href="JavaScript:Void(0);">SEGERA HADIR</a>
-                                </h3>
-                                <span class="product-price-wrapper">
-                                    <p>Nantikan produk terbaru Graha Excel</p>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                */ ?>
 
                 
 

@@ -18,7 +18,6 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <title>{{$pageTitle}}</title>
     <link rel="stylesheet" href="{{asset('assets/css/header-combined.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom-menu.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/smart-whatsapp-box/smart-whatsapp-box.css')}}">
     <script src="{{asset('assets/plugins/modernizr/modernizr-2.8.3.min.js')}}"></script>
     @if (isset($canonical))
@@ -48,7 +47,7 @@
             padding-top:1.75rem;
         }
         p {
-            text-align:left;
+            text-align:justify;
         }
         .product-image img {
             object-position: 50% 15%;
@@ -69,27 +68,6 @@
                 display:none;
             }
         }
-        .main-navigation .mainmenu__item.menu-item-has-children>ul
-            {
-            margin-top:7px;
-            box-shadow:none !important;
-            -webkit-box-shadow:none !important;
-            }
-
-    
-    .main-navigation .mainmenu__link{
-            color: #fff;
-            font-size: 14px;
-            line-height: 3rem;
-            padding: .5rem 1.2rem;
-            text-transform: uppercase;
-            font-weight: 400; 
-        }
-          .main-navigation .mainmenu li ul.sub-menu{
-      text-align: left;
-    padding: 0px!important;
-
-  }
     </style>
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -144,20 +122,9 @@
                                     </li>
                                     <li class="mainmenu__item">
                                         <a href="{{url('/products')}}" class="mainmenu__link">
-                                            <p class="mm-text">Semua Produk</p>
+                                            <p class="mm-text">Produk</p>
                                         </a>
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children">
-                                        <a href="#" class="mainmenu__link">
-                                            <p class="mm-text">Kategori Produk</p>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
-                                    </li>
-                                    
                                     <li class="mainmenu__item">
                                         <a href="{{url('/page/kenapa-memilih-excel')}}" class="mainmenu__link">
                                             <p class="mm-text">Tentang Kami</p>
@@ -237,17 +204,8 @@
                                 <li>
                                     <a href="{{url('')}}"><p>Home</p></a>
                                 </li>
-                                 <li>
-                                    <a href="{{url('/products')}}"><p>Semua Produk</p></a>
-                                </li>
                                 <li>
-                                    <a href="#"><p>Kategori Produk</p></a>
-                                
-                                      <ul>
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
+                                    <a href="{{url('/products')}}"><p>Produk</p></a>
                                 </li>
                                 <li>
                                     <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Tentang Kami</p></a>

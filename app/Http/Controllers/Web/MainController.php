@@ -206,14 +206,9 @@ class MainController extends Controller
             ['key' => 'num_of_post_per_page'],
             ['value' => '15']
         )->value;
-        if($category->id == 3)
-        {
-            $data['articles'] = News::with(["article_category"])->whereIn('category',[3,4,5])->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate($_num_of_post_per_page);
-        }
-        else
-        {
+
             $data['articles'] = News::with(["article_category"])->where('category',$category->id)->where('created_at', '<', date("Y-m-d H:i:s"))->orderBy('id', 'desc')->paginate($_num_of_post_per_page);
-        }
+  
 
         if($category->page_title == "") $page_title = $category->title;
         else $page_title = $category->page_title;

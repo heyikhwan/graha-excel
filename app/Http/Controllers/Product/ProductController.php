@@ -103,6 +103,7 @@ class ProductController extends StislaController
             'keunggulan_link_3',
             'keunggulan_link_2',
             'keunggulan_link_1',
+            'content_bottom'
         ]);
 
         $data['url_title']  = $request->url_title ? $request->url_title : Str::slug($request->title);
@@ -138,6 +139,7 @@ class ProductController extends StislaController
         $data['keunggulan_link_3'] = $request->keunggulan_link_3 ? $this->getFileId($request->keunggulan_link_3) : 0;
         $data['keunggulan_produk_4'] = $request->keunggulan_produk_4 ? $this->getFileId($request->keunggulan_produk_4) : 0;
         $data['keunggulan_link_4'] = $request->keunggulan_link_4 ? $this->getFileId($request->keunggulan_link_4) : 0;
+        $data['content_bottom'] = $request->content_bottom ?? '';
 
         return $data;
     }

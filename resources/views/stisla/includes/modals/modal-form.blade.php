@@ -1,7 +1,7 @@
 <form action="{{ $formAction }}" id="formAction" enctype="multipart/form-data" method="POST" onsubmit="onSubmitForm(event)">
   @csrf
   <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="modalFormTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered {{ $newModalForm ? 'modal-md' : 'modal-xl' }}" role="document">
+    <div class="modal-dialog modal-dialog-centered {{ $newModalForm ? 'modal-xl' : 'modal-xxl' }}" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">{{ __('Impor Data') }}</h5>
