@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('uploads', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->change();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }

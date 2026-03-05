@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('path', 250);
             $table->string('extension', 20);
             $table->string('caption', 250);
-            $table->foreign('user_id')->default(1)->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->default(1);
             $table->string('hash', 250);
             $table->boolean('public')->default(true);
             $table->softDeletes();
