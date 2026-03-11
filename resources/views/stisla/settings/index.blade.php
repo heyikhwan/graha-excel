@@ -213,7 +213,7 @@
                         'id' => 'logo',
                         'label' => __('Logo'),
                         'required' => false,
-                        'accept' => 'image/png,image/jpg',
+                        'accept' => 'image/png,image/jpg,image/jpeg,image/webp',
                         'type' => 'file',
                     ])
                   </div>
@@ -222,7 +222,7 @@
                         'id' => 'stisla_bg_login',
                         'label' => __('Background Halaman Masuk / Daftar'),
                         'required' => false,
-                        'accept' => 'image/png,image/jpg',
+                        'accept' => 'image/png,image/jpg,image/jpeg,image/webp',
                         'type' => 'file',
                     ])
                   </div>
@@ -231,7 +231,7 @@
                         'id' => 'stisla_bg_home',
                         'label' => __('Background Halaman ') . __('Dashboard'),
                         'required' => false,
-                        'accept' => 'image/png,image/jpg',
+                        'accept' => 'image/png,image/jpg,image/jpeg,image/webp',
                         'type' => 'file',
                     ])
                   </div>

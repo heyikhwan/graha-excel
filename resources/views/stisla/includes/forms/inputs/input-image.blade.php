@@ -24,8 +24,8 @@
   <div id="{{ 'holder' . ($name ?? $id) }}" style="margin-top:15px;max-height:100px;">
       @php
         if (isset($d) && !empty($d[$name]) && $d[$name] != '[]') {
-            $fileExtension = pathinfo(get_uploaded_file_name($d[$name ?? $id]), PATHINFO_EXTENSION); 
-            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+            $fileExtension = strtolower(pathinfo(get_uploaded_file_name($d[$name ?? $id]), PATHINFO_EXTENSION)); 
+            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
 
             if (!in_array($fileExtension, $imageExtensions)) {
               echo "<i class='fa fa-file' style='font-size: 5rem;'></i>";

@@ -182,7 +182,7 @@
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="active_url" /> active_url</div>
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="file" /> file</div>
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="image" /> image</div>
-                <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="mimes:png,jpeg,jpg" /> mimes:png,jpeg,jpg</div>
+                <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="mimes:png,jpeg,jpg,webp" /> mimes:png,jpeg,jpg,webp</div>
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="mimes:xls,xlsx,csv" /> mimes:xls,xlsx,csv</div>
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="mimes:pdf" /> mimes:pdf</div>
                 <div class="col-md-2"><input v-model="column.form.validations.store" type="checkbox" value="mimes:doc,docx" /> mimes:doc,docx</div>
@@ -227,7 +227,7 @@
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="active_url" /> active_url</div>
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="file" /> file</div>
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="image" /> image</div>
-                <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="mimes:png,jpeg,jpg" /> mimes:png,jpeg,jpg</div>
+                <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="mimes:png,jpeg,jpg,webp" /> mimes:png,jpeg,jpg,webp</div>
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="mimes:xls,xlsx,csv" /> mimes:xls,xlsx,csv</div>
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="mimes:pdf" /> mimes:pdf</div>
                 <div class="col-md-2"><input v-model="column.form.validations.update" type="checkbox" value="mimes:doc,docx" /> mimes:doc,docx</div>
