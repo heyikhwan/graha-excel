@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="kGPwhydgHLKRqvdOhiNo6ZTup5A-AQVXyvqvzXOd950" />
-    <meta name="description" content="<?php echo strip_tags($metaDescription); ?>">
+    <meta name="description" content="{{ \App\Support\Meta::cleanDescription($metaDescription ?? '') }}">
     @yield('meta_tag')
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <title>{{$pageTitle}}</title>

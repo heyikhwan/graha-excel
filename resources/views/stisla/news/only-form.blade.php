@@ -55,6 +55,15 @@
     @include('stisla.includes.forms.inputs.input', ['required' => false, 'name' => 'meta_keyword', 'label' => 'Meta Keyword'])
   </div>
   <div class="col-md-12">
+    @include('stisla.includes.forms.editors.textarea', [
+        'required' => false,
+        'name' => 'schema',
+        'label' => 'Schema',
+        'rows' => 10,
+        'style' => 'height: auto; min-height: 220px; resize: vertical;',
+    ])
+  </div>
+  <div class="col-md-12">
     @include('stisla.includes.forms.inputs.input', ['required' => true, 'name' => 'url_title', 'label' => 'Permalink'])
   </div>
 </div>

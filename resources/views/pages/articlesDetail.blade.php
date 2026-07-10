@@ -2,6 +2,19 @@
 @section('title', 'PROJECT NAME')
 @section('meta_tag')
     <meta name="keywords" content="{{ $getNews?->meta_keyword ?? $getNews->news_category->title }}">
+    @if (!empty($getNews?->schema))
+        {!! $getNews->schema !!}
+    @endif
+@endsection
+@section('og_tags')
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ $getNews->page_title ?: $getNews->title }}">
+    <meta property="og:description" content="{{ \App\Support\Meta::cleanDescription($metaDescription ?? '') }}">
+    <meta property="og:image" content="{{ $getNews->image ? get_uploaded_file_name($getNews->image) : asset('assets/images/logo.png') }}">
+    <meta property="og:url" content="{{ url($_SERVER['REQUEST_URI']) }}">
+    <meta property="og:site_name" content="Grahaexcel">
+    <meta property="article:published_time" content="{{ date('c', strtotime($getNews->created_at)) }}">
+    <meta property="article:modified_time" content="{{ date('c', strtotime($getNews->updated_at)) }}">
 @endsection
 @section('style')
 <style>iframe[src*="youtube.com"]{width: 100% !important;height: auto!important;aspect-ratio:16/9 !important;}

@@ -1,375 +1,436 @@
 <!doctype html>
 <html class="no-js" lang="id">
+
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TBDQQMLF');</script>
-    <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TBDQQMLF');
+  </script>
+  <!-- End Google Tag Manager -->
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="kGPwhydgHLKRqvdOhiNo6ZTup5A-AQVXyvqvzXOd950" />
-    <meta name="description" content="<?php echo strip_tags($metaDescription); ?>">
-    @yield('meta_tag')
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    <title>{{$pageTitle}}</title>
-    <link rel="stylesheet" href="{{asset('assets/css/header-combined.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom-menu.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/plugins/smart-whatsapp-box/smart-whatsapp-box.css')}}">
-    <script src="{{asset('assets/plugins/modernizr/modernizr-2.8.3.min.js')}}"></script>
-    @if (isset($canonical))
-    <link rel="canonical" href="{{$canonical}}" />
-    @else
-    <link rel="canonical" href="{{Request::url()}}" />
-    @endif
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="kGPwhydgHLKRqvdOhiNo6ZTup5A-AQVXyvqvzXOd950" />
+  <meta name="description" content="{{ \App\Support\Meta::cleanDescription($metaDescription ?? '') }}">
+  @yield('meta_tag')
+  {{-- Open Graph Tags --}}
+  @hasSection('og_tags')
+    @yield('og_tags')
+  @else
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $pageTitle ?? config('app.name') }}">
+    <meta property="og:description" content="{{ \App\Support\Meta::cleanDescription($metaDescription ?? '') }}">
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}">
+    <meta property="og:url" content="{{ isset($canonical) ? $canonical : Request::url() }}">
+    <meta property="og:site_name" content="Grahaexcel">
+  @endif
+  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+  <title>{{ $pageTitle }}</title>
+  <link rel="stylesheet" href="{{ asset('assets/css/header-combined.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/custom-menu.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/smart-whatsapp-box/smart-whatsapp-box.css') }}">
+  <script src="{{ asset('assets/plugins/modernizr/modernizr-2.8.3.min.js') }}"></script>
+  @if (isset($canonical))
+    <link rel="canonical" href="{{ $canonical }}" />
+  @else
+    <link rel="canonical" href="{{ Request::url() }}" />
+  @endif
 
 
-    @yield('style')
-    <style>
-        .header-graha img {
-            display: block;
-            max-height: 100px;
-            margin: 0 auto;
-        }
-        .header-graha p {
-            color: #262626;
-            background:#fff;
-            position: relative;
-            z-index: 99;
-        }
-        .header-graha {
-            padding: 20px 0 0;
-        }
-        .header-inner{
-            padding-top:1.75rem;
-        }
-        p {
-            text-align:left;
-        }
-        .product-image img {
-            object-position: 50% 15%;
-        }
-        h2.mm-text {
-            line-height: 1.5;
-            display: inline-block;
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
-        .content-img p {
-            font-size: 13px;
-            margin: 15px 0;
-            text-transform: uppercase;
-        }
-        @media (max-width: 768px) {
-            .header-fullwidth {
-                display:none;
-            }
-        }
-        .main-navigation .mainmenu__item.menu-item-has-children>ul
-            {
-            margin-top:7px;
-            box-shadow:none !important;
-            -webkit-box-shadow:none !important;
-            }
+  @yield('style')
+  <style>
+    .header-graha img {
+      display: block;
+      max-height: 100px;
+      margin: 0 auto;
+    }
 
-    
-    .main-navigation .mainmenu__link{
-            color: #fff;
-            font-size: 14px;
-            line-height: 3rem;
-            padding: .5rem 1.2rem;
-            text-transform: uppercase;
-            font-weight: 400; 
-        }
-          .main-navigation .mainmenu li ul.sub-menu{
+    .header-graha p {
+      color: #262626;
+      background: #fff;
+      position: relative;
+      z-index: 99;
+    }
+
+    .header-graha {
+      padding: 20px 0 0;
+    }
+
+    .header-inner {
+      padding-top: 1.75rem;
+    }
+
+    p {
       text-align: left;
-    padding: 0px!important;
+    }
 
-  }
-    </style>
-    <!--[if lt IE 9]>
+    .product-image img {
+      object-position: 50% 15%;
+    }
+
+    h2.mm-text {
+      line-height: 1.5;
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .content-img p {
+      font-size: 13px;
+      margin: 15px 0;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .header-fullwidth {
+        display: none;
+      }
+    }
+
+    .main-navigation .mainmenu__item.menu-item-has-children>ul {
+      margin-top: 7px;
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+    }
+
+
+    .main-navigation .mainmenu__link {
+      color: #fff;
+      font-size: 14px;
+      line-height: 3rem;
+      padding: .5rem 1.2rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .main-navigation .mainmenu li ul.sub-menu {
+      text-align: left;
+      padding: 0px !important;
+
+    }
+  </style>
+  <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBDQQMLF"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBDQQMLF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <div class="ai-preloader active">
-        <div class="ai-preloader-inner h-100 d-flex align-items-center justify-content-center">
-            <div class="ai-child ai-bounce1"></div>
-            <div class="ai-child ai-bounce2"></div>
-            <div class="ai-child ai-bounce3"></div>
-        </div>
+  <div class="ai-preloader active">
+    <div class="ai-preloader-inner h-100 d-flex align-items-center justify-content-center">
+      <div class="ai-child ai-bounce1"></div>
+      <div class="ai-child ai-bounce2"></div>
+      <div class="ai-child ai-bounce3"></div>
     </div>
+  </div>
 
-    <div class="wrapper">
-        <header class="header header-fullwidth header-style-4">
-            <div class="header-graha text-center">
-                <a href="{{url('')}}">
-                    <img src="{{ $_logo_url }}" alt="Logo" />
-                    <p style="text-align: center; margin-bottom: 0;">PT GRAHAEXCEL PLASTINDO</p>
-                    @if ($_SERVER['REQUEST_URI'] == "/")
-                    <p style="font-size: 12px; text-align: center; margin: 0;">Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC</p>
-                    @endif
+  <div class="wrapper">
+    <header class="header header-fullwidth header-style-4">
+      <div class="header-graha text-center">
+        <a href="{{ url('') }}">
+          <img src="{{ $_logo_url ?? asset('assets/images/logo.png') }}" alt="Logo" onerror="this.onerror=null;this.src='{{ asset('assets/images/logo.png') }}';" />
+          <p style="text-align: center; margin-bottom: 0;">PT GRAHAEXCEL PLASTINDO</p>
+          @if ($_SERVER['REQUEST_URI'] == '/')
+            <p style="font-size: 12px; text-align: center; margin: 0;">Distributor Toren air EXCEL, Tangki Kimia dan Atap uPVC</p>
+          @endif
+        </a>
+      </div>
+      <div class="header-inner fixed-header">
+        <div class="container-fluid">
+          <div class="row align-items-center with-border">
+            <div class="col-lg-11 order-3 order-lg-2">
+              <nav class="main-navigation">
+                <ul class="mainmenu mainmenu--centered">
+                  <li class="mainmenu__item">
+                    <a href="{{ url('') }}" class="mainmenu__link">
+                      <p class="mm-text">Home</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/products') }}" class="mainmenu__link">
+                      <p class="mm-text">Semua Produk</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item menu-item-has-children">
+                    <a href="#" class="mainmenu__link">
+                      <p class="mm-text">Kategori Produk</p>
+                    </a>
+                    <ul class="sub-menu">
+                      <li><a href="{{ url('/toren-air') }}">Toren Air</a></li>
+                      <li><a href="{{ url('/tangki-kimia') }}">Tangki Kimia</a></li>
+                      <li><a href="{{ url('/atap-upvc') }}">Atap UPVC</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/page/kenapa-memilih-excel') }}" class="mainmenu__link">
+                      <p class="mm-text">Tentang Kami</p>
+                    </a>
+                  </li>
+
+
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/page/kenapa-memilih-excel') }}#contact-us" class="mainmenu__link">
+                      <p class="mm-text">Hubungi Kami</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/page/kalkulator-biaya-atap') }}" class="mainmenu__link">
+                      <p class="mm-text">Kalkulator Biaya Atap</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/page/kenapa-memilih-excel') }}#career" class="mainmenu__link">
+                      <p class="mm-text">Karir</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item">
+                    <a href="{{ url('/articles') }}" class="mainmenu__link">
+                      <p class="mm-text">Blog</p>
+                    </a>
+                  </li>
+                  <li class="mainmenu__item">
+                    <a href="https://s.shopee.co.id/AAC6q4dG30" target="_blank" rel="nofollow" class="mainmenu__link">
+                      <p class="mm-text">Shop Here</p>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="col-lg-1 col-md-9 col-8 order-2 order-lg-3">
+              <ul class="header-toolbar text-right">
+                <li class="header-toolbar__item">
+                  <a href="#searchForm" class="search-btn toolbar-btn">
+                    <i class="dl-icon-search1"></i>
+                  </a>
+                </li>
+                <li class="header-toolbar__item d-lg-none">
+                  <a href="#" class="menu-btn"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <header class="header-mobile">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-4">
+            <a href="/" class="logo-box">
+              <figure class="logo--normal">
+                <img src="{{ $_logo_url ?? asset('assets/images/logo.png') }}" alt="Logo" onerror="this.onerror=null;this.src='{{ asset('assets/images/logo.png') }}';">
+              </figure>
+            </a>
+          </div>
+          <div class="col-8">
+            <ul class="header-toolbar text-right">
+              <li class="header-toolbar__item">
+                <a href="#searchForm" class="search-btn toolbar-btn">
+                  <i class="dl-icon-search1"></i>
                 </a>
-            </div>
-            <div class="header-inner fixed-header">
-                <div class="container-fluid">
-                    <div class="row align-items-center with-border">
-                        <div class="col-lg-1 col-md-3 col-4 order-1">
-                            <div class="header-left d-flex">
-                                {{-- <ul class="header-toolbar">
-                                    <li class="header-toolbar__item d-none d-lg-block">
-                                        <a href="#">SHOP</a>
-                                    </li>
-                                </ul> --}}
-                            </div>
-                        </div>
-
-                        <div class="col-lg-10 order-3 order-lg-2">
-                            <nav class="main-navigation">
-                                <ul class="mainmenu mainmenu--centered">
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('')}}" class="mainmenu__link">
-                                            <p class="mm-text">Home</p>
-                                        </a>
-                                    </li>
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/products')}}" class="mainmenu__link">
-                                            <p class="mm-text">Semua Produk</p>
-                                        </a>
-                                    </li>
-                                    <li class="mainmenu__item menu-item-has-children">
-                                        <a href="#" class="mainmenu__link">
-                                            <p class="mm-text">Kategori Produk</p>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/page/kenapa-memilih-excel')}}" class="mainmenu__link">
-                                            <p class="mm-text">Tentang Kami</p>
-                                        </a>
-                                    </li>
-
-
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/page/kenapa-memilih-excel')}}#contact-us" class="mainmenu__link">
-                                            <p class="mm-text">Hubungi Kami</p>
-                                        </a>
-                                    </li>
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/page/kalkulator-biaya-atap')}}" class="mainmenu__link">
-                                            <p class="mm-text">Kalkulator Biaya Atap</p>
-                                        </a>
-                                    </li>
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/page/kenapa-memilih-excel')}}#career" class="mainmenu__link">
-                                            <p class="mm-text">Karir</p>
-                                        </a>
-                                    </li>
-                                    <li class="mainmenu__item">
-                                        <a href="{{url('/articles')}}" class="mainmenu__link">
-                                            <p class="mm-text">Blog</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-
-                        <div class="col-lg-1 col-md-9 col-8 order-2 order-lg-3">
-                            <ul class="header-toolbar text-right">
-                                <li class="header-toolbar__item">
-                                    <a href="#searchForm" class="search-btn toolbar-btn">
-                                        <i class="dl-icon-search1"></i>
-                                    </a>
-                                </li>
-                                <li class="header-toolbar__item d-lg-none">
-                                    <a href="#" class="menu-btn"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <header class="header-mobile">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-4">
-                        <a href="/" class="logo-box">
-                            <figure class="logo--normal">
-                                <img src="{{asset('assets/web/img/placeholder/logo-b.png')}}" alt="Logo">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="col-8">
-                        <ul class="header-toolbar text-right">
-                            <li class="header-toolbar__item">
-                                <a href="#searchForm" class="search-btn toolbar-btn">
-                                    <i class="dl-icon-search1"></i>
-                                </a>
-                            </li>
-                            <li class="header-toolbar__item d-lg-none">
-                                <a href="#" class="menu-btn"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="mobile-navigation dl-menuwrapper" id="dl-menu">
-                            <button class="dl-trigger">Open Menu</button>
-                            <ul class="dl-menu">
-                                <li>
-                                    <a href="{{url('')}}"><p>Home</p></a>
-                                </li>
-                                 <li>
-                                    <a href="{{url('/products')}}"><p>Semua Produk</p></a>
-                                </li>
-                                <li>
-                                    <a href="#"><p>Kategori Produk</p></a>
-                                
-                                      <ul>
-                                            <li><a href="{{url('/toren-air')}}">Toren Air</a></li>
-                                            <li><a href="{{url('/tangki-kimia')}}">Tangki Kimia</a></li>
-                                            <li><a href="{{url('/atap-upvc')}}">Atap UPVC</a></li>
-                                        </ul>
-                                </li>
-                                <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Tentang Kami</p></a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}"><p>Hubungi Kami</p></a>
-                                </li>
-                                 <li>
-                                    <a href="{{url('/page/kalkulator-biaya-atap')}}"><p>Kalkulator Biaya Atap</p></a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/page/kenapa-memilih-excel')}}#career"><p>Karir</p></a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/articles')}}"><p>Blog</p></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div id="content" class="main-content-wrapper">
-            @yield('content')
+              </li>
+              <li class="header-toolbar__item d-lg-none">
+                <a href="#" class="menu-btn"></a>
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="mobile-navigation dl-menuwrapper" id="dl-menu">
+              <button class="dl-trigger">Open Menu</button>
+              <ul class="dl-menu">
+                <li>
+                  <a href="{{ url('') }}">
+                    <p>Home</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('/products') }}">
+                    <p>Semua Produk</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <p>Kategori Produk</p>
+                  </a>
 
-        <footer>
-            <div class="footer footer-1 bg--dark pt--40">
-                <div class="footer-top pb--40 pb-md--30">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3 mb-sm--30">
-                                <div class="footer-widget">
-                                    <p class="widget-title">PT. GRAHAEXCEL PLASTINDO</p>
-                                    <ul class="widget-menu">
-                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}">Tentang Kami</a></li>
-                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#awards">Award & Sertifikasi</a></li>
-                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#visi">Visi & Misi</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-sm--30">
-                                <div class="footer-widget">
-                                    <p class="widget-title">Informasi</p>
-                                    <ul class="widget-menu">
-                                        <li><a href="{{url('/page/waspada-penipuan')}}">Waspada Penipuan</a></li>
-                                        <li><a href="{{url('/articles')}}">News & Announcement</a></li>
-                                        <li><a href="{{url('/articles/tips')}}">Artikel & Tips</a></li>
-                                        <li><a href="{{url('/page/harga-dan-kualitas-tangki-air')}}#faq">FAQ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-sm--30">
-                                <div class="footer-widget">
-                                    <p class="widget-title">Mengenal Lebih Dalam Produk Excel</p>
-                                    <ul class="widget-menu">
-                                        <li><a href="{{url('/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya')}}">Atap uPVC dan Keuntungannya</a></li>
-                                        <!--<li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-excel-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>-->
-                                        <li><a href="{{url('/articles/tips-toren-air/ukuran-toren-air-dan-spesifikasinya')}}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>
-                                        <li><a href="{{url('/articles/tips-atap-upvc')}}">Tips Mengenai Atap uPVC</a></li>
-                                        <li><a href="{{url('/articles/tips-toren-air')}}">Tips Tentang Toren Air</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-sm--30">
-                                <div class="footer-widget">
-                                    <p class="widget-title">Connect</p>
-                                    <ul class="widget-menu">
-                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#contact-us">Hubungi</a></li>
-                                        <li><a href="{{url('/page/kenapa-memilih-excel')}}#career">Karir</a></li>
-                                    </ul>
-                                    <br/>
-                                    <ul class="social">
-                                        <li class="social__item">
-                                            <a href="https://www.facebook.com/grahaexcelid" target="_blank" rel="nofollow" class="social__link color--white">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a href="https://www.instagram.com/grahaexcel" target="_blank" rel="nofollow" class="social__link color--white">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social__item">
-                                            <a href="https://www.youtube.com/c/TangkiAirTangkiKimiaEXCEL" target="_blank" rel="nofollow" class="social__link color--white">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom bg--white">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <p class="copyright-text">© PT. Grahaexcel Plastindo 2020. All Right Reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  <ul>
+                    <li><a href="{{ url('/toren-air') }}">Toren Air</a></li>
+                    <li><a href="{{ url('/tangki-kimia') }}">Tangki Kimia</a></li>
+                    <li><a href="{{ url('/atap-upvc') }}">Atap UPVC</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="{{ url('/page/kenapa-memilih-excel') }}">
+                    <p>Tentang Kami</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('/page/kenapa-memilih-excel') }}">
+                    <p>Hubungi Kami</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('/page/kalkulator-biaya-atap') }}">
+                    <p>Kalkulator Biaya Atap</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('/page/kenapa-memilih-excel') }}#career">
+                    <p>Karir</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ url('/articles') }}">
+                    <p>Blog</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://s.shopee.co.id/AAC6q4dG30" target="_blank" rel="nofollow">
+                    <p>Shop Here</p>
+                  </a>
+                </li>
+              </ul>
             </div>
-        </footer>
-
-        <div class="searchform__popup" id="searchForm">
-            <a href="#" class="btn-close"><i class="dl-icon-close"></i></a>
-            <div class="searchform__body">
-                <p>Start typing and press Enter to search</p>
-                <form class="searchform" method="get" action="{{url('/products')}}">
-                    <input type="text" name="query" id="search" class="searchform__input" placeholder="Search Entire Store...">
-                    <button type="submit" class="searchform__submit"><i class="dl-icon-search10"></i></button>
-                </form>
-            </div>
+          </div>
         </div>
-        <div class="ai-global-overlay"></div>
+      </div>
+    </header>
+
+    <div id="content" class="main-content-wrapper">
+      @yield('content')
     </div>
 
-    <!-- Modal Contact WhatsApp -->
-    <!-- <div class="modal fade" id="contactWhatsappModal" tabindex="-1" role="dialog" aria-labelledby="contactWhatsappModalLabel" aria-hidden="true">
+    <footer>
+      <div class="footer footer-1 bg--dark pt--40">
+        <div class="footer-top pb--40 pb-md--30">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 mb-sm--30">
+                <div class="footer-widget">
+                  <p class="widget-title">PT. GRAHAEXCEL PLASTINDO</p>
+                  <ul class="widget-menu">
+                    <li><a href="{{ url('/page/kenapa-memilih-excel') }}">Tentang Kami</a></li>
+                    <li><a href="{{ url('/page/kenapa-memilih-excel') }}#awards">Award & Sertifikasi</a></li>
+                    <li><a href="{{ url('/page/kenapa-memilih-excel') }}#visi">Visi & Misi</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 mb-sm--30">
+                <div class="footer-widget">
+                  <p class="widget-title">Informasi</p>
+                  <ul class="widget-menu">
+                    <li><a href="{{ url('/page/waspada-penipuan') }}">Waspada Penipuan</a></li>
+                    <li><a href="{{ url('/articles') }}">News & Announcement</a></li>
+                    <li><a href="{{ url('/articles/tips') }}">Artikel & Tips</a></li>
+                    <li><a href="{{ url('/page/harga-dan-kualitas-tangki-air') }}#faq">FAQ</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 mb-sm--30">
+                <div class="footer-widget">
+                  <p class="widget-title">Mengenal Lebih Dalam Produk Excel</p>
+                  <ul class="widget-menu">
+                    <li><a href="{{ url('/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya') }}">Atap uPVC dan Keuntungannya</a></li>
+                    <!--<li><a href="{{ url('/articles/tips-toren-air/ukuran-toren-air-excel-dan-spesifikasinya') }}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>-->
+                    <li><a href="{{ url('/articles/tips-toren-air/ukuran-toren-air-dan-spesifikasinya') }}">Ukuran Toren Air Excel dan Spesifikasinya</a></li>
+                    <li><a href="{{ url('/articles/tips-atap-upvc') }}">Tips Mengenai Atap uPVC</a></li>
+                    <li><a href="{{ url('/articles/tips-toren-air') }}">Tips Tentang Toren Air</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 mb-sm--30">
+                <div class="footer-widget">
+                  <p class="widget-title">Connect</p>
+                  <ul class="widget-menu">
+                    <li><a href="{{ url('/page/kenapa-memilih-excel') }}#contact-us">Hubungi</a></li>
+                    <li><a href="{{ url('/page/kenapa-memilih-excel') }}#career">Karir</a></li>
+                  </ul>
+                  <br />
+                  <ul style="display: flex; gap: 12px;">
+                    <li>
+                      <a href="https://vt.tiktok.com/ZSm3Bqfd3/?page=Mall" target="_blank" rel="nofollow"><img src="{{ asset('storage/commerce/tiktokshop.png') }}" alt="TikTok"
+                          style="width: 17px; height: 17px;">
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://s.shopee.co.id/AAC6q4dG30" target="_blank" rel="nofollow"><img src="{{ asset('storage/commerce/shopee.png') }}" alt="TikTok"
+                          style="width: 17px; height: 17px;">
+                      </a>
+                    </li>
+                  </ul>
+                  <br />
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="https://www.facebook.com/grahaexcelid" target="_blank" rel="nofollow" class="social__link color--white">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="https://www.instagram.com/grahaexcel" target="_blank" rel="nofollow" class="social__link color--white">
+                        <i class="fa fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="https://www.youtube.com/c/TangkiAirTangkiKimiaEXCEL" target="_blank" rel="nofollow" class="social__link color--white">
+                        <i class="fa fa-youtube"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom bg--white">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-center">
+                <p class="copyright-text">© PT. Grahaexcel Plastindo 2020. All Right Reserved</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="searchform__popup" id="searchForm">
+      <a href="#" class="btn-close"><i class="dl-icon-close"></i></a>
+      <div class="searchform__body">
+        <p>Start typing and press Enter to search</p>
+        <form class="searchform" method="get" action="{{ url('/products') }}">
+          <input type="text" name="query" id="search" class="searchform__input" placeholder="Search Entire Store...">
+          <button type="submit" class="searchform__submit"><i class="dl-icon-search10"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="ai-global-overlay"></div>
+  </div>
+
+  <!-- Modal Contact WhatsApp -->
+  <!-- <div class="modal fade" id="contactWhatsappModal" tabindex="-1" role="dialog" aria-labelledby="contactWhatsappModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-body p-0">
@@ -380,25 +441,26 @@
         </div>
       </div>
     </div> -->
-    <!-- /.Modal Contact WhatsApp -->
+  <!-- /.Modal Contact WhatsApp -->
 
-    <!-- Floating WhatsApp Button -->
-    <div class="smart-wa-button">
-        <a href="https://api.whatsapp.com/send?phone=6281399808057&text=Hallo%2C%20saya%20ingin%20mengatahui%20lebih%20lanjut%20tentang%20produk%20GrahaExcel" target="_blank" class="smart-wa-btn"></a>
-    </div>
-    <!-- /.Floating WhatsApp Button -->
+  <!-- Floating WhatsApp Button -->
+  <div class="smart-wa-button">
+    <a href="https://api.whatsapp.com/send?phone=6281399808057&text=Hallo%2C%20saya%20ingin%20mengatahui%20lebih%20lanjut%20tentang%20produk%20GrahaExcel" target="_blank" class="smart-wa-btn"></a>
+  </div>
+  <!-- /.Floating WhatsApp Button -->
 
-    <script src="{{asset('assets/js/footer-combined.js')}}"></script>
-    @yield('script')
+  <script src="{{ asset('assets/js/footer-combined.js') }}"></script>
+  @yield('script')
 
-    <!-- Modal Contact WhatsApp Script -->
-    <!-- <script>
-        $(document).ready(function(){
-            if (window.location.pathname == "/") {
-                $("#contactWhatsappModal").modal("show");
-            }
-        })
-    </script> -->
-    <!-- /.Modal Contact WhatsApp Script -->
+  <!-- Modal Contact WhatsApp Script -->
+  <!-- <script>
+    $(document).ready(function() {
+      if (window.location.pathname == "/") {
+        $("#contactWhatsappModal").modal("show");
+      }
+    })
+  </script> -->
+  <!-- /.Modal Contact WhatsApp Script -->
 </body>
+
 </html>

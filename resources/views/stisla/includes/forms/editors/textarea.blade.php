@@ -11,6 +11,7 @@
   array_push($props, isset($readonly) ? 'readonly' : '');
   array_push($props, $required ?? false ? 'required' : '');
   array_push($props, isset($type) ? 'type="' . $type . '"' : 'type="text"');
+  array_push($props, isset($style) ? 'style="' . $style . '"' : '');
 @endphp
 
 @if (config('app.template') === 'stisla')
@@ -20,7 +21,7 @@
         <span class="text-danger">*</span>
       @endif
     </label>
-    <textarea rows="12" {!! implode(' ', $props) !!} class="form-control {{ $errors->has($name ?? $id) ? 'is-invalid' : '' }}">{{ old($name ?? $id) ?? ($value ?? ($d[$name ?? $id] ?? '')) }}</textarea>
+    <textarea rows="{{ $rows ?? 12 }}" {!! implode(' ', $props) !!} class="form-control {{ $class ?? '' }} {{ $errors->has($name ?? $id) ? 'is-invalid' : '' }}">{{ old($name ?? $id) ?? ($value ?? ($d[$name ?? $id] ?? '')) }}</textarea>
     @if ($hint ?? false)
       <div class="text-muted">{{ $hint }}</div>
     @endif

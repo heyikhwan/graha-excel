@@ -67,6 +67,7 @@ class NewsController extends StislaController
             'page_title',
             'meta_description',
             'meta_keyword',
+            'schema',
             'url_title',
             'dt_published',
         ]);

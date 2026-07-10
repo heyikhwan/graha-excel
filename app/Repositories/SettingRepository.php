@@ -252,23 +252,36 @@ class SettingRepository
      */
     public static function logoUrl($logo = null)
     {
-        if (config('app.template') === 'stisla') {
-            if (is_null($logo))
-                $logo = Setting::where('key', 'logo')->first()->value;
-            if ($logo) {
-                if (StringHelper::isUrl($logo)) {
-                    return $logo;
-                }
-                if (Storage::exists('public/settings/' . $logo)) {
-                    return asset('storage/settings/' . $logo);
-                } else {
-                    $logo = null;
-                }
-            }
-        }
         if (is_null($logo)) {
-            return asset('images/logo.png');
+            $logo = optional(Setting::where('key', 'logo')->first())->value;
         }
+
+        if (empty($logo)) {
+            return asset('assets/images/logo.png');
+        }
+
+        $logo = trim($logo);
+
+        if (StringHelper::isUrl($logo)) {
+            return $logo;
+        }
+
+        // Accept relative public paths saved in settings (e.g. assets/images/logo.png).
+        if (str_starts_with($logo, 'assets/') || str_starts_with($logo, 'storage/')) {
+            return asset($logo);
+        }
+
+        // Accept leading slash paths (e.g. /assets/images/logo.png).
+        if (str_starts_with($logo, '/')) {
+            return asset(ltrim($logo, '/'));
+        }
+
+        // Default uploaded logo location in this project.
+        if (Storage::exists('public/settings/' . $logo)) {
+            return asset('storage/settings/' . $logo);
+        }
+
+        return asset('assets/images/logo.png');
     }
 
     /**
