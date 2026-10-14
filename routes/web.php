@@ -3,10 +3,16 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+// redirect 301 (SEO) - taruh di atas route lain supaya tidak tertangkap route wildcard
+Route::permanentRedirect('/product/penghalang-jalan-road-barrier', '/product/road-barrier-penghalang-jalan');
+Route::permanentRedirect('/page/excel-hightech', '/page/teknologi-tangki-air');
+Route::permanentRedirect('/page/radical-transparency', '/page/harga-dan-kualitas-tangki-air');
+Route::permanentRedirect('/articles/tips-fiber-penutup-pagar/harga-penutup-pagar-excel-series', '/articles/tips-fiber-penutup-pagar/panduan-lengkap-memilih-penutup-pagar');
+Route::permanentRedirect('/articles/tips-atap-upvc/mengenal-atap-polycarbonate-dan-keunggulannya', '/articles/tips/apa-itu-polycarbonate');
+Route::permanentRedirect('/articles/tips-atap-upvc/kenali-3-tipe-atap-upvc-sebelum-membeli', '/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya');
+Route::permanentRedirect('/articles/tips/apa-itu-upvc', '/articles/tips-atap-upvc/apa-itu-atap-upvc-dan-keuntungannya');
+
 Route::get('/', [App\Http\Controllers\Web\MainController::class, 'index'])->name('home');
-Route::get('/product/penghalang-jalan-road-barrier', function() {
-    return redirect('/product/road-barrier-penghalang-jalan', 301);
-});
 // product
 Route::get('/category/{urlTitle}', [App\Http\Controllers\Web\MainController::class, 'listProductByCategory']);
 Route::get('/products', [App\Http\Controllers\Web\MainController::class, 'listProduct']);
@@ -19,15 +25,8 @@ Route::get('/product_new/{id}/{urlTitle}', [App\Http\Controllers\Web\MainControl
 
 // page
 Route::get('/page/kenapa-memilih-excel', [App\Http\Controllers\Web\MainController::class, 'pageKenapaMemilihExcel']);
-Route::get('/page/excel-hightech', [App\Http\Controllers\Web\MainController::class, 'pageExcelHighTech']);
-Route::get('/page/excel-hightech', function () {
-    return redirect('/page/teknologi-tangki-air', 301);
-});
 Route::get('/page/teknologi-tangki-air', [App\Http\Controllers\Web\MainController::class, 'pageExcelHighTech']);
 Route::get('/page/memilih-ukuran-yang-tepat', [App\Http\Controllers\Web\MainController::class, 'pageMemilihUkuranYangTepat']);
-Route::get('/page/radical-transparency', function () {
-    return redirect('/page/harga-dan-kualitas-tangki-air', 301);
-});
 Route::get('/page/harga-dan-kualitas-tangki-air', [App\Http\Controllers\Web\MainController::class, 'pageRadicalTransparency']);
 Route::get('/page/waspada-penipuan', [App\Http\Controllers\Web\MainController::class, 'pageWaspada']);
 
@@ -46,8 +45,8 @@ Route::get('/page/kalkulator-biaya-atap', [App\Http\Controllers\Web\MainControll
 
 Route::get('/toren-air', function () {
     $data = [
-        'pageTitle' => 'EXCEL - Toren Air, Tangki Air, Tandon Air Berstandard SNI & FDA',
-        'metaDescription' => 'Toren Air EXCEL dengan 100% Resin Murni, Standard SNI & FDA, Sejak 1969 sebagai pelopor dan inovator ketahanan dengan Triple Construction System '
+        'pageTitle' => 'Tangki Air, Toren Air, Tandon Air, Tangki Bebas Lumut - EXCEL',
+        'metaDescription' => 'Tangki air bersertifikasi standar SNI, FDA & JIS. Tangki bebas lumut tersedia ukuran 250, 500, 1000 liter hingga kapasitas lebih besar.'
     ];
     return view('pages.toren-air', $data);
 });
@@ -60,7 +59,7 @@ Route::get('/tangki-kimia', function () {
 });
 Route::get('/atap-upvc', function () {
     $data = [
-        'pageTitle' => 'Atap UPVC GrahaExcel – Solusi Atap Kuat & Tahan Lama',
+        'pageTitle' => 'Jual Atap uPVC Single Layer & Double Layer Harga Terbaik',
         'metaDescription' => 'Atap UPVC berkualitas,  sejuk & tahan lama. Tersedia tipe Skydeck, Exceltech, EliteRoof untuk rumah, pabrik & ruko. Bergaransi hingga 15 tahun.'
     ];
     return view('pages.atap-upvc', $data);
