@@ -134,14 +134,6 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBDQQMLF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <div class="ai-preloader active">
-    <div class="ai-preloader-inner h-100 d-flex align-items-center justify-content-center">
-      <div class="ai-child ai-bounce1"></div>
-      <div class="ai-child ai-bounce2"></div>
-      <div class="ai-child ai-bounce3"></div>
-    </div>
-  </div>
-
   <div class="wrapper">
     <header class="header header-fullwidth header-style-4">
       <div class="header-graha text-center">
