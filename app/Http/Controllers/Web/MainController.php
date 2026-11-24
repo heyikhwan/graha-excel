@@ -245,6 +245,14 @@ class MainController extends Controller
         $data['pageTitle'] = $page_title;
         $data['metaDescription'] = $meta_description;
 
+        $data['recentArticles'] = News::with(['article_category'])
+            ->where('id', '!=', $article->id)
+            ->where('created_at', '<', date("Y-m-d H:i:s"))
+            ->orderBy('dt_published', 'desc')
+            ->orderBy('id', 'desc')
+            ->limit(3)
+            ->get();
+
         if($request->type == "amp") return view('pages.ampArticlesDetail', $data);
         else return view('pages.articlesDetail', $data);
     }

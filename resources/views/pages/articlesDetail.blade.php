@@ -29,6 +29,12 @@
 @section('content')
 <style>
     h3 a { font-size: 2rem; }
+    .recent-articles { margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee; }
+    .recent-articles-title { text-align: left; margin-bottom: 30px; }
+    .recent-articles h3.post-title { text-align: left; }
+    .recent-articles h3.post-title a { font-size: 1.6rem; text-align: left; }
+    .recent-articles .post-content p { text-align: left; font-size: 1.2rem; }
+    .recent-articles .post-info { padding: 0; }
 </style>
 <?php
         if ($getNews->image) {
@@ -131,6 +137,39 @@
                                 </article>
                             </div>
                         </div>
+
+                        @if ($recentArticles->isNotEmpty())
+                        <div class="recent-articles">
+                            <h2 class="recent-articles-title">Recent Articles</h2>
+                            <div class="row">
+                                @foreach ($recentArticles as $recent)
+                                    @php
+                                        $recentUrl = url('/articles') . '/' . ($recent->article_category->url_title ?? '') . '/' . $recent->url_title;
+                                    @endphp
+                                    <div class="col-sm-4 col-lg-4 mb--40 mb-md--30 mb-sm--25">
+                                        <article class="post">
+                                            <div class="post-media">
+                                                <div class="image">
+                                                    @if ($recent->image)
+                                                        <img src="{{ get_uploaded_file_name($recent->image) }}" alt="{{ $recent->image_alt_text ?: $recent->title }}" loading="lazy" />
+                                                    @endif
+                                                    <a href="{{ $recentUrl }}" class="link-overlay">{{ $recent->title }}</a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <h3 class="post-title">
+                                                    <a href="{{ $recentUrl }}">{{ $recent->title }}</a>
+                                                </h3>
+                                                <div class="post-content">
+                                                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($recent->description), 100) }}</p>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
