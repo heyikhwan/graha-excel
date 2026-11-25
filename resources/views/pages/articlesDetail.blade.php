@@ -112,6 +112,8 @@
                                         <div class="entry-meta">
                                             <div class="entry-meta-top">
                                                 <div class="posted-on">
+                                                    Ditulis oleh: Tim Graha Excel
+                                                    -
                                                     {{date('d M, Y', strtotime($getNews->dt_published))}}
                                                     - 
                                                     <a href="{{url('/articles') .'/'. $currentCategory->url_title}}">{{$currentCategory->title}}</a>
